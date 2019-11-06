@@ -31,10 +31,9 @@ import org.opendatakit.aggregate.client.widgets.ClosePopupButton;
 
 public final class ConfirmFormDeletePopup extends AbstractPopupBase {
 
-  private static final String BUTTON_TXT = "<img src=\"images/green_right_arrow.png\" /> Delete Data and Form";
-  private static final String TOOLTIP_TXT = "Delete data and form";
-  private static final String HELP_BALLOON_TXT = "This will delete the form and all of the contained " +
-      "data.";
+  private static final String BUTTON_TXT = "<img src=\"images/green_right_arrow.png\" /> Supprimer les données et le formulaire";
+  private static final String TOOLTIP_TXT = "Supprimer les données et le formulaire";
+  private static final String HELP_BALLOON_TXT = "Ceci supprimera le formulaire et toutes les données contenues. ";
 
   private final String formId;
 
@@ -49,9 +48,9 @@ public final class ConfirmFormDeletePopup extends AbstractPopupBase {
     FlexTable layout = new FlexTable();
 
     HTML message = new HTML(new SafeHtmlBuilder()
-        .appendEscaped("Delete all data and the form definition for ")
+        .appendEscaped("Supprimer toutes les données et la définition de formulaire pour ")
         .appendHtmlConstant("<b>" + formId + "</b><br/>")
-        .appendEscaped("Do you wish to delete all uploaded data and the form definition for this form?")
+        .appendEscaped("Souhaitez-vous supprimer toutes les données téléchargées et la définition de formulaire pour ce formulaire?")
         .toSafeHtml());
     layout.setWidget(0, 0, message);
     layout.setWidget(0, 1, deleteButton);
@@ -69,10 +68,10 @@ public final class ConfirmFormDeletePopup extends AbstractPopupBase {
           (rpc, sessionCookie, cb) -> rpc.deleteForm(formId, cb),
           () -> {
             AggregateUI.getUI().clearError();
-            Window.alert("Successfully scheduled this form's deletion.\n"
-                + "It may take several minutes to delete all the "
-                + "data submissions\nfor this form -- after which the "
-                + "form definition itself will be deleted.");
+            Window.alert("Planifié avec succès la suppression de ce formulaire.\n"
+                + "Plusieurs minutes peuvent être nécessaires pour supprimer tous les "
+                + "soumissions de données pour ce formulaire - après quoi "
+                + "la définition du formulaire elle-même sera supprimée.");
             AggregateUI.getUI().getTimer().refreshNow();
           },
           AggregateUI.getUI()::reportError

@@ -59,7 +59,7 @@ import org.opendatakit.common.security.common.GrantedAuthorityName;
 public class AggregateUI implements EntryPoint {
 
   // hack...
-  public static final String QUOTA_EXCEEDED = "Quota exceeded";
+  public static final String QUOTA_EXCEEDED = "Quota dépassé";
   private static AggregateUI singleton = null;
   // session variables for tab visibility
   private static boolean manageVisible = false;
@@ -171,7 +171,7 @@ public class AggregateUI implements EntryPoint {
       // if you get here, you've put something in the AggregateUI()
       // constructor that should have been put in the onModuleLoad()
       // method.
-      GWT.log("AggregateUI.getUI() called before singleton has been initialized");
+      GWT.log("AggregateUI.getUI () appelé avant l'initialisation");
     }
     return singleton;
   }
@@ -537,7 +537,7 @@ public class AggregateUI implements EntryPoint {
   public void updateNotSecureInfo() {
     if (realmInfo != null) {
       if (!realmInfo.isSuperUsernamePasswordSet()) {
-        notSecureMsgLabel.setText("Warning: Anyone can take control of this server. Go to the Site Admin tab and change the primary Site Administrator's password now!");
+        notSecureMsgLabel.setText("Avertissement: Tout le monde peut prendre le contrôle de ce serveur. Allez sur l'onglet Administration du site et changez le mot de passe de l'administrateur principal maintenant!");
         notSecurePanel.setVisible(true);
         resize();
       } else if (notSecurePanel.isVisible()) {

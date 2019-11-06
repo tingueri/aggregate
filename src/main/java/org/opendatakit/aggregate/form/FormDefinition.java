@@ -120,7 +120,7 @@ public class FormDefinition {
       String column = m.getPersistAsColumn();
       if (column != null && table == null) {
         throw new IllegalStateException("Fdm uri: " + m.getUri() +
-            " - Unexpected null persist-as table name when persist-as column name is: "
+            " - Nom de table NULL persist-as inattendu lorsque nom de colonne persist-as est: "
             + column);
       }
       if (column == null) {
@@ -141,7 +141,7 @@ public class FormDefinition {
               geopointList.add(m);
               break;
             default:
-              throw new IllegalStateException("Unexpectedly no column and no table for type " + type.toString());
+              throw new IllegalStateException("De manière inattendue, aucune colonne et aucune table pour le type " + type.toString());
           }
         } else {
           // should be either a structured field (e.g., geopoint),
@@ -190,7 +190,7 @@ public class FormDefinition {
     for (FormDataModel m : elementList) {
       String uriParent = m.getParentUriFormDataModel();
       if (uriParent == null) {
-        String str = "Every record in FormDataModel should have a parent key";
+        String str = "Chaque enregistrement de FormDataModel doit avoir une clé parent";
         logger.error(str);
         m.print(System.err);
         throw new IllegalStateException(str);
@@ -202,13 +202,13 @@ public class FormDefinition {
         p.setChild(m.getOrdinalNumber(), m);
       } else {
         if (m.getElementType() != ElementType.GROUP) {
-          String str = "Expected upward references only from GROUP elements";
+          String str = "Références ascendantes attendues uniquement à partir d'éléments GROUP";
           logger.error(str);
           m.print(System.err);
           throw new IllegalStateException(str);
         }
         if (++nullParentCount > 1) {
-          String str = "Expected at most one top level group";
+          String str = "Attendu au plus un groupe de niveau supérieur";
           logger.error(str);
           m.print(System.err);
           throw new IllegalStateException(str);
@@ -235,7 +235,7 @@ public class FormDefinition {
 
       DynamicCommonFieldsBase b = backingTableMap.get(tableName);
       if (b != null) {
-        throw new IllegalStateException("Backing table already linked back: " + tableName);
+        throw new IllegalStateException("La table de support est déjà liée: " + tableName);
       }
 
       switch (m.getElementType()) {
@@ -256,7 +256,7 @@ public class FormDefinition {
           m.setBackingObject(b);
           break;
         default:
-          throw new IllegalStateException("Unexpectedly no column but has table for type " + m.getElementType().toString());
+          throw new IllegalStateException("De manière inattendue, aucune colonne mais table pour le type " + m.getElementType().toString());
       }
       backingTableMap.put(tableName, b);
     }
@@ -264,7 +264,7 @@ public class FormDefinition {
 
     for (FormDataModel m : groupList) {
       if (m.getPersistAsTable() == null) {
-        throw new IllegalStateException("groups, phantoms and repeats should identify their backing table");
+        throw new IllegalStateException("les groupes, les fantômes et les répétitions doivent identifier leur table de support");
       }
       String tableName = m.getPersistAsQualifiedTableName();
       DynamicCommonFieldsBase b = backingTableMap.get(tableName);
@@ -314,7 +314,7 @@ public class FormDefinition {
     // a top-level group.
     for (FormDataModel m : dateList) {
       if (m.getPersistAsTable() == null) {
-        throw new IllegalStateException("dates should identify their backing table");
+        throw new IllegalStateException("les dates doivent identifier leur table de support");
       }
       String tableName = m.getPersistAsQualifiedTableName();
       DynamicCommonFieldsBase b = backingTableMap.get(tableName);
@@ -332,7 +332,7 @@ public class FormDefinition {
     // a top-level group.
     for (FormDataModel m : timeList) {
       if (m.getPersistAsTable() == null) {
-        throw new IllegalStateException("times should identify their backing table");
+        throw new IllegalStateException("les temps doivent identifier leur table de support");
       }
       String tableName = m.getPersistAsQualifiedTableName();
       DynamicCommonFieldsBase b = backingTableMap.get(tableName);
@@ -350,7 +350,7 @@ public class FormDefinition {
     // a top-level group.
     for (FormDataModel m : dateTimeList) {
       if (m.getPersistAsTable() == null) {
-        throw new IllegalStateException("dateTimes should identify their backing table");
+        throw new IllegalStateException("dateTimes devrait identifier sa table de support");
       }
       String tableName = m.getPersistAsQualifiedTableName();
       DynamicCommonFieldsBase b = backingTableMap.get(tableName);
@@ -368,7 +368,7 @@ public class FormDefinition {
     // a top-level group.
     for (FormDataModel m : geopointList) {
       if (m.getPersistAsTable() == null) {
-        throw new IllegalStateException("geopoints should identify their backing table");
+        throw new IllegalStateException("les géopoints doivent identifier leur table de support");
       }
       String tableName = m.getPersistAsQualifiedTableName();
       DynamicCommonFieldsBase b = backingTableMap.get(tableName);
@@ -390,7 +390,7 @@ public class FormDefinition {
       // we should have created all the backing tables in the previous
       // two loops.  If not, it is a logic error.
       if (b == null) {
-        throw new IllegalStateException("Backing table is not yet defined!");
+        throw new IllegalStateException("La table de support n'est pas encore définie!");
       }
 
       for (FormDataModel m : c) {
@@ -430,11 +430,11 @@ public class FormDefinition {
     }
 
     if (topLevelGroup == null) {
-      throw new IllegalStateException("Top level group could not be found");
+      throw new IllegalStateException("Groupe de niveau supérieur introuvable");
     }
 
     if (topLevelGroup.getElementType() != ElementType.GROUP) {
-      throw new IllegalStateException("Top level group is a non-group!");
+      throw new IllegalStateException("Le groupe de niveau supérieur n'est pas un groupe!");
     }
 
     qualifiedTopLevelTable = topLevelGroup.getPersistAsQualifiedTableName();
@@ -449,7 +449,7 @@ public class FormDefinition {
         List<SubmissionAssociationTable> saList = SubmissionAssociationTable.findSubmissionAssociationsForXForm(formId, cc);
         if (saList.isEmpty()) {
           // may be in the process of being defined, or in a partially defined state.
-          logger.warn("No sa record matching this formId " + formId);
+          logger.warn("Aucun enregistrement correspondant à ce formId " + formId);
           return null;
         }
         for (SubmissionAssociationTable st : saList) {
@@ -458,7 +458,7 @@ public class FormDefinition {
               // We have two or more identical entries.  Use the more recent one.
               // Presently, can have a duplicate of our main tables because of timing windows.
               // Eventually, can have two or more forms with the same submission structure.
-              logger.warn("Two or more sa records matching this formId " + formId);
+              logger.warn("Deux ou plusieurs enregistrements correspondant à ce formId " + formId);
               if (sa.getCreationDate().compareTo(st.getCreationDate()) == -1) {
                 // use the more recent data model...
                 sa = st;
@@ -470,7 +470,7 @@ public class FormDefinition {
       }
       return sa;
     } catch (Throwable t) {
-      logger.error("Returning null SubmissionAssociationTable", t);
+      logger.error("Retour de la table d'association de soumission null", t);
       return null;
     }
   }
@@ -503,7 +503,7 @@ public class FormDefinition {
   public static synchronized final FormDefinition getFormDefinition(String formId, CallingContext cc) {
 
     if (formId.indexOf('/') != -1) {
-      throw new IllegalArgumentException("formId is not well formed: " + formId);
+      throw new IllegalArgumentException("formId n'est pas bien formé: " + formId);
     }
 
     // always look at SubmissionAssociationTable to retrieve the proper variant
@@ -517,7 +517,7 @@ public class FormDefinition {
         SubmissionAssociationTable sa = getSubmissionAssociation(formId, false, cc);
         if (sa == null) {
           // must be in a partially defined state.
-          logger.warn("No complete persistence model for sa record matching this formId " + formId);
+          logger.warn("Pas de modèle de persistance complet pour un enregistrement correspondant à ce formId " + formId);
           return null;
         }
         String uriSubmissionDataModel = sa.getUriSubmissionDataModel();
@@ -535,7 +535,7 @@ public class FormDefinition {
           fdmList = query.executeQuery();
 
           if (fdmList == null || fdmList.size() == 0) {
-            logger.warn("No FDM records for formId " + formId);
+            logger.warn("Aucun enregistrement FDM pour formId " + formId);
             return null;
           }
 
@@ -544,7 +544,7 @@ public class FormDefinition {
             fd = new FormDefinition(sa, formId, fdmList, cc);
           } catch (IllegalStateException e) {
             e.printStackTrace();
-            logger.error("Form definition is not interpretable for formId " + formId);
+            logger.error("La définition de formulaire n'est pas interprétable pour formId " + formId);
             return null;
           }
 
@@ -554,7 +554,7 @@ public class FormDefinition {
             assertBackingObjects(fd.getTopLevelGroup(), objs, cc);
           } catch (ODKDatastoreException e1) {
             e1.printStackTrace();
-            logger.error("Asserting relations failed for formId " + formId);
+            logger.error("L'affirmation de relations a échoué pour formId " + formId);
             fd = null;
           }
 
@@ -566,7 +566,7 @@ public class FormDefinition {
           }
         }
       } catch (ODKDatastoreException e) {
-        logger.warn("Persistence Layer failure " + e.getMessage() + " for formId " + formId);
+        logger.warn("Échec de la couche de persistance " + e.getMessage() + " pour formId " + formId);
         return null;
       }
     } finally {
@@ -627,7 +627,7 @@ public class FormDefinition {
         // we don't delete the data tables -- the user may want to manually recover the data
 
       } catch (ODKDatastoreException e) {
-        logger.warn("Persistence Layer failure deleting abnormal form definition " + e.getMessage() + " for formId " + formId);
+        logger.warn("Échec de la couche de persistance lors de la suppression d'une définition de formulaire anormale " + e.getMessage() + " pour formId " + formId);
       }
     } finally {
       cc.setAsDaemon(asDaemon);

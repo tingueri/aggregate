@@ -61,24 +61,24 @@ public class MiscTasks {
   public MiscTasks(SubmissionKey miscTask, CallingContext cc) throws ODKDatastoreException {
     List<SubmissionKeyPart> parts = miscTask.splitSubmissionKey();
     if (parts == null || parts.size() == 0) {
-      throw new IllegalArgumentException("submission key is empty");
+      throw new IllegalArgumentException("la clé de soumission est vide");
     }
     if (!parts.get(0).getElementName().equals(FORM_ID_MISC_TASKS)) {
-      throw new IllegalArgumentException("unrecognized form id");
+      throw new IllegalArgumentException("identifiant de formulaire non reconnu");
     }
     if (parts.size() < 2) {
       throw new IllegalArgumentException(
-          "submission key does not have a top level group");
+          "la clé de soumission n'a pas de groupe de niveau supérieur");
     }
     SubmissionKeyPart tlg = parts.get(1);
     if (!tlg.getElementName().equals(MiscTasksTable.TABLE_NAME)) {
-      throw new IllegalArgumentException("top level group name: "
+      throw new IllegalArgumentException("nom du groupe de niveau supérieur: "
           + tlg.getElementName()
-          + " is not as expected: "
+          + " n'est pas comme prévu: "
           + MiscTasksTable.TABLE_NAME);
     }
     if (tlg.getAuri() == null) {
-      throw new IllegalArgumentException("submission key does not have top level auri");
+      throw new IllegalArgumentException("clé de soumission n'a pas auri haut niveau");
     }
 
     Datastore ds = cc.getDatastore();
@@ -305,13 +305,13 @@ public class MiscTasks {
 
   public void setFormId(String value) {
     if (!row.setStringField(MiscTasksTable.FORM_ID, value)) {
-      throw new IllegalArgumentException("formId is too long");
+      throw new IllegalArgumentException("formId est trop long");
     }
   }
 
   public void setRequestingUser(String value) {
     if (!row.setStringField(MiscTasksTable.REQUESTING_USER, value)) {
-      throw new IllegalArgumentException("requestingUser is too long");
+      throw new IllegalArgumentException("requestUser est trop long");
     }
   }
 
@@ -328,14 +328,14 @@ public class MiscTasks {
     try {
       return PropertyMapSerializer.deserializeRequestParameters(parameterDocument);
     } catch (Exception e) {
-      throw new ODKDatastoreException("bad parameter list in database", e);
+      throw new ODKDatastoreException("mauvaise liste de paramètres dans la base de données", e);
     }
   }
 
   public void setRequestParameters(Map<String, String> value) {
     if (!row.setStringField(MiscTasksTable.REQUEST_PARAMETERS,
         PropertyMapSerializer.serializeRequestParameters(value))) {
-      throw new IllegalStateException("overflowed requestParameters");
+      throw new IllegalStateException("Paramètres de demande débordés");
     }
   }
 
@@ -361,7 +361,7 @@ public class MiscTasks {
 
   public void setStatus(FormActionStatus value) {
     if (!row.setStringField(MiscTasksTable.STATUS, value.name())) {
-      throw new IllegalStateException("overflow status");
+      throw new IllegalStateException("débordement status");
     }
   }
 
@@ -371,7 +371,7 @@ public class MiscTasks {
 
   public void setTaskType(TaskType value) {
     if (!row.setStringField(MiscTasksTable.TASK_TYPE, value.name())) {
-      throw new IllegalStateException("overflow taskType");
+      throw new IllegalStateException("débordement taskType");
     }
   }
 
@@ -424,7 +424,7 @@ public class MiscTasks {
       } else if (this == PURGE_OLDER_SUBMISSIONS) {
         return "Purge Older Submissions";
       } else {
-        throw new IllegalStateException("String representation not defined for TaskType " + this.name());
+        throw new IllegalStateException("Représentation de chaîne non définie pour TaskType " + this.name());
       }
     }
 

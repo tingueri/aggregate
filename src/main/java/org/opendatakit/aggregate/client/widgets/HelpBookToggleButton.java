@@ -23,8 +23,8 @@ import org.opendatakit.aggregate.client.popups.HelpBookPopup;
 public final class HelpBookToggleButton extends AggregateImageToggleButton {
 
   private static final Image HELP_BOOK_ICON = new Image("images/help_book_icon.png");
-  private static final String TOOLTIP_TEXT = "Show Detailed Help";
-  private static final String HELP_BALLOON_TXT = "This will display a more detailed help popup.";
+  private static final String TOOLTIP_TEXT = "Afficher l'aide détaillée";
+  private static final String HELP_BALLOON_TXT = "Cela affichera une aide  plus détaillée .";
 
   public HelpBookToggleButton() {
     super(HELP_BOOK_ICON, TOOLTIP_TEXT, HELP_BALLOON_TXT);

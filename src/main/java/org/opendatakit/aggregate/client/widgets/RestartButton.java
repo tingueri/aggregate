@@ -31,16 +31,16 @@ public final class RestartButton extends AggregateButton implements ClickHandler
 
   public static final Runnable NO_OP_RUNNABLE = () -> {
   };
-  private static final String BUTTON_BAD_CREDENTIAL_TXT = "<b><img src=\"images/green_right_arrow.png\" /> Restart Publisher - Credential was BAD";
+  private static final String BUTTON_BAD_CREDENTIAL_TXT = "<b><img src=\"images/green_right_arrow.png\" /> Redémarrer Publisher - Les informations d'identification étaient BAD";
 
-  private static final String TOOLTIP_BAD_CREDENTIAL_TEXT = "Publish failure because of bad credential - click to Restart the Publisher";
-  private static final String HELP_BALLOON_BAD_CREDENTIAL_TXT = "The external service was failing or the credentials were bad. Click to restart the publisher.";
-  private static final String BUTTON_FAILURE_TXT = "<b><img src=\"images/green_right_arrow.png\" /> Restart Publisher - Failed";
-  private static final String TOOLTIP_FAILURE_TEXT = "Publish failure because of repeated failure - click to Restart the Publisher";
-  private static final String HELP_BALLOON_FAILURE_TXT = "The external service was failing. Click to restart the publisher.";
-  private static final String BUTTON_PAUSED_TXT = "<b><img src=\"images/green_right_arrow.png\" /> Restart Publisher - Paused";
-  private static final String TOOLTIP_PAUSED_TEXT = "Publish paused due to error from service - click to Restart the Publisher";
-  private static final String HELP_BALLOON_PAUSED_TXT = "The external service failed (will retry in several minutes). Click to restart the publisher.";
+  private static final String TOOLTIP_BAD_CREDENTIAL_TEXT = "Échec de publication en raison de mauvaises informations d'identification - cliquez sur Redémarrer l'éditeur";
+  private static final String HELP_BALLOON_BAD_CREDENTIAL_TXT = "Le service externe échouait ou les informations d'identification étaient mauvaises. Cliquez sur pour redémarrer l'éditeur.";
+  private static final String BUTTON_FAILURE_TXT = "<b><img src=\"images/green_right_arrow.png\" /> Redémarrer Publisher - Échec";
+  private static final String TOOLTIP_FAILURE_TEXT = "Échec de publication en raison d'un échec répété - cliquez pour redémarrer le serveur de publication";
+  private static final String HELP_BALLOON_FAILURE_TXT = "Le service externe échouait. Cliquez sur pour redémarrer l'éditeur.";
+  private static final String BUTTON_PAUSED_TXT = "<b><img src=\"images/green_right_arrow.png\" /> Redémarrer Publisher - En pause";
+  private static final String TOOLTIP_PAUSED_TEXT = "Publication suspendue en raison d'une erreur du service - cliquez pour redémarrer le serveur de publication";
+  private static final String HELP_BALLOON_PAUSED_TXT = "Le service externe a échoué (réessayera dans quelques minutes). Cliquez pour redémarrer l'éditeur.";
   private final ExternServSummary publisher;
 
   public RestartButton(ExternServSummary publisher, Circumstance credentialFailure) {

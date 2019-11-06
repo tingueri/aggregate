@@ -24,9 +24,9 @@ import org.opendatakit.common.security.common.GrantedAuthorityName;
 
 public final class PublishButton extends AggregateButton implements ClickHandler {
 
-  private static final String BUTTON_TXT = "<img src=\"images/green_right_arrow.png\" /> Publish";
-  private static final String TOOLTIP_TXT = "Publish the data";
-  private static final String HELP_BALLOON_TXT = "This will publish the data to Google Spreadsheets.";
+  private static final String BUTTON_TXT = "<img src=\"images/green_right_arrow.png\" /> Publier";
+  private static final String TOOLTIP_TXT = "Publier les données";
+  private static final String HELP_BALLOON_TXT = "Cela publiera les données sur Google Spreadsheets..";
 
   private final String formId;
 

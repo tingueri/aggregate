@@ -28,9 +28,9 @@ import org.opendatakit.common.utils.GwtShims;
 
 public final class PurgeButton extends AggregateButton implements ClickHandler {
 
-  private static final String BUTTON_TXT = "Purge Published Data";
-  private static final String TOOLTIP_TXT = "Clear the published data";
-  private static final String HELP_BALLOON_TXT = "This will delete the published data.";
+  private static final String BUTTON_TXT = "Purger les données publiées";
+  private static final String TOOLTIP_TXT = "Effacer les données publiées";
+  private static final String HELP_BALLOON_TXT = "Cela supprimera les données publiées.";
 
   private final String formId;
   private final ExternServSummary externServ;
@@ -74,19 +74,19 @@ public final class PurgeButton extends AggregateButton implements ClickHandler {
 
     SafeHtmlBuilder b = new SafeHtmlBuilder();
     if (earliest == null) {
-      Window.alert("Data has not yet been published -- no data will be purged");
+      Window.alert("Les données n'ont pas encore été publiées - aucune donnée ne sera purgée");
     } else {
       if (externServ.getPublicationOption() != ExternalServicePublicationOption.UPLOAD_ONLY) {
         b.appendHtmlConstant("<p>")
             .appendHtmlConstant("<b>Note:</b>")
-            .appendEscaped("Even though the chosen publishing action involves an ongoing streaming ")
-            .appendEscaped("of data to the external service, this purge action is a one-time event and is ")
-            .appendEscaped("not automatically ongoing.  You will need to periodically repeat this process.")
+            .appendEscaped("Même si l’action de publication choisie implique un flux continu ")
+            .appendEscaped("des données au service externe, cette action de purge est un événement unique et ")
+            .appendEscaped("n'est pas automatiquement en cours. Vous devrez répéter périodiquement ce processus.")
             .appendHtmlConstant("</p>");
       }
-      b.appendEscaped("Click to confirm purge of ")
+      b.appendEscaped("Cliquez pour confirmer la purge de ")
           .appendHtmlConstant("<b>").appendEscaped(formId).appendHtmlConstant("</b>")
-          .appendEscaped(" submissions older than " + GwtShims.gwtFormatDateTimeHuman(earliest));
+          .appendEscaped(" soumissions plus anciennes que " + GwtShims.gwtFormatDateTimeHuman(earliest));
 
       // TODO: display pop-up with text from b...
       final ConfirmPurgePopup popup = new ConfirmPurgePopup(externServ, earliest, b.toSafeHtml());

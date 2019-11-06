@@ -105,7 +105,7 @@ public class FilterNavigationTable extends FlexTable {
   }
 
   public void update() {
-    GWT.log("inside FilterNavigationTable.update");
+    GWT.log("dans FilterNavigationTable.update");
 
     // Set up the callback object.
     AsyncCallback<ArrayList<FormSummary>> callback = new AsyncCallback<ArrayList<FormSummary>>() {
@@ -135,7 +135,7 @@ public class FilterNavigationTable extends FlexTable {
   }
 
   private synchronized void updateFilterList() {
-    GWT.log("inside FilterNavigationTable.updateFilterList");
+    GWT.log("dans FilterNavigationTable.updateFilterList");
 
     if (selectedForm == null || selectedForm.getId().equals(BasicConsts.EMPTY_STRING)) {
       // no form
@@ -152,7 +152,7 @@ public class FilterNavigationTable extends FlexTable {
       public void onFailure(Throwable caught) {
         if (caught instanceof FormNotAvailableException) {
           // the form is now not available, restart the update process
-          GWT.log("form not available - restarting form/filter update FilterNavigationTable");
+          GWT.log("Formulaire non disponible - redémarrage du formulaire / mise à jour du filtre FilterNavigationTable");
           update();
         } else {
           // no filters... update filter box
@@ -180,7 +180,7 @@ public class FilterNavigationTable extends FlexTable {
   }
 
   private void updateSelectedFormNFilter() {
-    GWT.log("inside FilterNavigationTable.updateSelectedFormNFilter");
+    GWT.log("dans FilterNavigationTable.updateSelectedFormNFilter");
     FormSummary form = formsBox.getSelectedForm();
     FilterGroup filterGroup = filtersBox.getSelectedFilter();
 

@@ -24,9 +24,9 @@ import org.opendatakit.aggregate.client.FilterSubTab;
 public class PaginationNumTextBox extends AggregateTextBox implements ValueChangeHandler<String> {
 
   private static final int MAX_NUM_LEN = 4;
-  private static final String MUST_BE_A_NUMBER = "Number of Submissions to Display must be a NUMBER!";
-  private static final String TOOLTIP_TXT = "Number of Submissions to Display per Page";
-  private static final String HELP_BALLOON_TXT = "Number of Submissions to Display per Page, navigation buttons 'previous' and 'next' buttons allow movement between pages";
+  private static final String MUST_BE_A_NUMBER = "Le nombre de soumissions à afficher doit être un nombre!";
+  private static final String TOOLTIP_TXT = "Nombre de soumissions à afficher par page";
+  private static final String HELP_BALLOON_TXT = "Nombre de soumissions à afficher par page, les boutons de navigation «précédent» et «suivant» permettent la navigation entre les pages";
 
   private final FilterSubTab filterSubTab;
 

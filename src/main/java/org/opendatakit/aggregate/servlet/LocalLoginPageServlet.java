@@ -80,14 +80,14 @@ public class LocalLoginPageServlet extends ServletUtilBase {
         + "<body onLoad=\"setTimeout('redirector()', 1000)\">"
         + "<table width=\"100%\" cellspacing=\"30\"><tr>"
         + "<td align=\"LEFT\" width=\"10%\"><img src=\"odk_color.png\" id=\"odk_aggregate_logo\" /></td>"
-        + "<td align=\"LEFT\" width=\"90%\"><font size=\"7\">Successful Login</font></td></tr></table>"
-        + "Please click "
+        + "<td align=\"LEFT\" width=\"90%\"><font size=\"7\">Connexion réussie</font></td></tr></table>"
+        + "Cliquez s'il vous plait "
         + "<script type=\"text/javascript\">"
         + "<!--\n"
-        + "document.write('<a href=\"" + redirectParamString + "' + window.location.hash + '\">here</a>');"
+        + "document.write('<a href=\"" + redirectParamString + "' + window.location.hash + '\">Ici</a>');"
         + "\n-->"
         + "</script>"
-        + " to enter the site."
+        + " Pour entrer sur le site."
         + "</body>"
         + "</html>");
   }

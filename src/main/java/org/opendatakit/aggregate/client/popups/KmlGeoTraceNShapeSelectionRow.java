@@ -12,11 +12,11 @@ import org.opendatakit.aggregate.client.widgets.KmlSettingListBox;
 
 public class KmlGeoTraceNShapeSelectionRow extends FlexTable implements KmlSelectionGeneration {
 
-  private static final String NAME_TOOLTIP = "Form Field to use as Name";
-  private static final String INCLUDE_TOOLTIP = "Whether to included in KML";
+  private static final String NAME_TOOLTIP = "Champ de formulaire à utiliser comme nom";
+  private static final String INCLUDE_TOOLTIP = "S'il faut inclure dans KML";
 
-  private static final String NAME_BALLOON = "Choose the Form Field to use as Name of geo object";
-  private static final String INCLUDE_BALLON = "When checked the geo element will be included in KML";
+  private static final String NAME_BALLOON = "Choisissez le champ de formulaire à utiliser comme nom d'objet géographique";
+  private static final String INCLUDE_BALLON = "Lorsque coché, l'élément géographique sera inclus dans KML";
 
   private final String formId;
 
@@ -41,7 +41,7 @@ public class KmlGeoTraceNShapeSelectionRow extends FlexTable implements KmlSelec
       setWidget(0, 1, new HTML("<h2>Geoshape:<h2>"));
     }
     setWidget(0, 2, new HTML(new SafeHtmlBuilder().appendEscaped(geoNode.getDisplayName()).toSafeHtml()));
-    setWidget(0, 3, new HTML("<h4>Name:<h4>"));
+    setWidget(0, 3, new HTML("<h4>Nom:<h4>"));
     setWidget(0, 4, nameDropDown);
   }
 

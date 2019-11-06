@@ -23,10 +23,10 @@ import org.opendatakit.aggregate.client.popups.VisualizationPopup;
 
 public final class VisualizationButton extends AggregateButton implements ClickHandler {
 
-  private static final String BUTTON_TXT = "<img src=\"images/bar_chart.png\" /> Visualize";
-  private static final String TOOLTIP_TXT = "Visualize the data";
-  private static final String HELP_BALLOON_TXT = "This will open a new popup which will allow you to "
-      + "visualize data using a bar chart, pie chart, or Google Maps.";
+  private static final String BUTTON_TXT = "<img src=\"images/bar_chart.png\" /> Visualiser";
+  private static final String TOOLTIP_TXT = "Visualiser les données";
+  private static final String HELP_BALLOON_TXT = "Cela ouvrira une nouvelle fenêtre contextuelle qui vous permettra de  "
+      + "visualiser les données à l'aide d'un graphique à barres, d'un graphique à secteurs ou de Google Maps.";
 
   private final FilterSubTab filterSubTab;
 

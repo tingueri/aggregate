@@ -34,8 +34,7 @@ import org.opendatakit.common.web.TestContextFactory;
  * Confirms that if you store longer strings, they get truncated, and 
  * if you fetch the strings from the persistence layer, they are not 
  * altered beyond the truncation of length.
- * 
- * @author mitchellsundt@gmail.com
+
  *
  */
 

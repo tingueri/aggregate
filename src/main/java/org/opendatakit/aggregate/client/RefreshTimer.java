@@ -99,7 +99,7 @@ public class RefreshTimer extends Timer {
       } else {
         // should not happen
         GWT.log("currentSubTab (" + currentSubTab.getHashString()
-            + ") could not be found in RefreshTimer.canLeaveCurrentSubTab()");
+            + ") n'a pu être trouvé dans RefreshTimer.canLeaveCurrentSubTab()");
       }
     }
     return true;
@@ -162,7 +162,7 @@ public class RefreshTimer extends Timer {
     long timeRefreshStart = System.currentTimeMillis();
     if (lastCompletionTime + REFRESH_INTERVAL - (REFRESH_INTERVAL / 10L) > timeRefreshStart) {
       // timer is backed up -- flush the queued callbacks
-      GWT.log("timer is backed up -- skipping");
+      GWT.log("la minuterie est sauvegardée - saute");
       return;
     }
 
@@ -178,7 +178,7 @@ public class RefreshTimer extends Timer {
       if (tabPanel == null) {
         // should not happen
         GWT.log("currentSubTab (" + currentSubTab.getHashString()
-            + ")could not be found in RefreshTimer.run()");
+            + ")n'a pu être trouvé dans RefreshTimer.run()");
       }
 
       switch (currentSubTab) {
@@ -186,24 +186,24 @@ public class RefreshTimer extends Timer {
         case SUBMISSION_ADMIN:
         case FILTER:
           if ((intervalsCount % SUBMISSIONS_REFRESH_MULTIPLIER) == 0) {
-            GWT.log("submissions Refresh");
+            GWT.log("soumissions rafraîchies");
             tabPanel.update();
           }
           break;
         case EXPORT:
         case PUBLISH:
-          GWT.log("export/publish Refresh");
+          GWT.log("export / publication Actualisées");
           tabPanel.update();
           break;
         case PREFERENCES:
           if ((intervalsCount % PREFERENCES_REFRESH_MULTIPLIER) == 0) {
-            GWT.log("preferences Refresh");
+            GWT.log("préférences actualisées");
             tabPanel.update();
           }
           break;
         case PERMISSIONS:
           if (lastCompletionTime == 0L) {
-            GWT.log("permissions Refresh");
+            GWT.log("permissions actualisées");
             // update this ONLY if we are forcing a refreshNow().
             // otherwise, let the entries be stale w.r.t. server.
             tabPanel.update();
@@ -212,14 +212,14 @@ public class RefreshTimer extends Timer {
         default:
           // should not happen
           GWT.log("currentSubTab (" + currentSubTab.getHashString()
-              + ") has no defined action in RefreshTimer.run()");
+              + ") n'a pas d'action définie dans RefreshTimer.run()");
       }
     }
     // record last completion time...
     lastCompletionTime = System.currentTimeMillis();
     long timerActionDuration = lastCompletionTime - timeRefreshStart;
     if (timerActionDuration > REFRESH_INTERVAL) {
-      GWT.log("update time " + Long.toString(timerActionDuration));
+      GWT.log("temps de mise à jour " + Long.toString(timerActionDuration));
     }
   }
 }

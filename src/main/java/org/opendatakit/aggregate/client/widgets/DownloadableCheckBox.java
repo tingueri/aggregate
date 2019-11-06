@@ -26,8 +26,8 @@ import org.opendatakit.aggregate.client.SecureGWT;
 
 public final class DownloadableCheckBox extends AggregateCheckBox implements ValueChangeHandler<Boolean> {
 
-  private static final String TOOLTIP_TXT = "Allow or disallow form to be downloaded";
-  private static final String HELP_BALLOON_TXT = "Check this box if you want your form to be downloadable. Otherwise leave unchecked.";
+  private static final String TOOLTIP_TXT = "Autoriser ou interdire le téléchargement du formulaire";
+  private static final String HELP_BALLOON_TXT = "Cochez cette case si vous souhaitez que votre formulaire soit téléchargeable. Sinon laisser non cochée.";
 
   private final String formId;
 

@@ -32,12 +32,6 @@ import org.opendatakit.common.testing.ICommonTestSetup;
 import org.opendatakit.common.web.CallingContext;
 import org.opendatakit.common.web.TestContextFactory;
 
-/**
- * Tests the task lock mechanism and reports its performance statistics.
- * 
- * @author mitchellsundt@gmail.com
- * 
- */
 
 public class TaskLockTest {
 

@@ -36,8 +36,8 @@ import org.opendatakit.common.utils.GwtShims;
 public class ConfirmPurgeUpToDatePopup extends AbstractPopupBase {
 
   private static final String BUTTON_TXT = "<img src=\"images/green_right_arrow.png\" /> Purge Data";
-  private static final String TOOLTIP_TXT = "Delete submissions data through the given date";
-  private static final String HELP_BALLOON_TXT = "This confirms that you want to delete the submissions data.";
+  private static final String TOOLTIP_TXT = "Supprimer les données des soumissions jusqu'à la date donnée";
+  private static final String HELP_BALLOON_TXT = "Cela confirme que vous souhaitez supprimer les données de soumission.";
 
   private FormSummary summary;
   private Date earliest;
@@ -54,11 +54,11 @@ public class ConfirmPurgeUpToDatePopup extends AbstractPopupBase {
 
     FlexTable layout = new FlexTable();
     SafeHtml content = new SafeHtmlBuilder()
-        .appendEscaped("Delete submissions data of ")
+        .appendEscaped("Supprimer les données de soumission de ")
         .appendHtmlConstant("<b>" + summary.getTitle() + " [" + summary.getId() + "]</b>")
-        .appendEscaped(" up through ")
+        .appendEscaped(" à travers ")
         .appendEscaped(GwtShims.gwtFormatDateHuman(earliest))
-        .appendEscaped(". Incomplete submissions will not be deleted.")
+        .appendEscaped(". Les soumissions incomplètes ne seront pas supprimées.")
         .toSafeHtml();
     layout.setWidget(0, 0, new HTML(content));
     layout.setWidget(0, 1, confirm);
@@ -74,13 +74,13 @@ public class ConfirmPurgeUpToDatePopup extends AbstractPopupBase {
           (rpc, sessionCookie, cb) -> rpc.purgeSubmissionsData(summary.getId(), earliest, cb),
           (Date result) -> {
             Window.alert("" +
-                "Successful commencement of the purge of:\n" +
+                "Début réussi de la purge de:\n" +
                 summary.getTitle() + " [" + summary.getId() + "].\n" +
-                "Deleting all submission data through\n  " +
+                "Supprimer toutes les données de soumission via\n  " +
                 GwtShims.gwtFormatDateHuman(result) + "\n" +
-                "Incomplete submissions will not be deleted.");
+                "Les soumissions incomplètes ne seront pas supprimées.");
           },
-          cause -> AggregateUI.getUI().reportError("Failed purge of submission data: ", cause)
+          cause -> AggregateUI.getUI().reportError("Échec de la purge des données de soumission: ", cause)
       );
       hide();
     }

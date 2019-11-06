@@ -161,7 +161,7 @@ gretty {
 }
 
 buildConfig {
-  appName = 'ODK Aggregate'
+  appName = 'Peogo Survey'
   version = getVersionName()
   clsName = 'BuildConfig'
   packageName = 'org.opendatakit.aggregate.buildconfig'

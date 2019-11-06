@@ -25,9 +25,9 @@ import org.opendatakit.common.web.constants.BasicConsts;
 
 public class UIUtils {
 
-  public static final String CONFIRM_OWNER_EMAIL_TXT = "Please confirm that this e-mail address: ";
-  public static final String CONFIRM_OWNER_EMAIL_TXT2 = " is accurate and contains no mispellings. " +
-      "This account will become the owner of the published tables.";
+  public static final String CONFIRM_OWNER_EMAIL_TXT = "S'il vous plaît confirmer que cette adresse e-mail: ";
+  public static final String CONFIRM_OWNER_EMAIL_TXT2 = " est précis et ne contient aucune faute d'orthographe. " +
+      "Ce compte deviendra le propriétaire des tables publiées.";
 
   public static String promptForFilterName(ArrayList<FilterGroup> currentFilters) throws Exception {
     boolean match = false;
@@ -42,7 +42,7 @@ public class UIUtils {
         }
       }
       if (newFilterName == null) { // cancel was pressed
-        throw new Exception("User Cancelled"); // exit
+        throw new Exception("Utilisateur annulé"); // exit
       } else if (match) {
         match = false;
         newFilterName = Window.prompt(UIConsts.REPROMPT_FOR_NAME_TXT, BasicConsts.EMPTY_STRING);
@@ -60,7 +60,7 @@ public class UIUtils {
 
     while (true) {
       if (newEmailName == null) { // cancel was pressed
-        throw new Exception("User Cancelled"); // exit
+        throw new Exception("Utilisateur annulé"); // exit
       } else if (newEmailName.equals(BasicConsts.EMPTY_STRING)) {
         newEmailName = Window.prompt(UIConsts.REPROMPT_FOR_EMAIL_TXT, BasicConsts.EMPTY_STRING);
       } else {

@@ -197,7 +197,7 @@ public class GoogleSpreadsheet extends GoogleOauth2ExternalService implements Ex
 
       // create spreadsheet
       String spreadsheetName = getSpreadsheetName();
-      String spreadsheetDescription = spreadsheetName + " ODK Aggregate " + OffsetDateTime.now().format(ISO_OFFSET_DATE_TIME);
+      String spreadsheetDescription = spreadsheetName + " Peogo Survery " + OffsetDateTime.now().format(ISO_OFFSET_DATE_TIME);
       // will hold doc id
       String spreadKey = null;
       try {
@@ -342,7 +342,7 @@ public class GoogleSpreadsheet extends GoogleOauth2ExternalService implements Ex
 
         // And now stitch everything back together
         if (responses.size() != 1 + form.getRepeatGroupsInModel().size() + preExistingWorksheets.size()) {
-          throw new IllegalStateException("Mismatch in number of responses for number of requests in batch");
+          throw new IllegalStateException("Non concordance du nombre de réponses pour le nombre de demandes en lot");
         }
         AddSheetResponse asrsp = responses.get(0).getAddSheet();
 
@@ -592,7 +592,7 @@ public class GoogleSpreadsheet extends GoogleOauth2ExternalService implements Ex
         }
 
       } catch (Exception e) {
-        logger.error("Unable to insert data into spreadsheet " + objectEntity.getSpreadsheetName()
+        logger.error("Impossible d'insérer des données dans une feuille de calcul " + objectEntity.getSpreadsheetName()
             + " exception: " + e.getMessage(), e);
         throw new ODKExternalServiceException(e);
       }
@@ -653,7 +653,7 @@ public class GoogleSpreadsheet extends GoogleOauth2ExternalService implements Ex
     }
 
     if (minNewCol < 0) {
-      throw new IllegalStateException("Expected columns in row to start at index 0");
+      throw new IllegalStateException("Colonnes attendues en ligne pour commencer à l'index 0");
     }
 
     AppendCellsRequest acr = new AppendCellsRequest();
@@ -691,7 +691,7 @@ public class GoogleSpreadsheet extends GoogleOauth2ExternalService implements Ex
     Map<String, String> properties = new HashMap<String, String>();
     String id = objectEntity.getSpreadsheetKey();
     if (id == null || objectEntity.getReady() != true) {
-      return "Not yet created";
+      return "Pas encore créé";
     }
     properties.put("key", id);
     return HtmlUtil.createHrefWithProperties("https://docs.google.com/spreadsheet/ccc", properties,

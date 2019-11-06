@@ -24,10 +24,10 @@ import org.opendatakit.aggregate.client.filter.FilterGroup;
 public final class MetadataCheckBox extends AggregateCheckBox implements
     ValueChangeHandler<Boolean> {
 
-  private static final String LABEL = "<span id=\"filter_header\">Display Metadata</span>";
-  private static final String TOOLTIP_TXT = "Display or hide metadata";
-  private static final String HELP_BALLOON_TXT = "When checked, it will show the metadata columns.  "
-      + "When not checked, it will hide these columns.";
+  private static final String LABEL = "<span id=\"filter_header\">Afficher les métadonnées</span>";
+  private static final String TOOLTIP_TXT = "Afficher ou masquer les métadonnées";
+  private static final String HELP_BALLOON_TXT = "Lorsqu'il est coché, il montrera les colonnes de métadonnées. "
+      + "Si cette case n'est pas cochée, ces colonnes seront masquées.";
 
   private final FilterSubTab filterSubTab;
 

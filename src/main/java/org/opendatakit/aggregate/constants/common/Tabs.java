@@ -19,9 +19,9 @@ package org.opendatakit.aggregate.constants.common;
 import java.io.Serializable;
 
 public enum Tabs implements Serializable {
-  SUBMISSIONS("Submissions", "submissions"),
-  MANAGEMENT("Form Management", "management"),
-  ADMIN("Site Admin", "admin");
+  SUBMISSIONS("Soumissions", "submissions"),
+  MANAGEMENT("Gestion de formulaire", "management"),
+  ADMIN("Administration", "admin");
 
   private String tabLabel;
   private String hashString;

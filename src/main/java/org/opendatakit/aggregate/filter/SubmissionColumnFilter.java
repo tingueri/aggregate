@@ -109,7 +109,7 @@ public class SubmissionColumnFilter extends CommonFieldsBase {
 
   public void setParentFilterUri(String parentUri) {
     if (!setStringField(URI_PARENT_FILTER_PROPERTY, parentUri)) {
-      throw new IllegalArgumentException("overflow parent uri");
+      throw new IllegalArgumentException("débordement  parent uri");
     }
   }
 
@@ -119,7 +119,7 @@ public class SubmissionColumnFilter extends CommonFieldsBase {
 
   public void setColumnTitle(String name) {
     if (!setStringField(COL_TITLE_PROPERTY, name)) {
-      throw new IllegalArgumentException("overflow name");
+      throw new IllegalArgumentException("débordement  name");
     }
   }
 
@@ -129,7 +129,7 @@ public class SubmissionColumnFilter extends CommonFieldsBase {
 
   public void setColumnEncoding(String name) {
     if (!setStringField(COL_ENCODING_PROPERTY, name)) {
-      throw new IllegalArgumentException("overflow column encoding");
+      throw new IllegalArgumentException("débordement  column encoding");
     }
   }
 

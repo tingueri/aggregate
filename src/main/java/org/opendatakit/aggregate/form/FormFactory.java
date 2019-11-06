@@ -73,7 +73,7 @@ public class FormFactory {
       // support, this is somewhat problematic since different server instances might
       // see different versions of the same Form.
       //
-      logger.info("FormCache: using cached list of Forms");
+      logger.info("FormCache: utilisation de la liste mise en cache de formulaires");
     } else {
       // we have a fairly stale list of forms -- interrogate the database
       // for what is really there and update the cache.
@@ -82,7 +82,7 @@ public class FormFactory {
         oldForms.put(f.getUri(), f);
       }
       cache.clear();
-      logger.info("FormCache: fetching new list of Forms");
+      logger.info("FormCache: chercher une nouvelle liste de formulaires");
 
       Datastore ds = cc.getDatastore();
       User user = cc.getCurrentUser();
@@ -105,7 +105,7 @@ public class FormFactory {
                 (infoDate != null && oldDate != null && infoDate.equals(oldDate)))) {
           cache.add(f);
         } else {
-          logger.info("FormCache: refreshing form definition from database: " + infoRow.getStringField(FormInfoTable.FORM_ID));
+          logger.info("FormCache: actualisation de la définition de formulaire à partir de la base de données: " + infoRow.getStringField(FormInfoTable.FORM_ID));
           // pull and update from the datastore
           f = new Form(infoRow, cc);
           cache.add(f);
@@ -114,7 +114,7 @@ public class FormFactory {
 
       for (IForm form : cache)
         if (!form.isValid()) {
-          logger.error("Possible corruption: Form with URI " + form.getUri() + " is not valid");
+          logger.error("Corruption possible: Formulaire avec URI " + form.getUri() + " is not valid");
           cache.remove(form);
         }
 
@@ -162,7 +162,7 @@ public class FormFactory {
     List<IForm> forms = internalGetForms(topLevelAuri, cc);
 
     if (forms.isEmpty())
-      throw new ODKEntityNotFoundException("Could not retrieve form uri: " + topLevelAuri);
+      throw new ODKEntityNotFoundException("Impossible de récupérer le formulaire uri: " + topLevelAuri);
     IForm f = forms.get(0);
     // TODO: check authorization?
     return f;
@@ -193,7 +193,7 @@ public class FormFactory {
       String formUri = CommonFieldsBase.newMD5HashUri(formId);
       IForm form = getForm(formUri, cc);
       if (!formId.equals(form.getFormId())) {
-        throw new IllegalStateException("more than one FormInfo entry for the given form id: "
+        throw new IllegalStateException("plus d'une entrée FormInfo pour l'ID de formulaire donné: "
             + formId);
       }
       return form;

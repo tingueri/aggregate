@@ -68,21 +68,21 @@ public class PersistentResults {
   public PersistentResults(SubmissionKey persistentResult, CallingContext cc) throws ODKDatastoreException {
     List<SubmissionKeyPart> parts = persistentResult.splitSubmissionKey();
     if (parts == null || parts.size() == 0) {
-      throw new IllegalArgumentException("submission key is empty");
+      throw new IllegalArgumentException("la clé de soumission est vide");
     }
     if (!parts.get(0).getElementName().equals(FORM_ID_PERSISTENT_RESULT)) {
-      throw new IllegalArgumentException("unrecognized form id");
+      throw new IllegalArgumentException("identifiant de formulaire non reconnu");
     }
     if (parts.size() < 2) {
-      throw new IllegalArgumentException("submission key does not have a top level group");
+      throw new IllegalArgumentException("la clé de soumission n'a pas de groupe de niveau supérieur");
     }
     SubmissionKeyPart tlg = parts.get(1);
     if (!tlg.getElementName().equals(PersistentResultsTable.TABLE_NAME)) {
-      throw new IllegalArgumentException("top level group name: " + tlg.getElementName()
-          + " is not as expected: " + PersistentResultsTable.TABLE_NAME);
+      throw new IllegalArgumentException("nom du groupe de niveau supérieur: " + tlg.getElementName()
+          + " n'est pas comme prévu: " + PersistentResultsTable.TABLE_NAME);
     }
     if (tlg.getAuri() == null) {
-      throw new IllegalArgumentException("submission key does not have top level auri");
+      throw new IllegalArgumentException("clé de soumission n'a pas auri haut niveau");
     }
 
     Datastore ds = cc.getDatastore();
@@ -207,7 +207,7 @@ public class PersistentResults {
 
   public void setRequestingUser(String value) {
     if (!row.setStringField(PersistentResultsTable.REQUESTING_USER, value)) {
-      throw new IllegalStateException("overflow requestingUser");
+      throw new IllegalStateException("débordement  requestingUser");
     }
   }
 
@@ -220,14 +220,14 @@ public class PersistentResults {
     try {
       return PropertyMapSerializer.deserializeRequestParameters(parameterDocument);
     } catch (Exception e) {
-      throw new ODKDatastoreException("bad parameter list in database", e);
+      throw new ODKDatastoreException("mauvaise liste de paramètres dans la base de données", e);
     }
   }
 
   public void setRequestParameters(Map<String, String> value) {
     if (!row.setStringField(PersistentResultsTable.REQUEST_PARAMETERS,
         PropertyMapSerializer.serializeRequestParameters(value))) {
-      throw new IllegalStateException("overflow requestParameters");
+      throw new IllegalStateException("débordement requestParameters");
     }
   }
 
@@ -249,7 +249,7 @@ public class PersistentResults {
 
   public void setStatus(ExportStatus value) {
     if (!row.setStringField(PersistentResultsTable.STATUS, value.name())) {
-      throw new IllegalStateException("overflow status");
+      throw new IllegalStateException("débordement status");
     }
   }
 
@@ -259,7 +259,7 @@ public class PersistentResults {
 
   public void setResultType(ExportType value) {
     if (!row.setStringField(PersistentResultsTable.RESULT_TYPE, value.name())) {
-      throw new IllegalStateException("overflow resultType");
+      throw new IllegalStateException("débordement resultType");
     }
   }
 
@@ -276,7 +276,7 @@ public class PersistentResults {
     if (bcm.getAttachmentCount(cc) == 0)
       return null;
     if (bcm.getAttachmentCount(cc) > 1) {
-      throw new IllegalStateException("Too many results attached!");
+      throw new IllegalStateException("Trop de résultats attachés!");
     }
     String unrootedFilename = bcm.getUnrootedFilename(1, cc);
     SubmissionKey key = getSubmissionKey();
@@ -292,14 +292,14 @@ public class PersistentResults {
     if (bcm.getAttachmentCount(cc) == 0)
       return null;
     if (bcm.getAttachmentCount(cc) > 1) {
-      throw new IllegalStateException("Too many results attached!");
+      throw new IllegalStateException("Trop de résultats attachés!");
     }
     return bcm.getBlob(1, cc);
   }
 
   public void setResultFile(byte[] byteArray, String contentType, String unrootedFilePath, boolean overwriteOK, CallingContext cc) throws ODKDatastoreException {
     if (bcm.getAttachmentCount(cc) > 0) {
-      throw new IllegalStateException("Results are already attached!");
+      throw new IllegalStateException("Les résultats sont déjà joints!");
     }
     bcm.setValueFromByteArray(byteArray, contentType, unrootedFilePath, overwriteOK, cc);
   }
@@ -314,7 +314,7 @@ public class PersistentResults {
 
   public void setFormId(String value) {
     if (!row.setStringField(PersistentResultsTable.FORM_ID, value)) {
-      throw new IllegalStateException("overflow formId");
+      throw new IllegalStateException("débordement formId");
     }
   }
 
@@ -324,7 +324,7 @@ public class PersistentResults {
 
   public void setFilterGroupUri(String value) {
     if (!row.setStringField(PersistentResultsTable.URI_FILTER_GROUP_PROPERTY, value)) {
-      throw new IllegalStateException("overflow Uri of the filter group");
+      throw new IllegalStateException("débordement Uri du groupe de filtres");
     }
   }
 

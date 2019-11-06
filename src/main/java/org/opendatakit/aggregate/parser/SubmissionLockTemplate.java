@@ -48,7 +48,7 @@ public class SubmissionLockTemplate {
 
   public SubmissionLockTemplate(String formId, String instanceId, CallingContext cc) {
     if (instanceId == null || instanceId.length() == 0) {
-      throw new IllegalArgumentException("instanceId cannot be null or blank");
+      throw new IllegalArgumentException("instanceId ne peut pas être null ou vide");
     } else {
       this.formId = "submission|" + formId + "|" + Integer.toHexString(instanceId.hashCode() & 0xff);
     }
@@ -79,7 +79,7 @@ public class SubmissionLockTemplate {
       }
     }
     if (!acquired) {
-      throw new ODKTaskLockException(String.format("Timed out acquiring lock. "
+      throw new ODKTaskLockException(String.format("Expiration du délai de verrouillage. "
           + "lockId: %s, formId: %s", lockId, formId, SubmissionTaskLockType.MODIFICATION));
     }
   }

@@ -18,8 +18,8 @@ package org.opendatakit.aggregate.constants.common;
 
 
 public enum PreferencesConsts implements HelpSliderConsts {
-  GOOGLE("Google API Credentials", "These credentials are used when publishing into Google services."),
-  ENKETO("Enketo Credentials", "These credentials are used for Enketo webforms integration.");
+  GOOGLE("Google API Credentials", "Ces informations d'identification sont utilisées lors de la publication dans les services Google."),
+  ENKETO("Enketo Credentials", "Ces informations d'identification sont utilisées pour l'intégration des formulaires Web Enketo.");
   private String title;
   private String content;
 

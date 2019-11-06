@@ -26,7 +26,7 @@ import org.opendatakit.common.security.common.GrantedAuthorityName;
 
 public class Preferences {
 
-  private static final String NULL_PREFERENCES_ERROR = "ERROR: somehow got a null preference summary";
+  private static final String NULL_PREFERENCES_ERROR = "ERREUR: un résumé de préférence null obtenu";
   private static String googleSimpleApiKey;
   private static String googleApiClientId;
   private static String enketoApiUrl;

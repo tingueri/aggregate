@@ -85,7 +85,7 @@ public abstract class AbstractExternalService implements ExternalService {
   protected static final int SERVICE_TIMEOUT_MILLISECONDS = 60000;
   protected static final int SOCKET_ESTABLISHMENT_TIMEOUT_MILLISECONDS = 60000;
   protected static final Charset UTF_CHARSET = Charset.forName(HtmlConsts.UTF8_ENCODE);
-  private static final String NO_BATCH_FUNCTIONALITY_ERROR = "ERROR! External Service does NOT implement a BATCH function to upload multiple submissions - AbstractExternalService";
+  private static final String NO_BATCH_FUNCTIONALITY_ERROR = "ERREUR! Service externe n'implémente pas une fonction BATCH pour télécharger plusieurs soumissions - AbstractExternalService";
   /**
    * Datastore entity holding registration of an external service for a specific
    * form and the cursor position within that form that was last processed by
@@ -187,9 +187,9 @@ public abstract class AbstractExternalService implements ExternalService {
 
     HttpUriRequest request = null;
     if (entity == null && (POST.equals(method) || PATCH.equals(method) || PUT.equals(method))) {
-      throw new IllegalStateException("No body supplied for POST, PATCH or PUT request");
+      throw new IllegalStateException("Pas de corps fourni pour les requêtes POST, PATCH ou PUT");
     } else if (entity != null && !(POST.equals(method) || PATCH.equals(method) || PUT.equals(method))) {
-      throw new IllegalStateException("Body was supplied for GET or DELETE request");
+      throw new IllegalStateException("Le corps a été fourni pour les demandes GET ou DELETE");
     }
 
     URI nakedUri;
@@ -232,7 +232,7 @@ public abstract class AbstractExternalService implements ExternalService {
       put.setEntity(entity);
       request = put;
     } else {
-      throw new IllegalStateException("Unexpected request method");
+      throw new IllegalStateException("Méthode de demande inattendue");
     }
 
     HttpResponse resp = client.execute(request);

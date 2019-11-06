@@ -61,7 +61,7 @@ public final class SelectChoice extends DynamicBase {
 
   public void setValue(String v) {
     if (!setStringField(value, v)) {
-      throw new IllegalArgumentException("overflow choice value");
+      throw new IllegalArgumentException("valeur de choix de débordement");
     }
   }
 }

@@ -71,7 +71,7 @@ public final class JsonServer3ParameterTable extends CommonFieldsBase {
 
   public void setOwnerEmail(String value) {
     if (!setStringField(OWNER_EMAIL_PROPERTY, value)) {
-      throw new IllegalArgumentException("overflow ownerEmail");
+      throw new IllegalArgumentException("débordement  ownerEmail");
     }
   }
 
@@ -81,7 +81,7 @@ public final class JsonServer3ParameterTable extends CommonFieldsBase {
 
   public void setAuthKey(String authKey) {
     if (!setStringField(AUTH_KEY_PROPERTY, authKey)) {
-      throw new IllegalArgumentException("overflow of authKey");
+      throw new IllegalArgumentException("débordement de  authKey");
     }
   }
 
@@ -91,7 +91,7 @@ public final class JsonServer3ParameterTable extends CommonFieldsBase {
 
   public void setServerUrl(String value) {
     if (!setStringField(SERVER_URL_PROPERTY, value)) {
-      throw new IllegalArgumentException("overflow of serverUrl");
+      throw new IllegalArgumentException("débordement de  serverUrl");
     }
   }
 
@@ -102,7 +102,7 @@ public final class JsonServer3ParameterTable extends CommonFieldsBase {
 
   public void setBinaryOption(BinaryOption value) {
     if (!setStringField(BINARY_OPTION_PROPERTY, value.name())) {
-      throw new IllegalArgumentException("overflow BinaryOption");
+      throw new IllegalArgumentException("débordement BinaryOption");
     }
   }
 

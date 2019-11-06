@@ -29,11 +29,11 @@ import org.opendatakit.aggregate.client.widgets.ClosePopupButton;
 
 public final class ConfirmSubmissionDeletePopup extends AbstractPopupBase {
 
-  private static final String BUTTON_TXT = "<img src=\"images/green_right_arrow.png\" /> Delete Submission";
-  private static final String TOOLTIP_TXT = "Delete Submission from database";
-  private static final String HELP_BALLOON_TXT = "This will delete the submission from the database.";
+  private static final String BUTTON_TXT = "<img src=\"images/green_right_arrow.png\" /> Supprimer la soumission";
+  private static final String TOOLTIP_TXT = "Supprimer la soumission de la base de données";
+  private static final String HELP_BALLOON_TXT = "Cela supprimera la soumission de la base de données.";
 
-  private static final String DELETE_SUBMISSION_WARNING = "Are you sure you want to Delete the submission? Once delete the submission will be permanently removed from Aggregate's database";
+  private static final String DELETE_SUBMISSION_WARNING = "Êtes-vous sûr de vouloir supprimer la soumission? Une fois la suppression effectuée, la soumission sera définitivement supprimée de la base de données Peogo Survey.";
 
   private final String submissionKeyAsString;
 

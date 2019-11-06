@@ -39,9 +39,9 @@ import org.opendatakit.common.security.common.GrantedAuthorityName;
 
 public class SubmissionAdminSubTab extends AggregateSubTabBase {
 
-  private static final String SUBMISSION_TXT = "Manually Upload Submission Data";
-  private static final String SUBMISSION_TOOLTIP_TXT = "Upload Submissions";
-  private static final String SUBMISSION_BALLOON_TXT = "Upload submission data for a preload form.";
+  private static final String SUBMISSION_TXT = "Télécharger manuellement les données de soumission";
+  private static final String SUBMISSION_TOOLTIP_TXT = "Transférer des soumissions";
+  private static final String SUBMISSION_BALLOON_TXT = "Télécharger les données de soumission pour un formulaire de préchargement.";
   private static final String SUBMISSION_BUTTON_TEXT = "<img src=\"images/blue_up_arrow.png\" /> "
       + SUBMISSION_TXT;
 
@@ -76,7 +76,7 @@ public class SubmissionAdminSubTab extends AggregateSubTabBase {
     // add to panel
     add(uploadSubmission);
     add(navTable);
-    add(new Label("Incomplete Submissions:"));
+    add(new Label("Soumissions incomplètes:"));
     add(submissions);
     add(buildVersionNote(this));
   }

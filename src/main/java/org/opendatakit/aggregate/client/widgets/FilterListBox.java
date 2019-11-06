@@ -24,9 +24,9 @@ import org.opendatakit.aggregate.constants.common.UIConsts;
 import org.opendatakit.common.web.constants.BasicConsts;
 
 public final class FilterListBox extends AggregateListBox {
-  private static final String TOOLTIP_TEXT = "Filter to use";
+  private static final String TOOLTIP_TEXT = "Filtre à utiliser";
 
-  private static final String BALLOON_TEXT = "Select the filter group you want to work with.";
+  private static final String BALLOON_TEXT = "Sélectionnez le groupe de filtres avec lequel vous souhaitez travailler.";
 
   private ArrayList<FilterGroup> displayedFilterList;
 

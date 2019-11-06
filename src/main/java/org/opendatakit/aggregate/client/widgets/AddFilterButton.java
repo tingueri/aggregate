@@ -27,9 +27,9 @@ import org.opendatakit.aggregate.client.popups.FilterPopup;
 
 public final class AddFilterButton extends AggregateButton implements ClickHandler {
 
-  private static final String BUTTON_TXT = "<img src=\"images/yellow_plus.png\" /> Add Filter";
-  private static final String TOOLTIP_TXT = "Add a new filter";
-  private static final String HELP_BALLOON_TXT = "The button displays a popup window that allows a new filter to be added to the filter group";
+  private static final String BUTTON_TXT = "<img src=\"images/yellow_plus.png\" /> Ajouter un filtre";
+  private static final String TOOLTIP_TXT = "Ajouter un nouveau filtre";
+  private static final String HELP_BALLOON_TXT = "Le bouton affiche une fenêtre contextuelle permettant d'ajouter un nouveau filtre au groupe de filtres.";
 
   private final FilterSubTab basePanel;
 

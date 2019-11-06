@@ -106,15 +106,15 @@ public class AccessConfigurationSheet extends Composite {
 
     // Username
     UsernameTextColumn username = new UsernameTextColumn();
-    userTable.addColumn(username, "Username");
+    userTable.addColumn(username, "Code Utilisateur");
 
     // Full Name
     FullNameTextColumn fullname = new FullNameTextColumn();
-    userTable.addColumn(fullname, "Full Name");
+    userTable.addColumn(fullname, "Nom complet");
 
     // Change Password
     UIEnabledActionColumn<UserSecurityInfo> changePassword = new UIEnabledActionColumn<UserSecurityInfo>(
-        "Change Password", new EnableLocalAccountPredicate(), new ChangePasswordActionCallback());
+        "Changer Mot passe", new EnableLocalAccountPredicate(), new ChangePasswordActionCallback());
     userTable.addColumn(changePassword, "");
 
     GroupMembershipColumn dc = new GroupMembershipColumn(GrantedAuthorityName.GROUP_DATA_COLLECTORS);
@@ -490,7 +490,7 @@ public class AccessConfigurationSheet extends Composite {
   private class UpdateUserDisplay implements AsyncCallback<ArrayList<UserSecurityInfo>> {
     @Override
     public void onFailure(Throwable caught) {
-      AggregateUI.getUI().reportError(" Unable to retrieve users from server: ", caught);
+      AggregateUI.getUI().reportError(" Impossible de récupérer les utilisateurs du serveur: ", caught);
     }
 
     @Override
@@ -526,12 +526,12 @@ public class AccessConfigurationSheet extends Composite {
     public boolean isValid(String prospectiveValue, UserSecurityInfo key) {
       if (prospectiveValue != null && prospectiveValue.length() != 0) {
         if (prospectiveValue.trim().length() != prospectiveValue.length()) {
-          Window.alert("Invalid whitespace before or after the username");
+          Window.alert("Espace non valide avant ou après le nom d'utilisateur");
           return false;
         }
 
         if (prospectiveValue.contains("@")) {
-          Window.alert("Usernames with '@' are not supported (email accounts are not supported)");
+          Window.alert("Les noms d'utilisateur avec '@' ne sont pas supportés (les comptes de messagerie ne sont pas supportés)");
           return false;
         }
 
@@ -541,25 +541,25 @@ public class AccessConfigurationSheet extends Composite {
           if (i == key)
             continue;
           if (i.getCanonicalName().equals(prospectiveValue)) {
-            Window.alert("Username is already defined");
+            Window.alert("Le nom d'utilisateur est déjà défini");
             return false;
           }
         }
         if (key.getUsername() == null) {
           // we are setting an e-mail address... verify it...
           if (EmailParser.hasInvalidEmailCharacters(prospectiveValue)) {
-            Window.alert("Invalid characters in Email address.\n"
-                + "Email address cannot contain whitespace, quotes,\n"
-                + "commas, semicolons or other punctuation");
+            Window.alert("Caractères non valides dans l'adresse e-mail.\n"
+                + "L’adresse électronique ne peut pas contenir d’espace, de guillemets,\n"
+                + "virgules, points-virgules ou autre ponctuation");
             return false;
           } else if (prospectiveValue.indexOf(EmailParser.K_AT) == -1) {
-            Window.alert("Email address is missing the '@domain.org' portion\n"
-                + "Email must be of the form 'username@domain.org'");
+            Window.alert("La partie \"@ domain.org\" manque dans l'adresse de messagerie\n"
+                + "L'email doit être de la forme 'nomutilisateur@domaine.org'");
             return false;
           }
         }
       } else {
-        Window.alert("Username cannot be empty");
+        Window.alert("Le nom d'utilisateur ne peut pas être vide");
         return false;
       }
       return true;
@@ -635,8 +635,8 @@ public class AccessConfigurationSheet extends Composite {
     public void execute(UserSecurityInfo object) {
       if (isUiOutOfSyncWithServer()) {
         Window
-            .alert("Unsaved changes exist. "
-                + "\nPlease save changes, or reset the changes by refreshing the screen.\nThen you may change passwords.");
+            .alert("Les modifications non enregistrées existent. "
+                + "\nEnregistrez les modifications ou réinitialisez-les en actualisant l’écran.\nEnsuite, vous pouvez changer les mots de passe.");
         return;
       }
 

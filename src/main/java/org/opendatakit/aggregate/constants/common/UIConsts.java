@@ -17,7 +17,7 @@
 package org.opendatakit.aggregate.constants.common;
 
 public class UIConsts {
-  public static final String KML_NONE_OPTION = "None";
+  public static final String KML_NONE_OPTION = "Aucun";
   public static final String KML_NONE_ENCODE_KEY = "*NONE*";
 
   public static final String URI_DEFAULT = "no uuid";
@@ -27,7 +27,7 @@ public class UIConsts {
   public static final String HOST_PAGE_BASE_ADDR = "Aggregate.html";
   public static final String VERTICAL_FLOW_PANEL_STYLENAME = "verticalFlowPanel";
 
-  public static final String FILTER_NONE = "none";
+  public static final String FILTER_NONE = "Aucun";
 
   public static final String FORM_UPLOAD_SERVLET_ADDR = "formUpload";
   public static final String USERS_AND_PERMS_UPLOAD_SERVLET_ADDR = "ssl/reset-users-and-permissions";
@@ -39,11 +39,11 @@ public class UIConsts {
   public static final String ENKETO_API_HANDLER_ADDR = "enk/enketoApiHandler";
 
   public static final String SUBMISSION_SERVLET_ADDR = "submission";
-  public static final String ERROR_NO_FILTERS = "You need at least one filter to save a group.";
-  public static final String ERROR_NO_NAME = "You need to provide a name for this filter group to continue";
-  public static final String PROMPT_FOR_NAME_TXT = "Please enter a name for this group";
-  public static final String REPROMPT_FOR_NAME_TXT = "That group already exists. Please enter a new name";
-  public static final String PROMPT_FOR_EMAIL_TXT = "Please enter the e-mail address that will be granted access to these documents";
-  public static final String REPROMPT_FOR_EMAIL_TXT = "That is not a valid e-mail address. Please enter the e-mail address that will be granted access to these documents";
+  public static final String ERROR_NO_FILTERS = "Vous avez besoin d'au moins un filtre pour enregistrer un groupe.";
+  public static final String ERROR_NO_NAME = "Vous devez donner un nom à ce groupe de filtres pour continuer.";
+  public static final String PROMPT_FOR_NAME_TXT = "S'il vous plaît entrer un nom pour ce groupe";
+  public static final String REPROMPT_FOR_NAME_TXT = "Ce groupe existe déjà. S'il vous plaît entrer un nouveau nom";
+  public static final String PROMPT_FOR_EMAIL_TXT = "Veuillez saisir l'adresse e-mail avec laquelle l'accès à ces documents sera autorisé.";
+  public static final String REPROMPT_FOR_EMAIL_TXT = "Ce n'est pas une adresse email valide. Veuillez saisir l'adresse e-mail avec laquelle l'accès à ces documents sera autorisé.";
 
 }

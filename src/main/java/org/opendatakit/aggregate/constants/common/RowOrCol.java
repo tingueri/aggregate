@@ -22,7 +22,7 @@ import java.io.Serializable;
  * This enum defines whether it is a row filter or column filter.
  */
 public enum RowOrCol implements Serializable {
-  ROW("Rows"), COLUMN("Columns");
+  ROW("Lignes"), COLUMN("Colonnes");
 
   private String displayText;
 

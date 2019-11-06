@@ -56,7 +56,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class QueryByUIFilterGroup extends QueryBase {
-  private static final String MISSING_ARGS = "Missing either Form or FilterGroup making it impossible to query";
+  private static final String MISSING_ARGS = "Form ou FilterGroup Manquant, il est impossible d'interroger";
   private final CompletionFlag completionFlag;
   private final TopLevelDynamicBase tbl;
   private int fetchLimit;
@@ -189,7 +189,7 @@ public class QueryByUIFilterGroup extends QueryBase {
       case GEOPOINT:
         return new BigDecimal(value);
       default:
-        throw new IllegalArgumentException("Can't get the compare value for FormElementModel type " + fem.getElementType());
+        throw new IllegalArgumentException("Impossible d'obtenir la valeur de comparaison pour le type FormElementModel " + fem.getElementType());
     }
   }
 
@@ -206,7 +206,7 @@ public class QueryByUIFilterGroup extends QueryBase {
         query.addFilter(tbl.lastUpdateDate, operation, dateToFilter);
         break;
       default:
-        throw new IllegalStateException("unhandled case");
+        throw new IllegalStateException("cas non traité");
     }
 
   }
@@ -228,7 +228,7 @@ public class QueryByUIFilterGroup extends QueryBase {
       } catch (ODKDatastoreException e) {
         Logger logger = LoggerFactory.getLogger(QueryByUIFilterGroup.class);
         e.printStackTrace();
-        logger.error("Unable to reconstruct submission for " +
+        logger.error("Impossible de reconstruire la soumission pour " +
             subEntity.getSchemaName() + "." + subEntity.getTableName() + " uri " + subEntity.getUri());
 
         if ((e instanceof ODKEntityNotFoundException) ||
@@ -356,7 +356,7 @@ public class QueryByUIFilterGroup extends QueryBase {
       } catch (ODKDatastoreException e) {
         Logger logger = LoggerFactory.getLogger(QueryByUIFilterGroup.class);
         e.printStackTrace();
-        logger.error("Unable to reconstruct submission for " +
+        logger.error("Impossible de reconstruire la soumission pour " +
             subEntity.getSchemaName() + "." + subEntity.getTableName() + " uri " + subEntity.getUri());
 
         if ((e instanceof ODKEntityNotFoundException) ||

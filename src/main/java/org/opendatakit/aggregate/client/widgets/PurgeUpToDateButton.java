@@ -23,9 +23,9 @@ import org.opendatakit.aggregate.client.popups.PurgeUpToDatePopup;
 
 public final class PurgeUpToDateButton extends AggregateButton implements ClickHandler {
 
-  private static final String BUTTON_TXT = "Purge Submission Data";
-  private static final String TOOLTIP_TXT = "Delete data up to a given date";
-  private static final String HELP_BALLOON_TXT = "Delete a selected form's data through a given date.";
+  private static final String BUTTON_TXT = "Données de soumission de purge";
+  private static final String TOOLTIP_TXT = "Supprimer les données jusqu'à une date donnée";
+  private static final String HELP_BALLOON_TXT = "Supprimer les données d'un formulaire sélectionné jusqu'à une date donnée.";
 
   private FormSummary formSummary;
 

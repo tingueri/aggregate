@@ -38,18 +38,18 @@ import org.opendatakit.aggregate.constants.common.OperationalStatus;
 public final class ConfirmPublishDeletePopup extends AbstractPopupBase {
 
   private static final String BUTTON_ICON = "<img src=\"images/green_right_arrow.png\"/>";
-  private static final String TOOLTIP_TXT = "Remove this publisher";
-  private static final String HELP_BALLOON_TXT = "This will remove the publisher. You will no longer be able to upload or stream data.";
+  private static final String TOOLTIP_TXT = "Supprimer cet éditeur";
+  private static final String HELP_BALLOON_TXT = "Cela supprimera l'éditeur. Vous ne pourrez plus télécharger ni diffuser de données.";
 
 
   public ConfirmPublishDeletePopup(ExternServSummary publisher) {
     super();
 
     String action = (publisher.getStatus() == OperationalStatus.COMPLETED || publisher.getStatus() == OperationalStatus.ABANDONED)
-        ? "remove"
-        : "stop publishing and remove";
+        ? "supprimer"
+        : "arrêter la publication et supprimer";
 
-    String buttonTxt = BUTTON_ICON + action + " Publisher";
+    String buttonTxt = BUTTON_ICON + action + " Éditeur";
     AggregateButton deleteButton = new AggregateButton(buttonTxt, TOOLTIP_TXT, HELP_BALLOON_TXT);
     deleteButton.addClickHandler(event -> {
       secureRequest(
@@ -64,9 +64,9 @@ public final class ConfirmPublishDeletePopup extends AbstractPopupBase {
     FlexTable layout = new FlexTable();
 
     HTML message = new HTML(new SafeHtmlBuilder()
-        .appendEscaped("Delete this publisher?")
+        .appendEscaped("Supprimer cet éditeur?")
         .appendHtmlConstant("<br/>")
-        .appendEscaped("Do you wish to " + action + " this location?")
+        .appendEscaped("Souhaitez-vous " + action + " ce lieu?")
         .toSafeHtml());
     layout.setWidget(0, 0, message);
     layout.setWidget(0, 1, deleteButton);
@@ -82,7 +82,7 @@ public final class ConfirmPublishDeletePopup extends AbstractPopupBase {
   private void onSuccess(String action, Boolean result) {
     AggregateUI.getUI().clearError();
     if (!result)
-      alert("Error: Unable to " + action + " this publisher");
+      alert("Erreur: impossible à " + action + " cet éditeur");
     AggregateUI.getUI().getTimer().refreshNow();
   }
 }

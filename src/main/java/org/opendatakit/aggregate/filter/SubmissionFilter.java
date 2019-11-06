@@ -154,7 +154,7 @@ public class SubmissionFilter extends CommonFieldsBase {
 
   public void setFilterGroup(String groupUri) {
     if (!setStringField(URI_FILTER_GROUP_PROPERTY, groupUri)) {
-      throw new IllegalArgumentException("overflow filterGroup");
+      throw new IllegalArgumentException("débordement  filterGroup");
     }
   }
 
@@ -177,7 +177,7 @@ public class SubmissionFilter extends CommonFieldsBase {
 
   public void setVisibility(Visibility visibility) {
     if (!setStringField(VISIBILITY_PROPERTY, visibility.name())) {
-      throw new IllegalArgumentException("overflow visibility");
+      throw new IllegalArgumentException("débordement  visibility");
     }
   }
 
@@ -188,7 +188,7 @@ public class SubmissionFilter extends CommonFieldsBase {
 
   public void setRowOrColumn(RowOrCol roworcol) {
     if (!setStringField(ROWORCOL_PROPERTY, roworcol.name())) {
-      throw new IllegalArgumentException("overflow row or col");
+      throw new IllegalArgumentException("débordement  ligne or colonne");
     }
   }
 
@@ -198,7 +198,7 @@ public class SubmissionFilter extends CommonFieldsBase {
 
   public void setColumnTitle(String name) {
     if (!setStringField(COL_TITLE_PROPERTY, name)) {
-      throw new IllegalArgumentException("overflow name");
+      throw new IllegalArgumentException("débordement  name");
     }
   }
 
@@ -208,7 +208,7 @@ public class SubmissionFilter extends CommonFieldsBase {
 
   public void setColumnEncoding(String name) {
     if (!setStringField(COL_ENCODING_PROPERTY, name)) {
-      throw new IllegalArgumentException("overflow column encoding");
+      throw new IllegalArgumentException("débordement  column encoding");
     }
   }
 
@@ -219,7 +219,7 @@ public class SubmissionFilter extends CommonFieldsBase {
 
   public void setFilterOperation(FilterOperation op) {
     if (!setStringField(OPERATION_PROPERTY, op.name())) {
-      throw new IllegalArgumentException("overflow filter operation");
+      throw new IllegalArgumentException("débordement  filter operation");
     }
   }
 
@@ -229,7 +229,7 @@ public class SubmissionFilter extends CommonFieldsBase {
 
   public void setFilterInputClause(String clause) {
     if (!setStringField(CLAUSE_PROPERTY, clause)) {
-      throw new IllegalArgumentException("overflow clause");
+      throw new IllegalArgumentException("débordement  clause");
     }
   }
 

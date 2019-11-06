@@ -39,9 +39,9 @@ import org.opendatakit.common.security.client.UserSecurityInfo;
  */
 public final class ExecuteChangePasswordButton extends AggregateButton implements ClickHandler {
 
-  private static final String BUTTON_TXT = "<img src=\"images/green_right_arrow.png\" /> Change Password";
-  private static final String TOOLTIP_TXT = "Change the user's password";
-  private static final String HELP_BALLOON_TXT = "Change the user's password when logging into Aggregate.";
+  private static final String BUTTON_TXT = "<img src=\"images/green_right_arrow.png\" /> Changer le mot de passe";
+  private static final String TOOLTIP_TXT = "Changer le mot de passe de l'utilisateur";
+  private static final String HELP_BALLOON_TXT = "Changer le mot de passe de l'utilisateur lors de la connexion à Peogo Survey.";
 
   private static int jsonRequestId = 0;
 
@@ -93,16 +93,16 @@ public final class ExecuteChangePasswordButton extends AggregateButton implement
     String pw1 = password1.getText();
     String pw2 = password2.getText();
     if (pw1 == null || pw2 == null || pw1.length() == 0) {
-      Window.alert("Password cannot be blank");
+      Window.alert("Le mot de passe ne peut pas être vide");
     } else if (pw1.equals(pw2)) {
       if (realmInfo == null || userInfo == null) {
-        Window.alert("Unable to obtain required information from server");
+        Window.alert("Impossible d'obtenir les informations requises du serveur");
       } else {
         CredentialsInfo credential;
         try {
           credential = CredentialsInfoBuilder.build(userInfo.getUsername(), realmInfo, pw1);
         } catch (NoSuchAlgorithmException e) {
-          Window.alert("Unable to build credentials hash");
+          Window.alert("Impossible de créer un hachage des informations d'identification");
           return;
         }
 
@@ -114,19 +114,19 @@ public final class ExecuteChangePasswordButton extends AggregateButton implement
         getJson(jsonRequestId++, url, this);
       }
     } else {
-      Window.alert("The passwords do not match. Please retype the password.");
+      Window.alert("Le mot de passe ne correspond pas. Veuillez ressaisir le mot de passe.");
     }
   }
 
   public void handleJsonResponse(String username, String status) {
     if (username == null) {
-      Window.alert("JSON change-password request to " + baseUrl + " failed");
+      Window.alert("Demande de changement de mot de passe JSON à " + baseUrl + " échoué");
     } else {
       // process response...
       if (!(status != null && "OK".equals(status))) {
-        Window.alert("Change password request "
-            + ((username == null) ? "" : ("for " + username + " ")) + "failed.\n"
-            + "JSON change-password request to\n   " + baseUrl + "\nreturned: " + status);
+        Window.alert("Changer la demande de mot de passe "
+            + ((username == null) ? "" : ("pour " + username + " ")) + "échoué.\n"
+            + "Demande de changement de mot de passe JSON à\n   " + baseUrl + "\nretourné: " + status);
       }
     }
     popup.hide();

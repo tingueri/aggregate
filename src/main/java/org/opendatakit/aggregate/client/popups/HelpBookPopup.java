@@ -49,8 +49,8 @@ public class HelpBookPopup extends PopupPanel {
       content.add(new HTML("<h2 id=\"form_name\">" + consts[i].getTitle() + "</h2>"));
 
       if (consts[i].getVideoUrl() != null) {
-        String buttonTxt = consts[i].getTitle() + " Video Assistance";
-        String toolTipTxt = "Play Video descibing how to " + consts[i].getTitle();
+        String buttonTxt = consts[i].getTitle() + " Assistance vidéo";
+        String toolTipTxt = "Lire la vidéo décrivant comment " + consts[i].getTitle();
         AggregateButton vidButton = new AggregateButton(buttonTxt, toolTipTxt);
         vidButton.addClickHandler(new BinaryPopupClickHandler(consts[i].getVideoUrl(), true));
         content.add(vidButton);

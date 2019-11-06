@@ -132,7 +132,7 @@ public class FormAdminServiceImpl extends XsrfProtectedServiceServlet implements
       fsc = getFormServiceCursor(uriExternalService, cc);
     } catch (ODKEntityNotFoundException e) {
       e.printStackTrace();
-      throw new RequestFailureException("Unable to retrieve publishing configuration");
+      throw new RequestFailureException("Impossible de récupérer la configuration de publication");
     } catch (ODKOverQuotaException e) {
       e.printStackTrace();
       throw new RequestFailureException(QUOTA_EXCEEDED);
@@ -145,7 +145,7 @@ public class FormAdminServiceImpl extends XsrfProtectedServiceServlet implements
     PurgeOlderSubmissions pos = (PurgeOlderSubmissions) cc.getBean(PURGE_OLDER_SUBMISSIONS_BEAN);
 
     if (pos == null) {
-      throw new RequestFailureException("Unable to configure task to purge submitted data for form " + fsc.getFormId());
+      throw new RequestFailureException("Impossible de configurer la tâche pour purger les données soumises pour le formulaire " + fsc.getFormId());
     }
     // set up the purge request here...
     Map<String, String> parameters = new HashMap<>();
@@ -178,7 +178,7 @@ public class FormAdminServiceImpl extends XsrfProtectedServiceServlet implements
     } catch (ODKDatastoreException e) {
       e.printStackTrace();
       throw new RequestFailureException(
-          "Unable to establish task to purge submitted data for form " + fsc.getFormId());
+          "Impossible d'établir la tâche pour purger les données soumises pour le formulaire " + fsc.getFormId());
     }
     CallingContext ccDaemon = getCallingContext(this, req);
     ccDaemon.setAsDaemon(true);
@@ -194,7 +194,7 @@ public class FormAdminServiceImpl extends XsrfProtectedServiceServlet implements
     try {
       FormDelete formDelete = (FormDelete) cc.getBean(FORM_DELETE_BEAN);
       if (formDelete == null) {
-        throw new RequestFailureException("Unable to configure task to delete form " + formId);
+        throw new RequestFailureException("Impossible de configurer la tâche pour supprimer le formulaire " + formId);
       }
 
       IForm formToDelete = retrieveFormByFormId(formId, cc);
@@ -319,13 +319,13 @@ public class FormAdminServiceImpl extends XsrfProtectedServiceServlet implements
       List<SubmissionKeyPart> parts = submissionKey.splitSubmissionKey();
       Submission sub = Submission.fetchSubmission(parts, cc);
       if (sub == null) {
-        throw new RequestFailureException("Unable to revise submission (see logs)");
+        throw new RequestFailureException("Impossible de réviser la soumission (voir les journaux)");
       }
 
       IForm form = retrieveFormByFormId(parts.get(0).getElementName(), cc);
       if (!form.hasValidFormDefinition()) {
         // should never happen here -- should happen in the fetchSubmission() call above.
-        throw new IllegalArgumentException("Form definition is ill-formed"); // ill-formed definition
+        throw new IllegalArgumentException("La définition du formulaire est mal formée"); // ill-formed definition
       }
 
       VisitorOutcome visitor;
@@ -343,14 +343,14 @@ public class FormAdminServiceImpl extends XsrfProtectedServiceServlet implements
         sub.setMarkedAsCompleteDate(new Date());
         sub.persist(cc);
       } else {
-        throw new RequestFailureException("Unable to revise submission");
+        throw new RequestFailureException("Impossible de réviser la soumission");
       }
     } catch (ODKFormNotFoundException e) {
       e.printStackTrace();
       throw new FormNotAvailableException(e);
     } catch (ODKEntityNotFoundException e) {
       e.printStackTrace();
-      throw new RequestFailureException("Entity not found");
+      throw new RequestFailureException("Entité non trouvée");
     } catch (ODKOverQuotaException e) {
       e.printStackTrace();
       throw new RequestFailureException(QUOTA_EXCEEDED);
@@ -423,7 +423,7 @@ public class FormAdminServiceImpl extends XsrfProtectedServiceServlet implements
     PurgeOlderSubmissions pos = (PurgeOlderSubmissions) cc.getBean(PURGE_OLDER_SUBMISSIONS_BEAN);
 
     if (pos == null) {
-      throw new RequestFailureException("Unable to configure task to purge submitted data for form " + formId);
+      throw new RequestFailureException("Impossible de configurer la tâche pour purger les données soumises pour le formulaire " + formId);
     }
     // set up the purge request here...
     Map<String, String> parameters = new HashMap<>();
@@ -440,7 +440,7 @@ public class FormAdminServiceImpl extends XsrfProtectedServiceServlet implements
     } catch (ODKDatastoreException e) {
       e.printStackTrace();
       throw new RequestFailureException(
-          "Unable to establish task to purge submitted data for form " + formId);
+          "Impossible d'établir la tâche pour purger les données soumises pour le formulaire " + formId);
     }
     CallingContext ccDaemon = getCallingContext(this, req);
     ccDaemon.setAsDaemon(true);

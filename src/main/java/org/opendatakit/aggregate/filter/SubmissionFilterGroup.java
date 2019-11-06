@@ -155,7 +155,7 @@ public class SubmissionFilterGroup extends CommonFieldsBase {
 
   public void setFormId(String formId) {
     if (!setStringField(FORM_ID_PROPERTY, formId)) {
-      throw new IllegalArgumentException("overflow form id");
+      throw new IllegalArgumentException("débordement  form id");
     }
   }
 
@@ -165,13 +165,13 @@ public class SubmissionFilterGroup extends CommonFieldsBase {
 
   public void setName(String groupName) {
     if (!setStringField(NAME_PROPERTY, groupName)) {
-      throw new IllegalArgumentException("overflow name");
+      throw new IllegalArgumentException("débordement  name");
     }
   }
 
   public void setUriUser(String uriUser) {
     if (!setStringField(URI_USER_PROPERTY, uriUser)) {
-      throw new IllegalArgumentException("overflow uriUser");
+      throw new IllegalArgumentException("débordement  uriUser");
     }
   }
 

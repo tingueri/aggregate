@@ -26,8 +26,8 @@ import org.opendatakit.aggregate.client.SecureGWT;
 public class MarkSubmissionCompleteButton extends AggregateButton implements ClickHandler {
 
   private static final String BUTTON_TXT = "Mark Complete";
-  private static final String TOOLTIP_TEXT = "Mark Submission as COMPLETE";
-  private static final String HELP_BALLOON_TXT = "Mark Submission as complete so that it will show up in the UI. A submission may be incomplete because of transmission problems or another unknown reason.";
+  private static final String TOOLTIP_TEXT = "Marquer la soumission comme COMPLETE";
+  private static final String HELP_BALLOON_TXT = "Marquez la soumission comme complète afin qu’elle apparaisse dans l’UI. Une soumission peut être incomplète en raison de problèmes de transmission ou d'une autre raison inconnue..";
 
   private final String submissionKeyAsString;
 

@@ -42,12 +42,12 @@ public class ExportTable extends FlexTable {
 
   public ExportTable() {
     super();
-    this.setHTML(0, 1, "<h2 id=\"form_name\">Exported Files</h2>");
-    this.setText(HEADER_ROW, FILE_TYPE, "File Type");
+    this.setHTML(0, 1, "<h2 id=\"form_name\">Fichiers exportés</h2>");
+    this.setText(HEADER_ROW, FILE_TYPE, "Type fichier");
     this.setText(HEADER_ROW, STATUS, "Status");
-    this.setText(HEADER_ROW, TIME_COMPLETED, "Time Completed");
-    this.setText(HEADER_ROW, DOWNLOAD_FILE, "Download File");
-    this.setText(HEADER_ROW, DELETE, "Delete");
+    this.setText(HEADER_ROW, TIME_COMPLETED, "Fait le");
+    this.setText(HEADER_ROW, DOWNLOAD_FILE, "Fichier Télécharger");
+    this.setText(HEADER_ROW, DELETE, "Supprimer");
     this.addStyleName("exportTable");
     this.getRowFormatter().addStyleName(1, "titleBar");
   }

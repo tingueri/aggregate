@@ -26,10 +26,10 @@ import java.io.Serializable;
 public enum FormActionStatus implements Serializable {
 
   IN_PROGRESS("Active"), // created or task is running
-  RETRY_IN_PROGRESS("Retrying"), // task is running
-  FAILED("Scheduled"),    // task completed with failure; retry again later.
-  ABANDONED("Failed"), // task completed with failure; no more retries should occur.
-  SUCCESSFUL("Successful"); // task completed successfully.
+  RETRY_IN_PROGRESS("Réessayer"), // task is running
+  FAILED("Planifié"),    // task completed with failure; retry again later.
+  ABANDONED("Échoué"), // task completed with failure; no more retries should occur.
+  SUCCESSFUL("Succes"); // task completed successfully.
 
   private String displayText;
 

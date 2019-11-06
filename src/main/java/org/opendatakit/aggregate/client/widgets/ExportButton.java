@@ -23,9 +23,9 @@ import org.opendatakit.aggregate.client.popups.ExportPopup;
 
 public final class ExportButton extends AggregateButton implements ClickHandler {
 
-  private static final String BUTTON_TXT = "<img src=\"images/green_right_arrow.png\" /> Export";
-  private static final String TOOLTIP_TEXT = "Export the data";
-  private static final String HELP_BALLOON_TXT = "Export the data to a CSV or KML file.";
+  private static final String BUTTON_TXT = "<img src=\"images/green_right_arrow.png\" /> Exporter";
+  private static final String TOOLTIP_TEXT = "Exporter les données";
+  private static final String HELP_BALLOON_TXT = "Exporter les données dans un fichier CSV ou KML.";
 
   private final String formId;
   private final FilterGroup selectedFilterGroup;

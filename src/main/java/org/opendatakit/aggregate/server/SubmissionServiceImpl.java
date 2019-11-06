@@ -187,7 +187,7 @@ public class SubmissionServiceImpl extends RemoteServiceServlet implements
       PersistentResults p = new PersistentResults(key, cc);
       PersistentResults.ResultFileInfo info = p.getResultFileInfo(cc);
       if (info == null) {
-        throw new RequestFailureException("Unable to retrieve attachment");
+        throw new RequestFailureException("Impossible de récupérer la pièce jointe");
       }
       resultFileContents = p.getResultFileContents(cc);
 
@@ -196,7 +196,7 @@ public class SubmissionServiceImpl extends RemoteServiceServlet implements
       throw new RequestFailureException(e);
     } catch (ODKDatastoreException e) {
       e.printStackTrace();
-      throw new RequestFailureException("Unable to retrieve attachment");
+      throw new RequestFailureException("Impossible de récupérer la pièce jointe");
     }
     return resultFileContents;
   }
@@ -209,7 +209,7 @@ public class SubmissionServiceImpl extends RemoteServiceServlet implements
         SubmissionKeyPart p = parts.get(parts.size() - 1);
         Long ord = p.getOrdinalNumber();
         if (ord == null) {
-          throw new RequestFailureException("attachment request must be fully qualified");
+          throw new RequestFailureException("demande de pièce jointe doit être pleinement qualifié");
         }
         ordinal = ord.intValue();
       }
@@ -220,7 +220,7 @@ public class SubmissionServiceImpl extends RemoteServiceServlet implements
       throw new RequestFailureException(e);
     } catch (ODKDatastoreException e) {
       e.printStackTrace();
-      throw new RequestFailureException("Unable to retrieve attachment");
+      throw new RequestFailureException("Impossible de récupérer la pièce jointe");
     }
     return blob;
   }
@@ -234,12 +234,12 @@ public class SubmissionServiceImpl extends RemoteServiceServlet implements
       if (v instanceof BlobSubmissionType) {
         b = (BlobSubmissionType) v;
       } else {
-        throw new RequestFailureException("Requested element is not a binary object");
+        throw new RequestFailureException("L'élément demandé n'est pas un objet binaire");
       }
     } catch (Exception e) {
       e.printStackTrace();
       String path = getKeyPath(parts);
-      throw new RequestFailureException("Unable to retrieve part identified by path: " + path);
+      throw new RequestFailureException("Impossible de récupérer la pièce identifiée par le chemin: " + path);
     }
     return b;
   }
@@ -256,7 +256,7 @@ public class SubmissionServiceImpl extends RemoteServiceServlet implements
       throw new RequestFailureException(e);
     } catch (ODKDatastoreException e) {
       e.printStackTrace();
-      throw new RequestFailureException("Unable to retrieve attachment");
+      throw new RequestFailureException("Impossible de récupérer la pièce jointe");
     }
     return sub;
   }

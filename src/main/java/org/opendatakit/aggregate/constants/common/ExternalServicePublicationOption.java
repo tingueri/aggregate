@@ -28,9 +28,9 @@ import java.io.Serializable;
  * @author mitchellsundt@gmail.com
  */
 public enum ExternalServicePublicationOption implements Serializable {
-  UPLOAD_ONLY("Upload Existing Submission Data ONLY"),
-  STREAM_ONLY("Stream New Submission Data ONLY"),
-  UPLOAD_N_STREAM("BOTH Upload Existing & Stream New Submission Data");
+  UPLOAD_ONLY("Télécharger les données de soumission existantes UNIQUEMENT"),
+  STREAM_ONLY("Diffuser les nouvelles données de soumission UNIQUEMENT"),
+  UPLOAD_N_STREAM("Télécharger les données existantes et les nouvelles données de soumission");
 
   private String descriptionOfOption;
 

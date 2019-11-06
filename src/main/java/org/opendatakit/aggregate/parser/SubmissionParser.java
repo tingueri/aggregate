@@ -278,7 +278,7 @@ public class SubmissionParser {
         } catch (ODKDatastoreException e) {
           Logger logger = LoggerFactory.getLogger(Submission.class);
           e.printStackTrace();
-          logger.error("Unable to reconstruct submission for " + fi.getSchemaName() + "."
+          logger.error("Impossible de reconstruire la soumission pour " + fi.getSchemaName() + "."
               + fi.getTableName() + " uri " + fi.getUri());
           if ((e instanceof ODKEntityNotFoundException) ||
               (e instanceof ODKEnumeratedElementException)) {
@@ -317,7 +317,7 @@ public class SubmissionParser {
         } catch (Exception ex) {
           // ignore... we are rolling back...
         }
-        throw new ODKDatastoreException("Unable to persist data", e);
+        throw new ODKDatastoreException("Impossible de conserver les données", e);
       }
     } finally {
       modificationLock.release();
@@ -338,9 +338,9 @@ public class SubmissionParser {
 
     // verify that the xml matches the node we are processing...
     if (!currentSubmissionElement.getLocalName().equals(submissionTag)) {
-      throw new ODKParseException("Xml document element tag: "
+      throw new ODKParseException("Balise d'élément de document XML: "
           + currentSubmissionElement.getLocalName()
-          + " does not match the xform data model tag name: " + submissionTag);
+          + " ne correspond pas au nom de balise du modèle de données xform: " + submissionTag);
     }
 
     // get the structure under the fdm tag name...
@@ -398,7 +398,7 @@ public class SubmissionParser {
                 cc);
             repeats.addSubmissionSet(repeatableSubmissionSet);
           } else {
-            throw new IllegalStateException("incrementing repeats by more than one!");
+            throw new IllegalStateException("incrémentation de répétitions de plus d'un!");
           }
           // populate the instance's submission set with values from e...
           complete = complete

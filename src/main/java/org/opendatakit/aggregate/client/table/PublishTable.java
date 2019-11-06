@@ -52,15 +52,15 @@ public class PublishTable extends FlexTable {
   public PublishTable() {
     super();
     this.setText(HEADER_ROW, PURGE_DATA, " ");
-    this.setText(HEADER_ROW, CREATED_BY, "Created By");
-    this.setText(HEADER_ROW, STATUS, "Status");
-    this.setText(HEADER_ROW, LAST_PUBLISHED, "Published Through");
-    this.setText(HEADER_ROW, TIME_PUBLISH_START, "Start Date");
+    this.setText(HEADER_ROW, CREATED_BY, "Créé par");
+    this.setText(HEADER_ROW, STATUS, "Statut");
+    this.setText(HEADER_ROW, LAST_PUBLISHED, "Publié par");
+    this.setText(HEADER_ROW, TIME_PUBLISH_START, "Date de début");
     this.setText(HEADER_ROW, ACTION, "Action");
     this.setText(HEADER_ROW, TYPE, "Type");
-    this.setText(HEADER_ROW, OWNERSHIP, "Owner");
-    this.setText(HEADER_ROW, NAME, "Name");
-    this.setText(HEADER_ROW, DELETE, "Delete");
+    this.setText(HEADER_ROW, OWNERSHIP, "Propriétaire");
+    this.setText(HEADER_ROW, NAME, "Nom");
+    this.setText(HEADER_ROW, DELETE, "Supprimer");
     this.addStyleName("exportTable");
     this.getRowFormatter().addStyleName(HEADER_ROW, "titleBar");
   }

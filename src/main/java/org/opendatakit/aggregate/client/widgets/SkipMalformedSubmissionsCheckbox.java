@@ -28,9 +28,9 @@ import org.opendatakit.aggregate.client.preferences.Preferences.PreferencesCompl
 
 public final class SkipMalformedSubmissionsCheckbox extends AggregateCheckBox implements ValueChangeHandler<Boolean> {
 
-  private static final String LABEL = "Skip malformed submissions (exports, publishing) (ignores corrupted submissions)";
-  private static final String TOOLTIP_TXT = "Enable/Disable skipping of malformed submissions";
-  private static final String HELP_BALLOON_TXT = "Check this box if your exports or publishers are failing due to a malformed submission. The need for this is very rare and this should generally not be checked.";
+  private static final String LABEL = "Ignorer les envois mal formés (exportations, publication) (ignore les envois corrompus)";
+  private static final String TOOLTIP_TXT = "Activer / désactiver le saut des soumissions mal formées";
+  private static final String HELP_BALLOON_TXT = "Cochez cette case si vos exportations ou vos éditeurs échouent en raison d'une soumission malformée. Ce besoin est très rare et ne doit généralement pas être vérifié.";
 
   private PreferencesCompletionCallback settingsChange;
 

@@ -26,9 +26,9 @@ import org.opendatakit.aggregate.constants.common.UIConsts;
 
 public final class UploadUsersAndPermsServletPopupButton extends AggregateButton {
 
-  private static final String UPLOAD_USERS_AND_PERMS_CSV_TXT = "Upload Users and Capabilities .csv";
-  private static final String UPLOAD_USERS_AND_PERMS_CSV_TOOLTIP_TXT = "Configure users and their capabilities using a .csv file";
-  private static final String UPLOAD_USERS_AND_PERMS_CSV_BALLOON_TXT = "Additional information may be found under the Usage section of the pop-up.";
+  private static final String UPLOAD_USERS_AND_PERMS_CSV_TXT = "Télécharger des utilisateurs et des fonctionnalités .csv";
+  private static final String UPLOAD_USERS_AND_PERMS_CSV_TOOLTIP_TXT = "Configurer les utilisateurs et leurs fonctionnalités à l'aide d'un fichier .csv";
+  private static final String UPLOAD_USERS_AND_PERMS_CSV_BALLOON_TXT = "Des informations supplémentaires sont disponibles dans la section Utilisation de la fenêtre contextuelle.";
   private static final String UPLOAD_USERS_AND_PERMS_CSV_BUTTON_TEXT = "<img src=\"images/yellow_plus.png\" /> "
       + UPLOAD_USERS_AND_PERMS_CSV_TXT;
 

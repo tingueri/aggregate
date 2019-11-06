@@ -143,7 +143,7 @@ public final class FormServiceCursor extends CommonFieldsBase {
     } finally {
       if (!deleted) {
         Logger logger = LoggerFactory.getLogger(FormServiceCursor.class);
-        logger.error("Unable to delete FormServiceCursor: " + service.getFormServiceCursor().getUri());
+        logger.error("Impossible de supprimer FormServiceCursor: " + service.getFormServiceCursor().getUri());
       }
     }
     taskLock = ds.createTaskLock(user);
@@ -272,7 +272,7 @@ public final class FormServiceCursor extends CommonFieldsBase {
 
   public void setExternalServiceOption(ExternalServicePublicationOption value) {
     if (!setStringField(EXTERNAL_SERVICE_OPTION, value.name())) {
-      throw new IllegalArgumentException("overflow externalServiceOption");
+      throw new IllegalArgumentException("débordement externalServiceOption");
     }
   }
 
@@ -292,7 +292,7 @@ public final class FormServiceCursor extends CommonFieldsBase {
 
   public void setOperationalStatus(OperationalStatus value) {
     if (!setStringField(OPERATIONAL_STATUS, value.name())) {
-      throw new IllegalArgumentException("overflow operationalStatus");
+      throw new IllegalArgumentException("débordement opérationnel");
     }
   }
 
@@ -326,7 +326,7 @@ public final class FormServiceCursor extends CommonFieldsBase {
 
   public void setLastUploadKey(String value) {
     if (!setStringField(LAST_UPLOAD_KEY_PROPERTY, value)) {
-      throw new IllegalArgumentException("overflow lastUploadKey");
+      throw new IllegalArgumentException("débordement lastUploadKey");
     }
   }
 
@@ -344,7 +344,7 @@ public final class FormServiceCursor extends CommonFieldsBase {
 
   public void setLastStreamingKey(String value) {
     if (!setStringField(LAST_STREAMING_KEY_PROPERTY, value)) {
-      throw new IllegalArgumentException("overflow lastStreamingKey");
+      throw new IllegalArgumentException("débordement lastStreamingKey");
     }
   }
 
@@ -354,13 +354,13 @@ public final class FormServiceCursor extends CommonFieldsBase {
 
   public void setAuriService(String value) {
     if (!setStringField(AURI_SERVICE_PROPERTY, value)) {
-      throw new IllegalArgumentException("overflow auriService");
+      throw new IllegalArgumentException("débordement auriService");
     }
   }
 
   public void setUriMd5FormId(String value) {
     if (!setStringField(URI_MD5_FORM_ID_PROPERTY, value)) {
-      throw new IllegalArgumentException("overflow uriMd5FormId");
+      throw new IllegalArgumentException("débordement uriMd5FormId");
     }
   }
 
@@ -370,7 +370,7 @@ public final class FormServiceCursor extends CommonFieldsBase {
 
   public void setFormId(String value) {
     if (!setStringField(FORM_ID_PROPERTY, value)) {
-      throw new IllegalArgumentException("overflow formId");
+      throw new IllegalArgumentException("débordement formId");
     }
   }
 

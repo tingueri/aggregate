@@ -89,7 +89,7 @@ public final class GoogleSpreadsheet2RepeatParameterTable extends CommonFieldsBa
 
   public void setUriGoogleSpreadsheet(String value) {
     if (!setStringField(URI_GOOGLE_SPREADSHEET, value)) {
-      throw new IllegalArgumentException("overflow uriGoogleSpreadsheet");
+      throw new IllegalArgumentException("débordement uriGoogleSpreadsheet");
     }
   }
 
@@ -99,7 +99,7 @@ public final class GoogleSpreadsheet2RepeatParameterTable extends CommonFieldsBa
 
   public void setWorksheetId(String value) {
     if (!setStringField(WORKSHEET_ID, value)) {
-      throw new IllegalArgumentException("overflow worksheetId");
+      throw new IllegalArgumentException("débordement worksheetId");
     }
   }
 
@@ -111,7 +111,7 @@ public final class GoogleSpreadsheet2RepeatParameterTable extends CommonFieldsBa
 
   public void setFormElementKey(FormElementKey value) {
     if (!setStringField(FORM_ELEMENT_KEY_PROPERTY, value.toString())) {
-      throw new IllegalArgumentException("overflow formElementKey");
+      throw new IllegalArgumentException("débordement formElementKey");
     }
   }
 }

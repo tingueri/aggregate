@@ -103,17 +103,17 @@ public class ServicesAdminServiceImpl extends RemoteServiceServlet implements
       // Form is being deleted. Disallow exports.
       if (deletionTimestamp != null) {
         throw new RequestFailureException(
-            "Form is marked for deletion - publishing request for spreadsheet aborted.");
+            "Le formulaire est marqué pour suppression - la demande de publication de la feuille de calcul est annulée.");
       }
       IForm form = FormFactory.retrieveFormByFormId(formId, cc);
       if (!form.hasValidFormDefinition()) {
         throw new RequestFailureException(ErrorConsts.FORM_DEFINITION_INVALID);
       }
       if (ownerEmail == null || ownerEmail.length() == 0) {
-        throw new RequestFailureException("Owner email must be supplied.");
+        throw new RequestFailureException("L'email du propriétaire doit être fourni.");
       }
       if (name == null || name.length() == 0) {
-        throw new RequestFailureException("Spreadsheet name must be supplied.");
+        throw new RequestFailureException("Le nom de la feuille de calcul doit être fourni.");
       }
       GoogleSpreadsheet spreadsheet = new GoogleSpreadsheet(form, name, esOption, ownerEmail, cc);
       spreadsheet.initiate(cc);
@@ -146,7 +146,7 @@ public class ServicesAdminServiceImpl extends RemoteServiceServlet implements
           .getFormDeletionStatusTimestampOfFormId(formId, cc);
       if (deletionTimestamp != null) {
         throw new RequestFailureException(
-            "Form is marked for deletion - publishing request for Simple JSON server aborted.");
+            "Le formulaire est marqué pour suppression - la demande de publication pour le serveur JSON simple est abandonnée.");
       }
       IForm form = FormFactory.retrieveFormByFormId(formId, cc);
       if (!form.hasValidFormDefinition()) {
@@ -232,14 +232,14 @@ public class ServicesAdminServiceImpl extends RemoteServiceServlet implements
         es = fsc.getExternalService(cc);
       }
       if (es == null) {
-        throw new RequestFailureException("Service description not found for this publisher");
+        throw new RequestFailureException("Description du service introuvable pour cet éditeur");
       }
       OperationalStatus status = fsc.getOperationalStatus();
       if (status != OperationalStatus.BAD_CREDENTIALS &&
           status != OperationalStatus.ABANDONED &&
           status != OperationalStatus.PAUSED) {
         throw new RequestFailureException(
-            "Rejecting change request -- publisher is not in a failure state");
+            "Rejeter la demande de modification - l'éditeur n'est pas en échec");
       }
       es.initiate(cc);
     } catch (RequestFailureException e) {

@@ -26,8 +26,8 @@ import org.opendatakit.aggregate.client.SecureGWT;
 
 public final class AcceptSubmissionCheckBox extends AggregateCheckBox implements ValueChangeHandler<Boolean> {
 
-  private static final String TOOLTIP_TXT = "Allow or disallow form to accept submissions";
-  private static final String HELP_BALLOON_TXT = "Check this box if you want your form to accept submissions. Otherwise leave unchecked.";
+  private static final String TOOLTIP_TXT = "Autoriser ou refuser au formulaire d'accepter les soumissions";
+  private static final String HELP_BALLOON_TXT = "Cochez cette case si vous souhaitez que votre formulaire accepte les soumissions. Sinon laisser non cochée.";
 
   private final String formId;
 

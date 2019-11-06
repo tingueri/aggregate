@@ -22,10 +22,10 @@ import org.opendatakit.aggregate.client.popups.RepeatPopup;
 
 public final class RepeatViewButton extends AggregateButton implements ClickHandler {
 
-  private static final String BUTTON_TXT = "View";
-  private static final String TOOLTIP_TXT = "View the items";
-  private static final String HELP_BALLOON_TXT = "This will open up a smaller popup table with the items" +
-      "you are requesting to view.";
+  private static final String BUTTON_TXT = "Vue";
+  private static final String TOOLTIP_TXT = "Voir les articles";
+  private static final String HELP_BALLOON_TXT = "Cela ouvrira une table popup plus petite avec les éléments" +
+      " que vous souhaitez voir.";
 
   private final String url;
 

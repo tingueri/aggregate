@@ -24,28 +24,28 @@ import org.opendatakit.aggregate.constants.HtmlUtil;
 public final class FormTableConsts {
 
   // form table headers
-  public static final String FT_HEADER_XFORM = "Xform Definition";
-  public static final String FT_HEADER_CSV = "Submissions in CSV";
-  public static final String FT_HEADER_RESULTS = "Submission Results";
-  public static final String FT_HEADER_USER = "User";
-  public static final String FT_HEADER_FORM_ID = "Identifier";
-  public static final String FT_HEADER_NAME = "Name";
-  public static final String FT_HEADER_KML = "KML File";
-  public static final String FT_HEADER_EXTERNAL_SERVICE = "Send Submissions to External Service";
-  public static final String FT_HEADER_QUERY = "Query Results";
+  public static final String FT_HEADER_XFORM = "Définition Xform";
+  public static final String FT_HEADER_CSV = "Soumissions en CSV";
+  public static final String FT_HEADER_RESULTS = "Résultats de la soumission";
+  public static final String FT_HEADER_USER = "Utilisateur";
+  public static final String FT_HEADER_FORM_ID = "Identifiant";
+  public static final String FT_HEADER_NAME = "Nom";
+  public static final String FT_HEADER_KML = "Fichier KML";
+  public static final String FT_HEADER_EXTERNAL_SERVICE = "Envoyer des soumissions à un service externe";
+  public static final String FT_HEADER_QUERY = "Résultats de la requête";
 
   // button text
-  public static final String XML_BUTTON_TXT = "View XML";
-  public static final String CSV_BUTTON_TXT = "Create CSV File";
-  public static final String RESULTS_BUTTON_TXT = "View Submissions";
-  public static final String EXTERNAL_SERVICE_BUTTON_TXT = "Add External Service Connection";
-  public static final String KML_BUTTON_TXT = "Create KML File";
-  public static final String QUERY_BUTTON_TXT = "Query";
+  public static final String XML_BUTTON_TXT = "Visualiser XML";
+  public static final String CSV_BUTTON_TXT = "Créer un fichier CSV";
+  public static final String RESULTS_BUTTON_TXT = "Visualiser les soumissions";
+  public static final String EXTERNAL_SERVICE_BUTTON_TXT = "Ajouter une connexion de service externe";
+  public static final String KML_BUTTON_TXT = "Créer un fichier KML";
+  public static final String QUERY_BUTTON_TXT = "Requête";
   // xml form list tags
   public static final String URL_ATTR = "url";
   // link text
-  public static final String VIEW_LINK_TEXT = "View";
-  public static final String DOWNLOAD_LINK_TEXT = "Download";
+  public static final String VIEW_LINK_TEXT = "Voir";
+  public static final String DOWNLOAD_LINK_TEXT = "Télécharger";
   public static final String FORMS_TAG = "forms";
   public static final String FORM_TAG = "form";
   public static final String BEGIN_FORMS_TAG = HtmlUtil.createBeginTag(FORMS_TAG);

@@ -63,7 +63,7 @@ public class XmlAttributeFormatter implements ElementFormatter {
         case META_DATE_MARKED_AS_COMPLETE:
           return ParserConsts.MARKED_AS_COMPLETE_DATE_ATTRIBUTE_NAME;
         default:
-          throw new IllegalStateException("Unrecognized metadata");
+          throw new IllegalStateException("Métadonnées non reconnues");
       }
     } else {
       return m.getElementName();
@@ -178,7 +178,7 @@ public class XmlAttributeFormatter implements ElementFormatter {
   @Override
   public void formatRepeats(SubmissionRepeat repeat, FormElementModel repeatElement, Row row,
                             CallingContext cc) {
-    throw new IllegalStateException("unimplemented");
+    throw new IllegalStateException("non implémenté");
   }
 
   @Override

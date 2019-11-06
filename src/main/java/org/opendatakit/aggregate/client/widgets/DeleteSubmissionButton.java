@@ -23,8 +23,8 @@ import org.opendatakit.aggregate.client.popups.ConfirmSubmissionDeletePopup;
 public final class DeleteSubmissionButton extends AggregateButton implements ClickHandler {
 
   private static final String BUTTON_TXT = "<img src=\"images/red_x.png\" />";
-  private static final String TOOLTIP_TEXT = "Delete Submission";
-  private static final String HELP_BALLOON_TXT = "Remove the submission from the database.";
+  private static final String TOOLTIP_TEXT = "Supprimer la soumission";
+  private static final String HELP_BALLOON_TXT = "Supprimer la soumission de la base de données.";
 
   private final String submissionKeyAsString;
 

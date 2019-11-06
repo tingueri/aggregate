@@ -32,9 +32,9 @@ import org.opendatakit.common.security.common.GrantedAuthorityName;
 public class FormsSubTab extends AggregateSubTabBase {
   // button text & styling
 
-  private static final String NEW_FORM_TXT = "Add New Form";
-  private static final String NEW_FORM_TOOLTIP_TXT = "Upload NEW form";
-  private static final String NEW_FORM_BALLOON_TXT = "Upload a NEW form to Aggregate.";
+  private static final String NEW_FORM_TXT = "Ajouter un nouveau formulaire";
+  private static final String NEW_FORM_TOOLTIP_TXT = "Téléchargez le nouveau formulaire";
+  private static final String NEW_FORM_BALLOON_TXT = "Téléchargez un nouveau formulaire pour Peogo Survey.";
   private static final String NEW_FORM_BUTTON_TEXT = "<img src=\"images/yellow_plus.png\" /> "
       + NEW_FORM_TXT;
 

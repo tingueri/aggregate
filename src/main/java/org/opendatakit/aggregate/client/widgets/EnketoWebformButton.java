@@ -30,17 +30,17 @@ import org.opendatakit.aggregate.constants.common.UIConsts;
 
 public class EnketoWebformButton extends AggregateButton implements ClickHandler {
 
-  private static final String ENKETO_ERROR_400 = "Malformed request, maybe parameters are missing";
-  private static final String ENKETO_ERROR_401 = "Authentication failed, incorrect or expired API token used or none at all";
-  private static final String ENKETO_ERROR_403 = "Authentication succeeded, but account is not active or quota is filled up";
-  private static final String ENKETO_ERROR_404 = "Resource was not found in database";
-  private static final String ENKETO_ERROR_405 = "Request not allowed. You may not have API access on your plan";
-  private static final String ENKETO_ERROR_410 = "This API endpoint is deprecated in this version";
-  private static final String ENKETO_ERROR_411 = "Form doest not exist in the specified aggregate server";
+  private static final String ENKETO_ERROR_400 = "Requête mal formée, peut-être qu'il manque des paramètres";
+  private static final String ENKETO_ERROR_401 = "L'authentification a échoué, le jeton de l'API incorrect ou expiré est utilisé ou aucun";
+  private static final String ENKETO_ERROR_403 = "L'authentification a réussi, mais le compte n'est pas actif ou le quota est atteint";
+  private static final String ENKETO_ERROR_404 = "La ressource n'a pas été trouvée dans la base de données";
+  private static final String ENKETO_ERROR_405 = "Demande non autorisée. Vous pouvez ne pas avoir d'accès à l'API sur votre plan";
+  private static final String ENKETO_ERROR_410 = "Ce endpoint est obsolète dans cette version";
+  private static final String ENKETO_ERROR_411 = "Le formulaire n'existe pas dans le serveur d'agrégat spécifié";
   private static final String ENKETO_IMAGE = "<img src=\"images/enketo.ico\" />";
   private static final String BUTTON_TXT = "<img src=\"images/enketo.ico\" /> Enketo Webform";
-  private static final String TOOLTIP_TXT = "Open in Enketo Webform";
-  private static final String HELP_BALLOON_TXT = "This will open the xlsform as Enketo Webform";
+  private static final String TOOLTIP_TXT = "Ouvrir dans Enketo Webform";
+  private static final String HELP_BALLOON_TXT = "Cela ouvrira le xlsform comme Enketo Webform";
   private static final String ENKETO_API_URL = "enketo_api_url=";
   private static final String ENKETO_API_TOKEN = "&enketo_api_token=";
   private static final String ENKETO_API_FORM_ID = "&form_id=";

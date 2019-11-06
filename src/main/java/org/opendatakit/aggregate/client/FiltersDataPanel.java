@@ -71,12 +71,12 @@ public class FiltersDataPanel extends ScrollPanel {
     filterGroupButtons.setWidget(0, 2, removeButton);
     panel.add(filterGroupButtons);
 
-    HTML filterText = new HTML("<h2 id=\"filter_header\">Filters Applied</h2>");
+    HTML filterText = new HTML("<h2 id=\"filter_header\">Filtres appliqués</h2>");
     filterText.getElement().setId("filter_desc_title");
 
     VerticalPanel filterGlobal = new VerticalPanel();
     FlexTable paginationTable = new FlexTable();
-    paginationTable.setHTML(0, 0, "<p id=\"filter_header\">Submissions per page</p>");
+    paginationTable.setHTML(0, 0, "<p id=\"filter_header\">Soumissions par page</p>");
     paginationTable.setWidget(0, 1, new PaginationNumTextBox(parentSubTab));
     filterGlobal.add(paginationTable);
     filterGlobal.add(filterText);

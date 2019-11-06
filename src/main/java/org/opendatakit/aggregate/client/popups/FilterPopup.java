@@ -43,22 +43,21 @@ import org.opendatakit.aggregate.constants.common.Visibility;
 
 public final class FilterPopup extends AbstractPopupBase {
 
-  private static final String VISIBILITY_TOOLTIP = "Whether the filter should show or hide the data.";
+  private static final String VISIBILITY_TOOLTIP = "Indique si le filtre doit afficher ou masquer les données.";
   private static final String VISIBILITY_BALLOON =
-      "Select whether your criteria will show or hide the data.";
-  private static final String ROW_COL_TOOLTIP = "Filter with columns or rows";
-  private static final String ROW_COL_BALLOON = "Select whether you want to filter with columns or rows.";
-  private static final String COLUMN_TOOLTIP_RF = "Column to be evaluated upon";
-  private static final String COLUMN_BALLOON_RF = "Select the column whose values will be evaluated.";
-  private static final String COLUMN_TOOLTIP_CF = "Column to work with";
-  private static final String COLUMN_BALLOON_CF = "Select the column(s) to specify in the filter.";
-  private static final String FILTER_OP_TOOLTIP = "Filter operation to apply";
-  private static final String FILTER_OP_BALLOON = "Select the operation to use in the filter.";
+      "Choisissez si vos critères afficheront ou masqueront les données.";
+  private static final String ROW_COL_TOOLTIP = "Filtrer avec des colonnes ou des lignes";
+  private static final String ROW_COL_BALLOON = "Indiquez si vous souhaitez filtrer avec des colonnes ou des lignes.";
+  private static final String COLUMN_TOOLTIP_RF = "Colonne à évaluer sur";
+  private static final String COLUMN_BALLOON_RF = "Sélectionnez la colonne dont les valeurs seront évaluées.";
+  private static final String COLUMN_TOOLTIP_CF = "Colonne avec laquelle travailler";
+  private static final String COLUMN_BALLOON_CF = "Sélectionnez la ou les colonnes à spécifier dans le filtre.";
+  private static final String FILTER_OP_TOOLTIP = "Opération de filtrage à appliquer";
+  private static final String FILTER_OP_BALLOON = "Sélectionnez l'opération à utiliser dans le filtre.";
 
-  private static final String APPLY_FILTER_TXT = "<img src=\"images/green_check.png\" /> Apply Filter";
-  private static final String APPLY_FILTER_TOOLTIP = "Use the created filter";
-  private static final String APPLY_FILTER_HELP_BALLOON = "This will apply the filter specified.  This will"
-      + " need to be saved in order to use it at a later time.";
+  private static final String APPLY_FILTER_TXT = "<img src=\"images/green_check.png\" /> Appliquer le filtre";
+  private static final String APPLY_FILTER_TOOLTIP = "Utilisez le filtre créé";
+  private static final String APPLY_FILTER_HELP_BALLOON = "Ceci appliquera le filtre spécifié. Cela devra être sauvegardé pour pouvoir l'utiliser ultérieurement.";
 
   private final FilterGroup group;
   private final FlexTable table;
@@ -143,19 +142,19 @@ public final class FilterPopup extends AbstractPopupBase {
     optionsBar.addStyleName("flexTableBorderTopStretchWidth");
 
     creationBar = new FlexTable();
-    creationBar.setWidget(0, 0, new HTML("<h2>Create filter to "));
+    creationBar.setWidget(0, 0, new HTML("<h2>Créer un filtre pour "));
     creationBar.setWidget(0, 1, visibility);
     creationBar.setWidget(0, 2, rowCol);
     creationBar.setWidget(0, 3, new HTML("<h2>...</h2>"));
 
     rowBar = new FlexTable();
-    rowBar.setWidget(0, 0, new HTML("<h3>...where </h3>"));
+    rowBar.setWidget(0, 0, new HTML("<h3>...où </h3>"));
     rowBar.setWidget(0, 1, columnForRowFilter);
     rowBar.setWidget(0, 2, filterOp);
     rowBar.setWidget(0, 3, filterValue);
 
     columnBar = new FlexTable();
-    columnBar.setWidget(0, 0, new HTML("<h3>...titled</h3>"));
+    columnBar.setWidget(0, 0, new HTML("<h3>...titré</h3>"));
     columnBar.setWidget(0, 1, columnsForColumnFilter);
 
     optionsBar.setWidget(0, 0, creationBar);

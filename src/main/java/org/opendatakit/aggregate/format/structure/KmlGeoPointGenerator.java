@@ -50,7 +50,7 @@ import org.opendatakit.common.web.constants.HtmlConsts;
  */
 public class KmlGeoPointGenerator extends AbstractKmlElementBase implements RepeatCallbackFormatter {
 
-  private static final String LIMITATION_MSG = "limitation: image and title must be in the submission (top-level) or must be in the same repeat group as the gps";
+  private static final String LIMITATION_MSG = "limitation: l'image et le titre doivent figurer dans la soumission (niveau supérieur) ou doivent figurer dans le même groupe de répétitions que le GPS";
 
   private static final int APPROX_ITEM_LENGTHS = 100;
   private static final int APPROX_TABLE_FORMATTING_LENGTH = 1000;

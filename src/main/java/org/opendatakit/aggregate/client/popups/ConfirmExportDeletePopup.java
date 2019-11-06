@@ -38,17 +38,17 @@ import org.opendatakit.aggregate.client.widgets.ClosePopupButton;
 public final class ConfirmExportDeletePopup extends AbstractPopupBase {
 
   private static final String BUTTON_ICON = "<img src=\"images/green_right_arrow.png\"/>";
-  private static final String TOOLTIP_TXT = "Remove this exported datafile";
-  private static final String HELP_BALLOON_TXT = "This will remove this exported datafile. You will no longer be able to download this datafile.";
+  private static final String TOOLTIP_TXT = "Supprimer ce fichier de données exporté";
+  private static final String HELP_BALLOON_TXT = "Cela supprimera ce fichier de données exporté. Vous ne pourrez plus télécharger ce fichier de données.";
 
   public ConfirmExportDeletePopup(ExportSummary export) {
     super();
 
     String action = (export.getStatus() == AVAILABLE || export.getStatus() == ABANDONED)
-        ? "remove"
-        : "cancel generation and remove";
+        ? "Supprimer"
+        : "annuler la génération et supprimer";
 
-    String buttonTxt = BUTTON_ICON + action + " exported datafile";
+    String buttonTxt = BUTTON_ICON + action + " fichier de données exporté";
     AggregateButton deleteButton = new AggregateButton(buttonTxt, TOOLTIP_TXT, HELP_BALLOON_TXT);
     deleteButton.addClickHandler(event -> {
       secureRequest(
@@ -63,9 +63,9 @@ public final class ConfirmExportDeletePopup extends AbstractPopupBase {
     FlexTable layout = new FlexTable();
 
     HTML message = new HTML(new SafeHtmlBuilder()
-        .appendEscaped("Delete this exported datafile?")
+        .appendEscaped("Supprimer ce fichier de données exporté?")
         .appendHtmlConstant("<br/>")
-        .appendEscaped("Do you wish to " + action + " this exported datafile?")
+        .appendEscaped("Souhaitez-vous " + action + " ce fichier de données exporté?")
         .toSafeHtml());
     layout.setWidget(0, 0, message);
     layout.setWidget(0, 1, deleteButton);

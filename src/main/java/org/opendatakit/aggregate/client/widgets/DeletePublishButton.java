@@ -26,9 +26,9 @@ import org.opendatakit.aggregate.client.popups.ConfirmPublishDeletePopup;
  */
 public final class DeletePublishButton extends AggregateButton implements ClickHandler {
 
-  private static final String BUTTON_TXT = "<img src=\"images/red_x.png\" /> Delete";
-  private static final String TOOLTIP_TEXT = "Remove published data";
-  private static final String HELP_BALLOON_TXT = "This confirms that you want to delete the published data.";
+  private static final String BUTTON_TXT = "<img src=\"images/red_x.png\" /> Supprimer";
+  private static final String TOOLTIP_TEXT = "Supprimer les données publiées";
+  private static final String HELP_BALLOON_TXT = "Cela confirme que vous souhaitez supprimer les données publiées.";
 
   private final ExternServSummary publisher;
 

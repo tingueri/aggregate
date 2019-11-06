@@ -47,7 +47,7 @@ public class UrlHash {
 
   private native static void redirectTo(String url)
     /*-{
-      console.error("redirect to " + url);
+      console.error("rediriger vers " + url);
       $wnd.location.replace(url);
     }-*/;
 

@@ -75,7 +75,7 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
   /**
    * Title for generated webpage
    */
-  private static final String TITLE_INFO = "Define Users and Permssions via .csv Upload";
+  private static final String TITLE_INFO = "Définir les utilisateurs et les autorisations via le téléchargement d'un fichier .csv";
 
   private static final String UPLOAD_PAGE_BODY_START =
 
@@ -86,42 +86,42 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
   private static final String UPLOAD_PAGE_BODY_MIDDLE = "\">"
       + "     <table id=\"uploadTable\">"
       + "      <tr>"
-      + "         <td><label for=\"access_def_file\">users and capabilities csv file:</label></td>"
+      + "         <td><label for=\"access_def_file\">utilisateurs et fonctionnalités fichier csv:</label></td>"
       + "      </tr><tr>"
       + "         <td><input id=\"access_def_file\" type=\"file\" size=\"80\" class=\"gwt-Button\""
       + "            name=\"access_def_file\" /></td>"
       + "      </tr><tr>"
-      + "         <td><input id=\"reset_permissions\" type=\"submit\" name=\"button\" class=\"gwt-Button\" value=\"Update Permissions\" /></td>"
+      + "         <td><input id=\"reset_permissions\" type=\"submit\" name=\"button\" class=\"gwt-Button\" value=\"Mettre à jour les autorisations\" /></td>"
       + "         <td />"
       + "      </tr>"
       + "     </table>\n"
       + "     </form>"
       + "<br><br></td></tr>"
       + "<tr><td><p id=\"subHeading\"><h2>Usage</h2></p>"
-      + "<p>Use Excel or OpenOffice to create a spreadsheet with all of the server's users and their capabilities.</p>"
-      + "<p>Save that spreadsheet as a .csv file and upload it to ODK Aggregate. The server will:</p>"
-      + "<ol><li>remove any users not defined in this file,</li>"
-      + "<li>create users if they do not yet exist on the server, and</li>"
-      + "<li>alter all users' capabilities so that they match those defined in the .csv file.</li>"
+      + "<p>Utilisez Excel ou OpenOffice pour créer une feuille de calcul avec tous les utilisateurs du serveur et leurs fonctionnalités..</p>"
+      + "<p>Enregistrez cette feuille de calcul sous forme de fichier .csv et chargez-la dans PeogoSurvey. Le serveur va:</p>"
+      + "<ol><li>supprimer tous les utilisateurs non définis dans ce fichier,</li>"
+      + "<li>créer des utilisateurs s'ils n'existent pas encore sur le serveur, et</li>"
+      + "<li>modifier les fonctionnalités de tous les utilisateurs afin qu'ils correspondent à ceux définis dans le fichier .csv.</li>"
       + "</ol>"
-      + "<p>The .csv file can begin with any number of rows containing site-specific information <em>provided</em> these"
-      + " rows contain fewer than 4 columns.</p>"
-      + "<p>The first 4-cell-or-wider row is expected to contain the column headings"
-      + " for the users-and-capabilities table; each subsequent row defines a user on the system."
-      + " Blank rows are allowed and are ignored. Unrecognized column headings are ignored"
-      + " (these may be used for comments or other site-specific purposes).</p>"
-      + "<p>The users-and-capabilities table's column headings which ODK Aggregate interprets are:</p>"
+      + "<p>Le fichier .csv peut commencer par un nombre quelconque de lignes contenant des informations spécifiques au site <em> fournies </ em> ci-dessous."
+      + " les lignes contiennent moins de 4 colonnes.</p>"
+      + "<p>La première ligne de 4 cellules ou plus large devrait contenir les en-têtes de colonne"
+      + " pour la table des utilisateurs et des capacités; chaque ligne suivante définit un utilisateur sur le système."
+      + " Les lignes vierges sont autorisées et sont ignorées. Les en-têtes de colonne non reconnus sont ignorés"
+      + " (Celles-ci peuvent être utilisées pour des commentaires ou à d'autres fins spécifiques au site.).</p>"
+      + "<p>Les en-têtes de colonne du tableau utilisateurs-capacités interprétés par PeogoSurvey sont::</p>"
       + "<ul>"
-      + "<li><strong>Username</strong> - one of 'anonymousUser', an ODK Aggregate username, or an e-mail address.</li>"
-      + "<li><strong>Full Name</strong> - the friendly name displayed when referring to this username.</li>"
-      + "<li><strong>Account Type</strong> - one of 'ODK', 'Google' or empty (for anonymousUser)</li>"
-      + "<li><strong>Data Collector</strong> - any mark in this column grants this capability to this user.</li>"
-      + "<li><strong>Data Viewer</strong> - any mark in this column grants this capability to this user.</li>"
-      + "<li><strong>Form Manager</strong> - any mark in this column grants this capability to this user.</li>"
-      + "<li><strong>Site Administrator</strong> - any mark in this column grants this capability to this user.</li>"
+      + "<li><strong>Username</strong> - 'anonymousUser', ou un nom d'utilisateur PeogoSurvey ou une adresse électronique.</li>"
+      + "<li><strong>Full Name</strong> - le nom convivial affiché en se référant à ce nom d'utilisateur.</li>"
+      + "<li><strong>Account Type</strong> - 'ODK', ou 'Google' ou vide (pour anonymousUser)</li>"
+      + "<li><strong>Data Collector</strong> - toute marque dans cette colonne accorde cette possibilité à cet utilisateur.</li>"
+      + "<li><strong>Data Viewer</strong> - toute marque dans cette colonne accorde cette possibilité à cet utilisateur.</li>"
+      + "<li><strong>Form Manager</strong> - toute marque dans cette colonne accorde cette possibilité à cet utilisateur.</li>"
+      + "<li><strong>Site Administrator</strong> - toute marque dans cette colonne accorde cette possibilité à cet utilisateur.</li>"
       + "</ul>"
-      + "<p>Of these, only 'Username' and 'Account Type' are required to be present.</p><p>The server will prohibit some"
-      + " actions, such as deleting the super-user, or granting Site Administrator privileges to the anonymousUser</p>"
+      + "<p>Parmi ceux-ci, seul 'Username' and 'Account Type' sont obligatoire.</p><p>Le serveur interdira certaines"
+      + " actions telles que la suppression du super-utilisateur ou l'octroi de privilèges d'administrateur de site à anonymousUser</p>"
       + "</td></tr></tbody></table></div>\n";
 
   private static final Logger logger = LoggerFactory.getLogger(ResetUsersAndPermissionsServlet.class);
@@ -130,7 +130,7 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws
       IOException {
     if (req.getScheme().equals("http")) {
-      logger.warn("Resetting users and capabilities over http");
+      logger.warn("Réinitialisation des utilisateurs et des fonctionnalités via http");
     }
     CallingContext cc = ContextFactory.getCallingContext(this, req);
 
@@ -193,7 +193,7 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws
       IOException {
     if (req.getScheme().equals("http")) {
-      logger.warn("Resetting users and capabilities over http");
+      logger.warn("Réinitialisation des utilisateurs et des fonctionnalités via http");
     }
     CallingContext cc = ContextFactory.getCallingContext(this, req);
 
@@ -245,9 +245,9 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
           columns = csvReader.readNext();
 
           if (columns == null) {
-            logger.error("users and capabilities .csv upload - empty csv file");
+            logger.error("Utilisateurs et fonctionnalités .csv chargé - fichier csv vide");
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
-                ErrorConsts.MISSING_PARAMS + "\nusers and capabilities .csv is empty");
+                ErrorConsts.MISSING_PARAMS + "\nutilisateurs et fonctionnalités .csv est vide");
             return;
           }
 
@@ -268,8 +268,8 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
           break;
         }
         if (row != 1) {
-          logger.warn("users and capabilities .csv upload -- interpreting row " + row + " as the column header row");
-          warnings.append("<tr><td>Interpreting row " + row + " as the column header row.</td></tr>");
+          logger.warn("utilisateurs et fonctionnalités .csv upload - ligne d'interprétation " + row + " comme ligne d'en-tête de colonne");
+          warnings.append("<tr><td>"+ row+" lignes interprétée(s) " + " comme ligne d'en-tête de colonne.</td></tr>");
         }
 
         // TODO: validate column headings....
@@ -290,9 +290,9 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
           // 'Username' is required
           if ("Username".compareToIgnoreCase(heading) == 0) {
             if (idxUsername != -1) {
-              logger.error("users and capabilities .csv upload - invalid csv file -- column header 'Username' is repeated");
+              logger.error("utilisateurs et fonctionnalités .csv upload - fichier csv non valide - l'en-tête de colonne 'Nom d'utilisateur' est répété");
               resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
-                  ErrorConsts.MISSING_PARAMS + "\nusers and capabilities invalid .csv -- column header 'Username' is repeated");
+                  ErrorConsts.MISSING_PARAMS + "\nUtilisateurs et fonctionnalités non valides .csv - l'en-tête de colonne 'Nom d'utilisateur' est répété");
               return;
             }
             idxUsername = i;
@@ -300,9 +300,9 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
           // 'Full Name' is optional. The value in 'Username' will be used to construct this if unspecified.
           else if ("Full Name".compareToIgnoreCase(heading) == 0) {
             if (idxFullName != -1) {
-              logger.error("users and capabilities .csv upload - invalid csv file -- column header 'Full Name' is repeated");
+              logger.error("utilisateurs et fonctionnalités .csv chargé - fichier csv non valide - l'en-tête de colonne 'Full Name' est répété");
               resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
-                  ErrorConsts.MISSING_PARAMS + "\nusers and capabilities invalid .csv -- column header 'Full Name' is repeated");
+                  ErrorConsts.MISSING_PARAMS + "\nUtilisateurs et fonctionnalités non valides .csv - l'en-tête de colonne 'Full Name' est répété");
               return;
             }
             idxFullName = i;
@@ -310,9 +310,9 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
           // 'Account Type' is required
           else if ("Account Type".compareToIgnoreCase(heading) == 0) {
             if (idxUserType != -1) {
-              logger.error("users and capabilities .csv upload - invalid csv file -- column header 'Account Type' is repeated");
+              logger.error("Utilisateurs et fonctionnalités .csv chargé - Fichier csv non valide - L'en-tête de colonne 'Account Type' est répété");
               resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
-                  ErrorConsts.MISSING_PARAMS + "\nusers and capabilities invalid .csv -- column header 'Account Type' is repeated");
+                  ErrorConsts.MISSING_PARAMS + "\nUtilisateurs et fonctionnalités non valides .csv - l'en-tête de colonne 'Account Type' est répété");
               return;
             }
             idxUserType = i;
@@ -320,52 +320,52 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
           // Permissions columns begin here. All are optional
           else if ("Data Collector".compareToIgnoreCase(heading) == 0) {
             if (idxDataCollector != -1) {
-              logger.error("users and capabilities .csv upload - invalid csv file -- column header 'Data Collector' is repeated");
+              logger.error("Utilisateurs et fonctionnalités .csv chargé - Fichier csv non valide - L'en-tête de colonne 'Data Collector' est répété");
               resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
-                  ErrorConsts.MISSING_PARAMS + "\nusers and capabilities invalid .csv -- column header 'Data Collector' is repeated");
+                  ErrorConsts.MISSING_PARAMS + "\nutilisateurs et fonctionnalités non valides .csv - l'en-tête de colonne 'Data Collector' est répété");
               return;
             }
             idxDataCollector = i;
           } else if ("Data Viewer".compareToIgnoreCase(heading) == 0) {
             if (idxDataViewer != -1) {
-              logger.error("users and capabilities .csv upload - invalid csv file -- column header 'Data Viewer' is repeated");
+              logger.error("Utilisateurs et fonctionnalités .csv chargé - Fichier csv non valide - L'en-tête de colonne 'Data Viewer' est répété");
               resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
-                  ErrorConsts.MISSING_PARAMS + "\nusers and capabilities invalid .csv -- column header 'Data Viewer' is repeated");
+                  ErrorConsts.MISSING_PARAMS + "\nutilisateurs et fonctionnalités non valides .csv - l'en-tête de colonne 'Data Viewer' est répété");
               return;
             }
             idxDataViewer = i;
           } else if ("Form Manager".compareToIgnoreCase(heading) == 0) {
             if (idxFormManager != -1) {
-              logger.error("users and capabilities .csv upload - invalid csv file -- column header 'Form Manager' is repeated");
+              logger.error("utilisateurs et fonctionnalités .csv chargé - fichier csv non valide - l'en-tête de colonne 'Form Manager' est répété");
               resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
-                  ErrorConsts.MISSING_PARAMS + "\nusers and capabilities invalid .csv -- column header 'Form Manager' is repeated");
+                  ErrorConsts.MISSING_PARAMS + "\nUtilisateurs et fonctionnalités non valides .csv - l'en-tête de colonne 'Form Manager' est répété");
               return;
             }
             idxFormManager = i;
           } else if ("Site Administrator".compareToIgnoreCase(heading) == 0) {
             if (idxSiteAdmin != -1) {
-              logger.error("users and capabilities .csv upload - invalid csv file -- column header 'Site Administrator' is repeated");
+              logger.error("Utilisateurs et fonctionnalités .csv chargé - Fichier csv non valide - L'en-tête de colonne 'Site Administrator' est répété");
               resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
                   ErrorConsts.MISSING_PARAMS + "\nusers and capabilities invalid .csv -- column header 'Site Administrator' is repeated");
               return;
             }
             idxSiteAdmin = i;
           } else {
-            logger.warn("users and capabilities .csv upload - invalid csv file -- column header '" + heading + "' is not recognized");
-            warnings.append("<tr><td>Column header '" + heading + "' is not recognized and will be ignored.</tr></td>");
+            logger.warn("utilisateurs et fonctionnalités .csv chargé - fichier csv non valide - en-tête de colonne '" + heading + "' n'est pas reconnu");
+            warnings.append("<tr><td>En-tête de colonne '" + heading + "' n'est pas reconnu et sera ignoré.</tr></td>");
           }
         }
 
         if (idxUsername == -1) {
-          logger.error("users and capabilities .csv upload - invalid csv file");
+          logger.error("Utilisateurs et fonctionnalités .csv chargé - fichier csv invalide");
           resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
-              ErrorConsts.MISSING_PARAMS + "\nusers and capabilities invalid .csv -- column header 'Username' is missing");
+              ErrorConsts.MISSING_PARAMS + "\nUtilisateurs et fonctionnalités non valides .csv - l'en-tête de colonne 'Username' est manquant");
           return;
         }
         if (idxUserType == -1) {
-          logger.error("users and capabilities .csv upload - invalid csv file");
+          logger.error("Utilisateurs et fonctionnalités .csv chargé - fichier csv invalide");
           resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
-              ErrorConsts.MISSING_PARAMS + "\nusers and capabilities invalid .csv -- column header 'Account Type' is missing");
+              ErrorConsts.MISSING_PARAMS + "\nutilisateurs et fonctionnalités non valides .csv - l'en-tête de colonne 'Account Type' est manquant");
           return;
         }
 
@@ -390,7 +390,7 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
           // ignore rows where...
           // the row is not long enough to include the Username and Account Type columns
           if (columns.length <= idxUsername || columns.length <= idxUserType) {
-            warnings.append("<tr><td>Ignoring row " + row + " -- does not specify a Username and/or Account Type.</tr></td>");
+            warnings.append("<tr><td>Ignorer la ligne " + row + " -- ne spécifie pas de Username et/ou Account Type.</tr></td>");
             continue;
           }
 
@@ -398,7 +398,7 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
           // Username is not specified or it is not the anonymousUser and Account Type is blank
           if ((columns[idxUsername] == null || columns[idxUsername].trim().length() == 0) ||
               (!columns[idxUsername].equals(User.ANONYMOUS_USER) && (columns[idxUserType] == null || columns[idxUserType].trim().length() == 0))) {
-            warnings.append("<tr><td>Ignoring row " + row + " -- Username is not the " + User.ANONYMOUS_USER + " and no Account Type specified.</tr></td>");
+            warnings.append("<tr><td>Ignorer la ligne " + row + " -- Username n'est pas le " + User.ANONYMOUS_USER + " et aucun Account Type specifié.</tr></td>");
             continue;
           }
 
@@ -407,9 +407,9 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
           UserType type = (accType == null) ? UserType.ANONYMOUS : UserType.REGISTERED;
 
           if ((type != UserType.ANONYMOUS) && (columns[idxUsername] == null)) {
-            logger.error("users and capabilities .csv upload - invalid csv file");
+            logger.error("Utilisateurs et fonctionnalités .csv chargé - fichier csv invalide");
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
-                ErrorConsts.MISSING_PARAMS + "\nusers and capabilities invalid .csv -- username not specified");
+                ErrorConsts.MISSING_PARAMS + "\nutilisateurs et fonctionnalités non valides .csv - username non spécifié");
             return;
           }
 
@@ -425,19 +425,19 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
 
             Collection<Email> emails = EmailParser.parseEmails(columns[idxUsername]);
             if (emails.size() != 1) {
-              logger.error("users and capabilities .csv upload - invalid csv file");
+              logger.error("Utilisateurs et fonctionnalités .csv chargé - fichier csv invalide");
               resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
-                  ErrorConsts.MISSING_PARAMS + "\nusers and capabilities invalid .csv -- username \'" +
-                      columns[idxUsername] + "\' contains illegal characters (e.g., spaces)");
+                  ErrorConsts.MISSING_PARAMS + "\nUtilisateurs et fonctionnalités non valides .csv - username \'" +
+                      columns[idxUsername] + "\' contient des caractères illégaux (espaces, par exemple)");
               return;
             }
             email = null;
             Email parsedValue = emails.iterator().next();
             if (parsedValue.getType() == Form.EMAIL) {
-              logger.error("users and capabilities .csv upload - invalid csv file");
+              logger.error("Utilisateurs et fonctionnalités .csv chargé - fichier csv invalide");
               resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
-                  ErrorConsts.MISSING_PARAMS + "\nusers and capabilities invalid .csv -- username \'" +
-                      columns[idxUsername] + "\' You can't use an email as the account's username");
+                  ErrorConsts.MISSING_PARAMS + "\nUtilisateurs et fonctionnalités non valides .csv -- username \'" +
+                      columns[idxUsername] + "\' Vous ne pouvez pas utiliser un courrier électronique comme nom d'utilisateur du compte.");
               return;
             } else {
               username = parsedValue.getUsername();
@@ -446,16 +446,16 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
               fullname = parsedValue.getFullName();
             }
           } else if ("Google".equals(accType)) {
-            logger.error("users and capabilities .csv upload - invalid csv file");
+            logger.error("Utilisateurs et fonctionnalités .csv chargé - fichier csv invalide");
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
-                ErrorConsts.MISSING_PARAMS + "\nusers and capabilities invalid .csv -- Account Type \'" +
-                    accType + "\' is not supported");
+                ErrorConsts.MISSING_PARAMS + "\nUtilisateurs et fonctionnalités non valides .csv  -- Account Type \'" +
+                    accType + "\' n'est pas supporté");
             return;
           } else {
-            logger.error("users and capabilities .csv upload - invalid csv file");
+            logger.error("Utilisateurs et fonctionnalités .csv chargé - fichier csv invalide");
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
-                ErrorConsts.MISSING_PARAMS + "\nusers and capabilities invalid .csv -- Account Type \'" +
-                    accType + "\' is neither 'ODK' nor 'Google' nor blank (anonymous)");
+                ErrorConsts.MISSING_PARAMS + "\nUtilisateurs et fonctionnalités non valides .csv -- Account Type \'" +
+                    accType + "\' n'est ni 'ODK' ni 'Google' ni vierge (anonymous)");
             return;
           }
           UserSecurityInfo info = new UserSecurityInfo(username, fullname, email, type);
@@ -501,10 +501,10 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
           }
           for (Entry<String, HashSet<UserSecurityInfo>> entry : multipleRows.entrySet()) {
             if (entry.getValue().size() != 1) {
-              logger.error("users and capabilities .csv upload - invalid csv file");
+              logger.error("Utilisateurs et fonctionnalités .csv chargé - fichier csv invalide");
               resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
-                  ErrorConsts.MISSING_PARAMS + "\nusers and capabilities invalid .csv -- " +
-                      "multiple rows define the capabilities for the same username: " + entry.getKey());
+                  ErrorConsts.MISSING_PARAMS + "\nutilisateurs et fonctionnalités non valides .csv -- " +
+                      "plusieurs lignes définissent les capacités pour le même nom d'utilisateur: " + entry.getKey());
               return;
             }
           }
@@ -529,10 +529,10 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
           }
           for (Entry<String, HashSet<UserSecurityInfo>> entry : multipleRows.entrySet()) {
             if (entry.getValue().size() != 1) {
-              logger.error("users and capabilities .csv upload - invalid csv file");
+              logger.error("Utilisateurs et fonctionnalités .csv chargé - fichier csv invalide");
               resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
-                  ErrorConsts.MISSING_PARAMS + "\nusers and capabilities invalid .csv -- " +
-                      "multiple rows define the capabilities for the same e-mail: " +
+                  ErrorConsts.MISSING_PARAMS + "\nutilisateurs et fonctionnalités non valides .csv -- " +
+                      "plusieurs lignes définissent les fonctionnalités pour le même courrier électronique: " +
                       entry.getKey().substring(EmailParser.K_MAILTO.length()));
               return;
             }
@@ -544,10 +544,10 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
         for (UserSecurityInfo i : users) {
           if (i.getType() == UserType.ANONYMOUS) {
             if (anonUser != null) {
-              logger.error("users and capabilities .csv upload - invalid csv file");
+              logger.error("Utilisateurs et fonctionnalités .csv chargé - fichier csv invalide");
               resp.sendError(HttpServletResponse.SC_BAD_REQUEST,
-                  ErrorConsts.MISSING_PARAMS + "\nusers and capabilities invalid .csv -- " +
-                      "multiple rows define the capabilities for the anonymousUser - did you forget to specify Account Type?");
+                  ErrorConsts.MISSING_PARAMS + "\nutilisateurs et fonctionnalités non valides .csv -- " +
+                      "Plusieurs lignes définissent les fonctionnalités de anonymousUser. Avez-vous oublié de spécifier le type de compte?");
               return;
             }
             anonUser = i;
@@ -606,17 +606,17 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
           // header info
           beginBasicHtmlResponse(TITLE_INFO, headerString.toString(), resp, cc);
           if (warnings.length() != 0) {
-            out.write("<p>users and capabilities .csv uploaded with warnings.</p>"
+            out.write("<p>Utilisateurs et fonctionnalités .csv téléchargés avec avertissements.</p>"
                 + "<table>");
             out.write(warnings.toString());
             out.write("</table>");
           } else {
-            out.write("<p>Successful users and capabilities .csv upload.</p>");
+            out.write("<p>Utilisateurs et fonctionnalités .csv téléchargés avec succès.</p>");
           }
           out.write("<p>Click ");
 
-          out.write(HtmlUtil.createHref(cc.getWebApplicationURL(ADDR), "here", false));
-          out.write(" to return to Upload users and capabilities .csv page.</p>");
+          out.write(HtmlUtil.createHref(cc.getWebApplicationURL(ADDR), "ici", false));
+          out.write(" pour revenir à la page de téléchargement des utilisateurs et des fonctionnalités .csv.</p>");
           finishBasicHtmlResponse(resp);
         } else {
           addOpenRosaHeaders(resp);
@@ -626,7 +626,7 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
           out.write("<OpenRosaResponse xmlns=\"http://openrosa.org/http/response\">");
           if (warnings.length() != 0) {
             StringBuilder b = new StringBuilder();
-            b.append("<p>users and capabilities .csv uploaded with warnings.</p>"
+            b.append("<p>Utilisateurs et fonctionnalités .csv téléchargés avec avertissements.</p>"
                 + "<table>");
             b.append(warnings.toString());
             b.append("</table>");
@@ -634,13 +634,13 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
             out.write(StringEscapeUtils.escapeXml10(b.toString()));
             out.write("</message>");
           } else {
-            out.write("<message>Successful users and capabilities .csv upload.</message>");
+            out.write("<message>Utilisateurs et fonctionnalités .csv téléchargés avec succès.</message>");
           }
           out.write("</OpenRosaResponse>");
         }
 
       } catch (DatastoreFailureException e) {
-        logger.error("users and capabilities .csv upload persistence error: " + e.toString());
+        logger.error("Utilisateurs et fonctionnalités .csv téléchargé. -- Erreur de persistance : " + e.toString());
         e.printStackTrace();
         resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
             ErrorConsts.PERSISTENCE_LAYER_PROBLEM + "\n" + e.toString());
@@ -654,7 +654,7 @@ public class ResetUsersAndPermissionsServlet extends ServletUtilBase {
       }
 
     } catch (FileUploadException e) {
-      logger.error("users and capabilities .csv upload persistence error: " + e.toString());
+      logger.error("Utilisateurs et fonctionnalités .csv téléchargé. -- Erreur de persistance: " + e.toString());
       e.printStackTrace(resp.getWriter());
       resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, ErrorConsts.UPLOAD_PROBLEM);
     }

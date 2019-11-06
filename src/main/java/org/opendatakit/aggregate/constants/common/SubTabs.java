@@ -24,13 +24,13 @@ public enum SubTabs implements Serializable {
    * org.opendatakit.aggregate.client.RefreshTimer 's run method, or the
    * subtab's update method will never get called.
    */
-  EXPORT("Exported Submissions", "export"),
-  FILTER("Filter Submissions", "filter"),
-  FORMS("Forms List", "forms"),
+  EXPORT("Soumissions exportées", "export"),
+  FILTER("Filtrer les soumissions", "filter"),
+  FORMS("Liste de formulaires", "forms"),
   PERMISSIONS("Permissions", "permission"),
-  PREFERENCES("Preferences", "preferences"),
-  PUBLISH("Published Data", "publish"),
-  SUBMISSION_ADMIN("Submission Admin", "subadmin");
+  PREFERENCES("Préférences", "preferences"),
+  PUBLISH("Données publiées", "publish"),
+  SUBMISSION_ADMIN("Administrateur de soumission", "subadmin");
 
   private String tabLabel;
   private String hashString;

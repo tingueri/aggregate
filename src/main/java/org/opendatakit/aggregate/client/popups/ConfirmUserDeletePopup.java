@@ -28,9 +28,9 @@ import org.opendatakit.common.security.client.UserSecurityInfo;
 
 public final class ConfirmUserDeletePopup extends AbstractPopupBase {
 
-  private static final String BUTTON_TXT = "<img src=\"images/green_right_arrow.png\" /> Delete User";
-  private static final String TOOLTIP_TXT = "Remove this user";
-  private static final String HELP_BALLOON_TXT = "Remove this user from the server.";
+  private static final String BUTTON_TXT = "<img src=\"images/green_right_arrow.png\" /> Supprimer l'utilisateur";
+  private static final String TOOLTIP_TXT = "Supprimer cet utilisateur";
+  private static final String HELP_BALLOON_TXT = "Supprimer cet utilisateur du serveur.";
 
   private final UserSecurityInfo user;
   private final AccessConfigurationSheet accessSheet;
@@ -54,17 +54,17 @@ public final class ConfirmUserDeletePopup extends AbstractPopupBase {
     HTML message;
     if (sheet.isUiOutOfSyncWithServer()) {
       message = new HTML(new SafeHtmlBuilder()
-          .appendEscaped("Unsaved changes exist.")
+          .appendEscaped("Les modifications non enregistrées existent.")
           .appendHtmlConstant("<br/>")
-          .appendHtmlConstant("<p>Proceeding will save all pending changes and<br/>permanently delete user <b>")
+          .appendHtmlConstant("<p>La procédure enregistre toutes les modifications en attente et<br/>supprime définitivement l'utilisateur <b>")
           .appendEscaped(userToDelete.getCanonicalName())
-          .appendHtmlConstant("</b> on the server.</p><p>Do you wish to apply all pending changes and <br/>permanently delete this user?</p>")
+          .appendHtmlConstant("</b> sur le serveur.</p><p>Souhaitez-vous appliquer toutes les modifications en attente et <br/>supprime définitivement cet utilisateur?</p>")
           .toSafeHtml());
     } else {
       message = new HTML(new SafeHtmlBuilder()
-          .appendHtmlConstant("<p>Proceeding will permanently delete user <b>")
+          .appendHtmlConstant("<p>La procédure supprimera définitivement l'utilisateur <b>")
           .appendEscaped(userToDelete.getCanonicalName())
-          .appendHtmlConstant("</b> on the server.</p><p>Do you wish to permanently delete this user?</p>")
+          .appendHtmlConstant("</b> sur le serveur.</p><p>Souhaitez-vous supprimer définitivement cet utilisateur?</p>")
           .toSafeHtml());
     }
     layout.setWidget(0, 0, message);

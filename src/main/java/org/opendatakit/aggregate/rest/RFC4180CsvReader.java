@@ -54,7 +54,7 @@ public class RFC4180CsvReader {
   public RFC4180CsvReader(Reader reader) {
     this.br = new BufferedReader(reader);
     if (!br.markSupported()) {
-      throw new IllegalStateException("Unable to support mark!");
+      throw new IllegalStateException("Impossible de supporter la marque!");
     }
   }
 
@@ -169,7 +169,7 @@ public class RFC4180CsvReader {
           // found the comma -- transition to look for the start of the next field
           state = ParseState.atStartOfField;
         } else {
-          throw new IllegalStateException("Expected a comma or CR LF, but found: " + String.valueOf(ch));
+          throw new IllegalStateException("Attendu une virgule ou CR LF, mais trouvé: " + String.valueOf(ch));
         }
       } else if (state == ParseState.naked) {
         if (ch == -1) {
@@ -205,14 +205,14 @@ public class RFC4180CsvReader {
           // look for the start of the next field
           state = ParseState.atStartOfField;
         } else if (ch == QUOTE_CHAR) {
-          throw new IllegalStateException("Unexpected double-quote in an unquoted field value");
+          throw new IllegalStateException("Double guillemet inattendu dans une valeur de champ non entre guillemets");
         } else {
           // anything else is just added to the field
           b.append((char) ch);
         }
       } else if (state == ParseState.quoted) {
         if (ch == -1) {
-          throw new IllegalStateException("Unexpected end of file in quoted field value");
+          throw new IllegalStateException("Fin de fichier inattendue dans la valeur de champ citée");
         } else if (ch == QUOTE_CHAR) {
           // read the next character to see of it is an escaped quote
           ch = br.read();

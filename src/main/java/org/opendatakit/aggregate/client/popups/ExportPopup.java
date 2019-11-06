@@ -40,16 +40,16 @@ import org.opendatakit.aggregate.constants.common.SubTabs;
 
 public final class ExportPopup extends AbstractPopupBase {
 
-  private static final String EXPORT_ERROR_MSG = "Problem creating your export file";
+  private static final String EXPORT_ERROR_MSG = "Problème lors de la création de votre fichier d'exportation";
 
-  private static final String FILE_TYPE_TOOLTIP = "Type of File to Generate";
-  private static final String FILE_TYPE_BALLOON = "Select the type of file you wish to create.";
+  private static final String FILE_TYPE_TOOLTIP = "Type de fichier à générer";
+  private static final String FILE_TYPE_BALLOON = "Sélectionnez le type de fichier que vous souhaitez créer.";
 
-  private static final String CREATE_BUTTON_TXT = "<img src=\"images/green_right_arrow.png\" /> Export";
-  private static final String CREATE_BUTTON_TOOLTIP = "Create Export File";
-  private static final String CREATE_BUTTON_HELP_BALLOON = "This creates either a CSV or KML file of your data.";
+  private static final String CREATE_BUTTON_TXT = "<img src=\"images/green_right_arrow.png\" /> Exportation";
+  private static final String CREATE_BUTTON_TOOLTIP = "Créer un fichier d'exportation";
+  private static final String CREATE_BUTTON_HELP_BALLOON = "Cela crée un fichier CSV ou KML de vos données.";
 
-  private static final String PROBLEM_NULL_FILTER_GROUP = "Filter group is invalid";
+  private static final String PROBLEM_NULL_FILTER_GROUP = "Le groupe de filtrage n'est pas valide";
 
   // this will be the standard header across the top
   private final FlexTable optionsBar;
@@ -88,7 +88,7 @@ public final class ExportPopup extends AbstractPopupBase {
     optionsBar.setWidget(0, 1, new HTML(new SafeHtmlBuilder().appendEscaped(formId).toSafeHtml()));
     optionsBar.setWidget(0, 2, new HTML("<h2>Type:</h2>"));
     optionsBar.setWidget(0, 3, fileType);
-    optionsBar.setWidget(0, 4, new HTML("<h2>Filter:</h2>"));
+    optionsBar.setWidget(0, 4, new HTML("<h2>Filtre:</h2>"));
     optionsBar.setWidget(0, 5, filtersBox);
     optionsBar.setWidget(0, 6, exportButton);
     optionsBar.setWidget(0, 7, new ClosePopupButton(this));
@@ -98,7 +98,7 @@ public final class ExportPopup extends AbstractPopupBase {
   private static class ErrorDialog extends DialogBox {
 
     public ErrorDialog() {
-      setText("Error Unknown Export Type!! Please file an Issue on ODK website!");
+      setText("Erreur Type d'exportation inconnu !! S'il vous plaît déclarer le problème sur Peogo Survey!");
       Button ok = new Button("OK");
       ok.addClickHandler(new ClickHandler() {
         public void onClick(ClickEvent event) {
@@ -113,7 +113,7 @@ public final class ExportPopup extends AbstractPopupBase {
 
   private class FiltersCallback implements AsyncCallback<FilterSet> {
 
-    private static final String PROBLEM_NULL_FILTER_SET = "PROBLEM: got a NULL for a filterSet from server";
+    private static final String PROBLEM_NULL_FILTER_SET = "PROBLÈME: obtenu un NULL pour un ensemble de filtres du serveur";
 
     @Override
     public void onFailure(Throwable caught) {

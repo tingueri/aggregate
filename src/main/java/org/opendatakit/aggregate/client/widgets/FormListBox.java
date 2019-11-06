@@ -23,11 +23,11 @@ import org.opendatakit.aggregate.constants.common.FormActionStatusTimestamp;
 import org.opendatakit.common.web.constants.BasicConsts;
 
 public final class FormListBox extends AggregateListBox {
-  private static final String TOOLTIP_TEXT = "Form to use";
+  private static final String TOOLTIP_TEXT = "Formulaire à utiliser";
 
-  private static final String NO_FORM = "none";
+  private static final String NO_FORM = "aucun";
 
-  private static final String BALLOON_TEXT = "Select the form you want to use.";
+  private static final String BALLOON_TEXT = "Sélectionnez le formulaire que vous souhaitez utiliser.";
 
   private ArrayList<FormSummary> displayedFormList;
 
@@ -90,7 +90,7 @@ public final class FormListBox extends AggregateListBox {
             return null;
           } else {
             throw new IllegalStateException(
-                "Some how a form that is not the 'NO_FORM' had a formId of null");
+                "Certain comme un formulaire qui n'est pas le 'NO_FORM' avait un formId null");
           }
         } else if (formIdToMatch.equals(formId)) { // check if the formId from
           // listbox matches the form

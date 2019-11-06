@@ -44,14 +44,14 @@ public final class PublishPopup extends AbstractPopupBase {
   };
   private static final String EMPTY_STRING = "";
   private static final String BUTTON_TXT = "<img src=\"images/green_right_arrow.png\" /> Publish";
-  private static final String TOOLTIP_TXT = "Publish the data";
-  private static final String HELP_BALLOON_TXT = "This will publish the data to Google Spreadsheets or a server accepting JSON content.";
-  private static final String ES_SERVICEOPTIONS_TOOLTIP = "Method data should be published";
-  private static final String ES_SERVICEOPTIONS_BALLOON = "Choose whether you would like only old data, only new data, or all data to be published.";
-  private static final String ES_TYPE_TOOLTIP = "Type of External Service Connection";
-  private static final String ES_TYPE_BALLOON = "Select the application where you want your data to be published.";
-  private static final String BO_TYPE_TOOLTIP = "Sets how the binary data from Media should be published";
-  private static final String BO_TYPE_BALLOON = "Selects how the binary dat from Media should be published. Aggregate will provide links in the publish OR will embed the data in the publish";
+  private static final String TOOLTIP_TXT = "Publier les données";
+  private static final String HELP_BALLOON_TXT = "Les données seront publiées sur Google Spreadsheets ou sur un serveur acceptant le contenu JSON.";
+  private static final String ES_SERVICEOPTIONS_TOOLTIP = "Les données de méthode doivent être publiées";
+  private static final String ES_SERVICEOPTIONS_BALLOON = "Choisissez si vous souhaitez que seules les anciennes données, que les nouvelles données ou toutes les données soient publiées.";
+  private static final String ES_TYPE_TOOLTIP = "Type de connexion de service externe";
+  private static final String ES_TYPE_BALLOON = "Sélectionnez l'application où vous souhaitez que vos données soient publiées.";
+  private static final String BO_TYPE_TOOLTIP = "Définit comment les données binaires de Media doivent être publiées";
+  private static final String BO_TYPE_BALLOON = "Sélectionne comment la date binaire à partir du média doit être publiée. Peogo Survey fournira des liens dans la publication OU intégrera les données dans la publication";
   // this is the main flex table for the popup
   private final FlexTable layout;
   // this is the header
@@ -100,26 +100,26 @@ public final class PublishPopup extends AbstractPopupBase {
     topBar.addStyleName("stretch_header");
     topBar.setWidget(0, 0, new HTML("<h2>Form: </h2>"));
     topBar.setWidget(0, 1, new HTML(new SafeHtmlBuilder().appendEscaped(formId).toSafeHtml()));
-    topBar.setWidget(0, 2, new HTML("<h2>Publish to: </h2>"));
+    topBar.setWidget(0, 2, new HTML("<h2>Publier dans: </h2>"));
     topBar.setWidget(0, 3, serviceType);
     topBar.setWidget(0, 4, publishButton);
     topBar.setWidget(0, 5, new ClosePopupButton(this));
 
     optionsBar = new FlexTable();
     optionsBar.addStyleName("flexTableBorderTopStretchWidth");
-    optionsBar.setWidget(1, 0, new HTML("<h3>Data to Publish:</h3>"));
+    optionsBar.setWidget(1, 0, new HTML("<h3>Données à publier:</h3>"));
     optionsBar.setWidget(1, 1, esOptions);
 
     // this is only for google spreadsheets
     gsBar = new FlexTable();
     gsBar.addStyleName("stretch_header");
-    gsBar.setWidget(1, 0, new HTML("<h3>Workbook Name:</h3>"));
+    gsBar.setWidget(1, 0, new HTML("<h3>Nom du classeur:</h3>"));
     // make the name textbox an appropriate size
     gsName = new TextBox();
     gsName.setText(EMPTY_STRING);
     gsName.setVisibleLength(35);
     gsBar.setWidget(1, 1, gsName);
-    gsBar.setWidget(2, 0, new HTML("<h3>Owner's email:</h3>"));
+    gsBar.setWidget(2, 0, new HTML("<h3>Email du propriétaire:</h3>"));
     gsOwnerEmail = new TextBox();
     gsOwnerEmail.setText(EMPTY_STRING);
     gsOwnerEmail.setVisibleLength(35);
@@ -131,18 +131,18 @@ public final class PublishPopup extends AbstractPopupBase {
     jsBar = new FlexTable();
     jsBar.addStyleName("stretch_header");
     // get the URL
-    jsBar.setWidget(1, 0, new HTML("<h3>Url to publish to:</h3>"));
+    jsBar.setWidget(1, 0, new HTML("<h3>URL à publier sur:</h3>"));
     jsUrl = new TextBox();
     jsUrl.setVisibleLength(60);
     jsBar.setWidget(1, 1, jsUrl);
     // get token
-    jsBar.setWidget(2, 0, new HTML("<h3>Authorization token:</h3>"));
+    jsBar.setWidget(2, 0, new HTML("<h3>Jeton d'autorisation:</h3>"));
     jsAuthKey = new TextBox();
     jsAuthKey.setText(EMPTY_STRING);
     jsAuthKey.setVisibleLength(45);
     jsBar.setWidget(2, 1, jsAuthKey);
     // make the options for how to handle the binary
-    jsBar.setWidget(3, 0, new HTML("<h3>Include Media as:</h3>"));
+    jsBar.setWidget(3, 0, new HTML("<h3>Inclure les médias en tant que:</h3>"));
     jsBinaryOptions = new EnumListBox<>(
         BinaryOption.values(), BO_TYPE_TOOLTIP,
         BO_TYPE_BALLOON);
@@ -167,7 +167,7 @@ public final class PublishPopup extends AbstractPopupBase {
   }
 
   public void updateUIOptions() {
-    System.out.println("UPDATE UI OPTIONS CALLED");
+    System.out.println("MISE À JOUR DES OPTIONS D'UI APPELÉES");
     System.out.println("Type:" + serviceType.getSelectedValue());
 
     String externalServiceTypeString = serviceType.getSelectedValue();
@@ -209,12 +209,12 @@ public final class PublishPopup extends AbstractPopupBase {
     public void onClick(ClickEvent event) {
       // Validate common required fields
       if (serviceType.getSelectedValue() == null || serviceType.getSelectedValue().isEmpty()) {
-        Window.alert("You need to select a publisher type from the dropdown");
+        Window.alert("Vous devez sélectionner un type d'éditeur dans la liste déroulante.");
         return;
       }
 
       if (esOptions.getSelectedValue() == null || esOptions.getSelectedValue().isEmpty()) {
-        Window.alert("You need to select which submissions to publish");
+        Window.alert("Vous devez sélectionner les soumissions à publier.");
         return;
       }
 
@@ -226,19 +226,19 @@ public final class PublishPopup extends AbstractPopupBase {
           // Validate the workbook name
           String workbookName = gsName.getText();
           if (workbookName == null || workbookName.isEmpty()) {
-            Window.alert("You must provide a workbook name");
+            Window.alert("Vous devez fournir un nom de classeur");
             return;
           }
 
           // Validate the owner's email
           String ownerEmail = gsOwnerEmail.getText();
           if (ownerEmail == null || ownerEmail.isEmpty()) {
-            Window.alert("You must provide the owner's email");
+            Window.alert("Vous devez fournir l'email du propriétaire");
             return;
           } else if (!validateEmail(ownerEmail)) {
-            Window.alert("Invalid owner's email");
+            Window.alert("Email du propriétaire invalide");
             return;
-          } else if (!Window.confirm("Please, confirm that the owner's email you've introduced is correct: " + ownerEmail)) {
+          } else if (!Window.confirm("Veuillez confirmer que l'adresse e-mail du propriétaire que vous avez introduite est correcte: " + ownerEmail)) {
             gsOwnerEmail.setTitle("");
             return;
           }
@@ -254,10 +254,10 @@ public final class PublishPopup extends AbstractPopupBase {
           // Validate the URL to publish to
           String url = jsUrl.getText();
           if (url == null || url.isEmpty()) {
-            Window.alert("You must provide a URL to publish to");
+            Window.alert("Vous devez fournir une URL pour publier");
             return;
           } else if(!validateURL(url)){
-            Window.alert("Invalid URL: it must start with http:// or https://");
+            Window.alert("URL invalide: il faut commencer par http:// or https://");
             return;
           }
 

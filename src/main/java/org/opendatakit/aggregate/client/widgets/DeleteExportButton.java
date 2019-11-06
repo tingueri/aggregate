@@ -26,9 +26,9 @@ import org.opendatakit.aggregate.client.popups.ConfirmExportDeletePopup;
  */
 public final class DeleteExportButton extends AggregateButton implements ClickHandler {
 
-  private static final String BUTTON_TXT = "<img src=\"images/red_x.png\" /> Delete";
-  private static final String TOOLTIP_TEXT = "Remove exported datafile";
-  private static final String HELP_BALLOON_TXT = "This confirms that you want to delete the exported datafile.";
+  private static final String BUTTON_TXT = "<img src=\"images/red_x.png\" /> Supprimer";
+  private static final String TOOLTIP_TEXT = "Supprimer le fichier de données exporté";
+  private static final String HELP_BALLOON_TXT = "Cela confirme que vous souhaitez supprimer le fichier de données exporté..";
 
   private final ExportSummary export;
 

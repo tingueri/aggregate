@@ -37,7 +37,7 @@ public final class PropertyMapSerializer {
     Map<String, String> parameters = new HashMap<String, String>();
     if (parameterDocument == null) return parameters;
     if (!parameterDocument.startsWith(K_XML_BEGIN_PARAMETERS)) {
-      throw new IllegalArgumentException("bad parameter list -- not beginning with " +
+      throw new IllegalArgumentException("mauvaise liste de paramètres - ne commence pas par " +
           K_XML_BEGIN_PARAMETERS);
     }
     int iNext = K_XML_BEGIN_PARAMETERS.length();
@@ -48,13 +48,13 @@ public final class PropertyMapSerializer {
       iNext += K_XML_BEGIN_PARAMETER_BEGIN_KEY.length();
       int iEnd = parameterDocument.indexOf(K_XML_END_KEY_BEGIN_VALUE, iNext);
       if (iEnd == -1) {
-        throw new IllegalArgumentException("bad parameter list -- end-key-begin-value not found");
+        throw new IllegalArgumentException("mauvaise liste de paramètres - end-key-begin-value introuvable");
       }
       String key = StringEscapeUtils.unescapeXml(parameterDocument.substring(iNext, iEnd));
       iNext = iEnd + K_XML_END_KEY_BEGIN_VALUE.length();
       iEnd = parameterDocument.indexOf(K_XML_END_VALUE_END_PARAMETER, iNext);
       if (iEnd == -1) {
-        throw new IllegalArgumentException("bad parameter list -- end-value-end-parameter not found");
+        throw new IllegalArgumentException("mauvaise liste de paramètres  -- end-value-end-parameter introuvable");
       }
       String value = StringEscapeUtils.unescapeXml(parameterDocument.substring(iNext, iEnd));
       iNext = iEnd + K_XML_END_VALUE_END_PARAMETER.length();
@@ -64,11 +64,11 @@ public final class PropertyMapSerializer {
         K_XML_END_PARAMETERS,
         0,
         K_XML_END_PARAMETERS.length())) {
-      throw new IllegalArgumentException("bad parameter list -- end-parameters not found");
+      throw new IllegalArgumentException("mauvaise liste de paramètres -- end-parameters introuvable");
     }
     iNext += K_XML_END_PARAMETERS.length();
     if (iNext != parameterDocument.length()) {
-      throw new IllegalArgumentException("bad parameter list -- extra characters found");
+      throw new IllegalArgumentException("mauvaise liste de paramètres  -- extra characters trouvé");
     }
     return parameters;
   }

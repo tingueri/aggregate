@@ -61,7 +61,7 @@ public class SubmissionUISummary implements Serializable {
     if (submission.getNumberOfFields() == headers.size()) {
       submissions.add(submission);
     } else {
-      throw new IllegalArgumentException("Incorrect number of fields contained in submission");
+      throw new IllegalArgumentException("Nombre incorrect de champs contenus dans la soumission");
     }
   }
 

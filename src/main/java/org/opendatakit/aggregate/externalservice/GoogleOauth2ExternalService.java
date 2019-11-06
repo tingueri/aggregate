@@ -71,8 +71,8 @@ import org.slf4j.LoggerFactory;
 public abstract class GoogleOauth2ExternalService extends AbstractExternalService {
   private static final Logger oauth2logger = LoggerFactory.getLogger(GoogleOauth2ExternalService.class);
 
-  private static final String NO_EMAIL_SPECIFIED_ERROR = "No email specified to add file permission to";
-  private static final String NO_PERM_RETURNED = "GOT No permssion returned in the response";
+  private static final String NO_EMAIL_SPECIFIED_ERROR = "Aucun email spécifié pour ajouter l'autorisation de fichier";
+  private static final String NO_PERM_RETURNED = "GOT Aucune permission retournée dans la réponse";
 
   private static final JsonFactory jsonFactory = new JacksonFactory();
 
@@ -111,8 +111,8 @@ public abstract class GoogleOauth2ExternalService extends AbstractExternalServic
           User user = cc.getCurrentUser();
           ds.putEntity(fsc, user);
         } catch (Exception e1) {
-          oauth2logger.error("Unable to persist bad credentials status", e1);
-          throw new ODKExternalServiceException("unable to persist bad credentials status", e1);
+          oauth2logger.error("Impossible de conserver le statut des identifiants incorrects", e1);
+          throw new ODKExternalServiceException("incapable de conserver le statut de mauvaises informations d'identification", e1);
         }
       }
       throw e;
@@ -131,7 +131,7 @@ public abstract class GoogleOauth2ExternalService extends AbstractExternalServic
       if (serviceAccountUser == null || privateKeyString == null
           || serviceAccountUser.length() == 0 || privateKeyString.length() == 0) {
         throw new ODKExternalServiceCredentialsException(
-            "No OAuth2 credentials. Have you supplied any OAuth2 credentials on the Site Admin / Preferences page?");
+            "Aucune information d'identification OAuth2. Avez-vous fourni des informations d'identification OAuth2 sur la page Administrateur / Préférences du site?");
       }
 
       byte[] privateKeyBytes = Base64.decodeBase64(privateKeyString.getBytes(UTF_CHARSET));
@@ -171,7 +171,7 @@ public abstract class GoogleOauth2ExternalService extends AbstractExternalServic
   protected void executeDrivePermission(Drive drive, String fileId, String email)
       throws ODKExternalServiceException {
 
-    oauth2logger.info("Switching file permissions");
+    oauth2logger.info("Changer les permissions de fichiers");
 
     if (email == null) {
       throw new ODKExternalServiceException(NO_EMAIL_SPECIFIED_ERROR);
@@ -214,10 +214,10 @@ public abstract class GoogleOauth2ExternalService extends AbstractExternalServic
       IOException, ODKExternalServiceException {
 
     if (statement == null && (POST.equals(method) || PATCH.equals(method) || PUT.equals(method))) {
-      throw new ODKExternalServiceException("No body supplied for POST, PATCH or PUT request");
+      throw new ODKExternalServiceException("Pas de corps fourni pour les requêtes POST, PATCH ou PUT");
     } else if (statement != null
         && !(POST.equals(method) || PATCH.equals(method) || PUT.equals(method))) {
-      throw new ODKExternalServiceException("Body was supplied for GET or DELETE request");
+      throw new ODKExternalServiceException("Le corps a été fourni pour les demandes GET ou DELETE");
     }
 
     GenericUrl url = new GenericUrl(urlString);

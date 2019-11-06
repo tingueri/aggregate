@@ -24,9 +24,9 @@ import org.opendatakit.aggregate.client.filter.Filter;
 public final class DeleteFilterButton extends AggregateButton implements ClickHandler {
 
   private static final String BUTTON_TXT = "<img src=\"images/red_x.png\" />";
-  private static final String TOOLTIP_TEXT = "Remove filter";
-  private static final String HELP_BALLOON_TXT = "This deletes the filter from the filter group.  In "
-      + "order for this change to remain, you must save the filter group.";
+  private static final String TOOLTIP_TEXT = "Supprimer le filtre";
+  private static final String HELP_BALLOON_TXT = "Cela supprime le filtre du groupe de filtres.  "
+      + "Pour que cette modification soit conservée, vous devez enregistrer le groupe de filtres.";
 
   private final FilterSubTab parentSubTab;
   private final Filter remove;

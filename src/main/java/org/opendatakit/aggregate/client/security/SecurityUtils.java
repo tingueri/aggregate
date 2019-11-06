@@ -39,7 +39,7 @@ public class SecurityUtils {
     xsrf.getNewXsrfToken(new AsyncCallback<XsrfToken>() {
       @Override
       public void onFailure(Throwable caught) {
-        AggregateUI.getUI().reportError("Incomplete security update: ", caught);
+        AggregateUI.getUI().reportError("Mise à jour de sécurité incomplète: ", caught);
       }
 
       @Override

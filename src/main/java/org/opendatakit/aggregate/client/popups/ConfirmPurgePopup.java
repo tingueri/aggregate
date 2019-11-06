@@ -35,8 +35,8 @@ import org.opendatakit.common.utils.GwtShims;
 public class ConfirmPurgePopup extends AbstractPopupBase {
 
   private static final String BUTTON_TXT = "<img src=\"images/green_right_arrow.png\" /> Purge Data";
-  private static final String TOOLTIP_TXT = "Delete published data";
-  private static final String HELP_BALLOON_TXT = "This confirms that you want to delete the published data.";
+  private static final String TOOLTIP_TXT = "Supprimer les données publiées";
+  private static final String HELP_BALLOON_TXT = "Cela confirme que vous souhaitez supprimer les données publiées.";
 
   private String uri;
   private Date earliest;
@@ -64,9 +64,9 @@ public class ConfirmPurgePopup extends AbstractPopupBase {
           SecureGWT.getFormAdminService(),
           (rpc, sessionCookie, cb) -> rpc.purgePublishedData(uri, earliest, cb),
           (Date result) -> {
-            Window.alert("Successful commencement of the purge of\nall data published as of " + GwtShims.gwtFormatDateHuman(result));
+            Window.alert("Début réussi de la purge de\ntoutes les données publiées en date du " + GwtShims.gwtFormatDateHuman(result));
           },
-          cause -> AggregateUI.getUI().reportError("Failed purge of published data: ", cause)
+          cause -> AggregateUI.getUI().reportError("Échec de la purge des données publiées: ", cause)
       );
       hide();
     }

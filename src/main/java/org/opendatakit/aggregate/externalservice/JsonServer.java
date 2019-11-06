@@ -167,7 +167,7 @@ public class JsonServer extends AbstractExternalService implements ExternalServi
       ByteArrayOutputStream baStream = new ByteArrayOutputStream();
       PrintWriter pWriter = new PrintWriter(new OutputStreamWriter(baStream, HtmlConsts.UTF8_ENCODE));
 
-      System.out.println("Sending one JSON Submission");
+      System.out.println("Envoi d'une soumission JSON");
 
       // format submission
       JsonFormatterWithFilters formatter = new JsonFormatterWithFilters(pWriter, form, null, option,
@@ -196,7 +196,7 @@ public class JsonServer extends AbstractExternalService implements ExternalServi
         persist(cc);
       } catch (Exception e1) {
         e1.printStackTrace();
-        throw new ODKExternalServiceException("unable to persist bad credentials status", e1);
+        throw new ODKExternalServiceException("incapable de conserver le statut de mauvaises informations d'identification", e1);
       }
       throw e; // don't wrap
     } catch (ODKExternalServiceException e) {

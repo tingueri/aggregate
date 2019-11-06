@@ -24,9 +24,9 @@ import org.opendatakit.common.security.common.GrantedAuthorityName;
 
 public final class DeleteFormButton extends AggregateButton implements ClickHandler {
 
-  private static final String BUTTON_TXT = "<img src=\"images/red_x.png\" /> Delete";
-  private static final String TOOLTIP_TXT = "Remove the form";
-  private static final String HELP_BALLOON_TXT = "Delete this form from Aggregate.";
+  private static final String BUTTON_TXT = "<img src=\"images/red_x.png\" /> Supprimer";
+  private static final String TOOLTIP_TXT = "Supprimer le formulaire";
+  private static final String HELP_BALLOON_TXT = "Supprimer ce formulaire de Peogo Survey.";
 
   private final String formId;
 

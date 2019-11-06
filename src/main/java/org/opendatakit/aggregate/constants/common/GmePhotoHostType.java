@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public enum GmePhotoHostType implements Serializable {
   GOOGLE_DRIVE("Google Drive"),
-  AGGREGATE("ODK Aggregate");
+  AGGREGATE("Peogo Survey");
 
   private String serviceName;
 

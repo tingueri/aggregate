@@ -26,13 +26,13 @@ import org.opendatakit.common.persistence.client.UIQueryResumePoint;
 
 public final class CursorAdvancementButton extends AggregateButton {
 
-  private static final String NEXT_BUTTON_TXT = "Next";
-  private static final String NEXT_TOOLTIP_TXT = "Advance to the 'Next' set of submissions";
-  private static final String NEXT_HELP_BALLOON_TXT = "The user inteface limits the number of submission shown on a particular screen. When this button is pressed Aggregate will advance to the 'Next' set of submissions to display";
+  private static final String NEXT_BUTTON_TXT = "Suivant";
+  private static final String NEXT_TOOLTIP_TXT = "Soumissions suivantes";
+  private static final String NEXT_HELP_BALLOON_TXT = "L'interface utilisateur limite le nombre de soumissions affichées sur un écran particulier. Lorsque vous appuyez sur ce bouton, PeogoSurvey passe au groupe de soumissions «Suivant» à afficher.";
 
-  private static final String PREV_BUTTON_TXT = "Previous";
-  private static final String PREV_TOOLTIP_TXT = "Return to the 'Previous' set of submissions";
-  private static final String PREV_HELP_BALLOON_TXT = "The user inteface limits the number of submission shown on a particular screen. When this button is pressed Aggregate will return to the 'Previous' set of submissions that were displayed";
+  private static final String PREV_BUTTON_TXT = "Précédent";
+  private static final String PREV_TOOLTIP_TXT = "Soumissions précédentes";
+  private static final String PREV_HELP_BALLOON_TXT = "L'interface utilisateur limite le nombre de soumissions affichées sur un écran particulier. Lorsque vous appuyez sur ce bouton, PeogoSurvey retournera à l'ensemble de soumissions 'Précédent' qui ont été affichées";
 
 
   private final UIQueryResumePoint cursor;

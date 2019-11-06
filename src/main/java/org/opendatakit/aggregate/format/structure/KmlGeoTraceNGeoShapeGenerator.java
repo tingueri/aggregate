@@ -38,9 +38,9 @@ import org.opendatakit.common.web.constants.BasicConsts;
  * @author wbrunette@gmail.com
  */
 public class KmlGeoTraceNGeoShapeGenerator extends AbstractKmlElementBase {
-  private static final String LIMITATION_MSG = "limitation: name must be in the submission (top-level) or must be in the same repeat group as the trace/shape";
+  private static final String LIMITATION_MSG = "limitation: le nom doit figurer dans la soumission (niveau supérieur) ou doit figurer dans le même groupe de répétition que le tracé / la forme";
 
-  private static final String PARSE_PROBLEM_GEOTRACE_OR_GEOSHAPES_STRING = "Problem with GPS Coordinates parsed from geotrace or geoshapes. This is not properly formatted coordinate:";
+  private static final String PARSE_PROBLEM_GEOTRACE_OR_GEOSHAPES_STRING = "Problème avec les coordonnées GPS analysées à partir de geotrace ou de geoshapes. Cette coordonnée n'est pas correctement formatée:";
 
   private FormElementModel nameElement;
 

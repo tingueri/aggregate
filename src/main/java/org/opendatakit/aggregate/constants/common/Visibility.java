@@ -20,7 +20,7 @@ import java.io.Serializable;
 
 
 public enum Visibility implements Serializable {
-  DISPLAY("Display"), HIDE("Hide");
+  DISPLAY("Afficher"), HIDE("Cacher");
 
   private String displayText;
 
@@ -40,7 +40,7 @@ public enum Visibility implements Serializable {
     } else if (str.equals("REMOVE")) {
       return Visibility.HIDE;
     } else {
-      throw new IllegalArgumentException("Unable to Convert Historical Visibility Values");
+      throw new IllegalArgumentException("Impossible de convertir les valeurs de visibilité historiques");
     }
   }
 

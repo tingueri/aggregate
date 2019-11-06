@@ -130,10 +130,10 @@ public class PreferenceServiceImpl extends RemoteServiceServlet implements
                 .orElse(null);
           }
         else
-          log.error("Can't get latest available version - GitHub responded with HTTP " + con.getResponseCode() + " " + con.getResponseMessage());
+          log.error("Impossible d'obtenir la dernière version disponible - GitHub a répondu par HTTP " + con.getResponseCode() + " " + con.getResponseMessage());
         LAST_REFRESH_OF_LATEST_AVAILABLE_VERSION = LocalDate.now();
       } catch (IOException e) {
-        log.error("Can't get latest available version", e);
+        log.error("Impossible d'obtenir la dernière version disponible", e);
       }
     }
     return LATEST_AVAILABLE_VERSION;

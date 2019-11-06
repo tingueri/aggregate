@@ -90,7 +90,7 @@ public class QueryByDateRange extends QueryBase {
       } catch (ODKDatastoreException e) {
         Logger logger = LoggerFactory.getLogger(QueryByUIFilterGroup.class);
         e.printStackTrace();
-        logger.error("Unable to reconstruct submission for " +
+        logger.error("Impossible de reconstruire la soumission pour " +
             subEntity.getSchemaName() + "." + subEntity.getTableName() + " uri " + subEntity.getUri());
 
         if ((e instanceof ODKEntityNotFoundException) ||

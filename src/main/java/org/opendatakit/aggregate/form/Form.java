@@ -293,7 +293,7 @@ class Form implements IForm {
     if (xform.getAttachmentCount(cc) == 1) {
       return xform.getUnrootedFilename(1, cc);
     } else if (xform.getAttachmentCount(cc) > 1) {
-      throw new IllegalStateException("Expecting only one fileset record at this time!");
+      throw new IllegalStateException("N'attend qu'un seul enregistrement de groupe de fichiers à la fois!");
     }
     return null;
   }
@@ -308,10 +308,10 @@ class Form implements IForm {
         return new String(byteArray, "UTF-8");
       } catch (UnsupportedEncodingException e) {
         e.printStackTrace();
-        throw new IllegalStateException("UTF-8 charset not supported!");
+        throw new IllegalStateException("Le jeu de caractères UTF-8 n'est pas supporté!");
       }
     } else if (xform.getAttachmentCount(cc) > 1) {
-      throw new IllegalStateException("Expecting only one fileset record at this time!");
+      throw new IllegalStateException("N'attend qu'un seul enregistrement de groupe de fichiers à la fois!");
     }
     return null;
   }
@@ -488,7 +488,7 @@ class Form implements IForm {
       }
       return null;
     } else {
-      throw new IllegalStateException("Non-existent or multiple form XML files associated with: " + getFormId());
+      throw new IllegalStateException("Fichiers XML inexistants ou à formulaires multiples associés à: " + getFormId());
     }
   }
 
@@ -512,7 +512,7 @@ class Form implements IForm {
         BlobSubmissionOutcome outcome;
         outcome = xform.setValueFromByteArray(bytes, "text/xml", curName, true, cc);
         if (!xform.renameFilePath(curName, newName, cc)) {
-          throw new IllegalStateException("Unexpected failure persisting name change");
+          throw new IllegalStateException("Changement de nom persistant d'échec inattendu");
         }
         return outcome;
       }

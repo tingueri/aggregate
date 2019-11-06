@@ -28,11 +28,6 @@ import org.opendatakit.aggregate.exception.ODKParseException;
 import org.opendatakit.aggregate.submission.type.GeoPoint;
 import org.opendatakit.common.persistence.WrappedBigDecimal;
 
-/**
- *
- * @author wbrunette@gmail.com
- * 
- */
 
 
 public class KmlGeoTraceParsingTest {

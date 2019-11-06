@@ -34,14 +34,14 @@ public class AggregrateThreadExecutor {
 
   public synchronized static void initialize(TaskScheduler taskScheduler) {
     if (classInstance != null)
-      throw new IllegalStateException("called after having set the task scheduler");
+      throw new IllegalStateException("appelé après avoir défini le planificateur de tâches");
 
     classInstance = new AggregrateThreadExecutor(taskScheduler);
   }
 
   public synchronized static AggregrateThreadExecutor getAggregateThreadExecutor() {
     if (classInstance == null)
-      throw new IllegalStateException("called before having initialized the task scheduler");
+      throw new IllegalStateException("appelé avant d'avoir initialisé le planificateur de tâches");
 
     return classInstance;
   }

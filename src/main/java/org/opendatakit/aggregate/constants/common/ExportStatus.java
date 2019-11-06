@@ -32,17 +32,17 @@ public enum ExportStatus implements Serializable {
   public String toString() {
     switch (this) {
       case GENERATION_IN_PROGRESS:
-        return "Generation in progress";
+        return "Génération en cours";
       case RETRY_IN_PROGRESS:
-        return "Retry in progress";
+        return "En cours de réessayer";
       case FAILED:
-        return "Failure - will retry later";
+        return "Échec - réessayera plus tard";
       case ABANDONED:
-        return "Failure - abandoned all retry attempts";
+        return "Echec - abandonné toutes les tentatives";
       case AVAILABLE:
-        return "Dataset Available";
+        return "Jeu de données disponible";
       default:
-        throw new IllegalStateException("missing enum case");
+        throw new IllegalStateException("cas d'énumération manquante");
     }
   }
 }

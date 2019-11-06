@@ -37,9 +37,9 @@ public class PermissionsSubTab extends AggregateSubTabBase {
   public boolean canLeave() {
     if (accessConfig != null) {
       if (accessConfig.isUiOutOfSyncWithServer()) {
-        boolean outcome = Window.confirm("Unsaved changes exist.\n"
-            + "Changes will be lost if you move off of the Permissions tab.\n"
-            + "\nDiscard unsaved changes?");
+        boolean outcome = Window.confirm("Les modifications non enregistrées existent.\n"
+            + "Cles modifications seront perdues si vous quittez l'onglet Autorisations.\n"
+            + "\nSupprimer les modifications non enregistrées?");
         return outcome;
       }
     }

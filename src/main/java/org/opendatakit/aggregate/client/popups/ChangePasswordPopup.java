@@ -40,10 +40,10 @@ public class ChangePasswordPopup extends PopupPanel {
 
     FlexTable layout = new FlexTable();
     layout.setWidget(0, 0,
-        new HTML(new SafeHtmlBuilder().appendEscaped("Change Password for " + user.getUsername()).toSafeHtml()));
-    layout.setWidget(1, 0, new HTML("Password:"));
+        new HTML(new SafeHtmlBuilder().appendEscaped("Changer le mot de passe pour " + user.getUsername()).toSafeHtml()));
+    layout.setWidget(1, 0, new HTML("Mot de passe:"));
     layout.setWidget(1, 1, password1);
-    layout.setWidget(2, 0, new HTML("Password (again):"));
+    layout.setWidget(2, 0, new HTML("Mot de passe (confirmation):"));
     layout.setWidget(2, 1, password2);
 
     layout.setWidget(3, 0, new ExecuteChangePasswordButton(this));

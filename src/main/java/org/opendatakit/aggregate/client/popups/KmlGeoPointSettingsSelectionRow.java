@@ -11,13 +11,13 @@ import org.opendatakit.aggregate.client.widgets.KmlSettingListBox;
 
 public class KmlGeoPointSettingsSelectionRow extends FlexTable implements KmlSelectionGeneration {
 
-  private static final String BINARY_TOOLTIP = "Binary field to display";
-  private static final String TITLE_TOOLTIP = "Field to use as Title";
-  private static final String INCLUDE_TOOLTIP = "Whether to included in KML";
+  private static final String BINARY_TOOLTIP = "Champ binaire à afficher";
+  private static final String TITLE_TOOLTIP = "Champ à utiliser comme titre";
+  private static final String INCLUDE_TOOLTIP = "S'il faut inclure dans KML";
 
-  private static final String TITLE_BALLOON = "Choose the field for the title.";
-  private static final String BINARY_BALLOON = "Choose the binary field to display.";
-  private static final String INCLUDE_BALLON = "When checked the geo element will be included in KML";
+  private static final String TITLE_BALLOON = "Choisissez le champ pour le titre.";
+  private static final String BINARY_BALLOON = "Choisissez le champ binaire à afficher.";
+  private static final String INCLUDE_BALLON = "Lorsque coché, l'élément géographique sera inclus dans KML";
 
   private final String formId;
   private final AggregateCheckBox include;
@@ -43,9 +43,9 @@ public class KmlGeoPointSettingsSelectionRow extends FlexTable implements KmlSel
     setWidget(0, 0, include);
     setWidget(0, 1, new HTML("<h2>Geopoint:<h2>"));
     setWidget(0, 2, new HTML(new SafeHtmlBuilder().appendEscaped(geoPoint.getDisplayName()).toSafeHtml()));
-    setWidget(0, 3, new HTML("<h4>Title:<h4>"));
+    setWidget(0, 3, new HTML("<h4>Titre:<h4>"));
     setWidget(0, 4, titleFieldsDropDown);
-    setWidget(0, 5, new HTML("<h4>Picture:<h4>"));
+    setWidget(0, 5, new HTML("<h4>Image:<h4>"));
     setWidget(0, 6, binaryFieldsDropDown);
   }
 

@@ -68,14 +68,14 @@ public class NavLinkBar extends SimplePanel {
     if ((userInfo != null) && (userInfo.getType() != UserType.ANONYMOUS)) {
       GWT.log("Setting logout link");
       loginLogoutLink.setHref(LOGOUT_URL_PATH);
-      loginLogoutLink.setText("Log Out " + userInfo.getCanonicalName());
+      loginLogoutLink.setText("Deconnecter " + userInfo.getCanonicalName());
     } else {
       GWT.log("Setting login link");
       String login = LOGIN_URL_PATH;
       // preserve any query string (aids in GWT debugging)
       login += Window.Location.getQueryString();
       loginLogoutLink.setHref(login);
-      loginLogoutLink.setText("Log In");
+      loginLogoutLink.setText("S'authentifier");
     }
     AggregateUI.resize();
   }

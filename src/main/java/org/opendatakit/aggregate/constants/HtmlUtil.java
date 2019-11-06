@@ -33,7 +33,7 @@ import org.opendatakit.common.web.constants.HtmlConsts;
  */
 public final class HtmlUtil extends org.opendatakit.common.utils.HtmlUtil {
 
-  private static final String LOST_FORM_RE_ENCODING = "We lost the form somehow! Please report the bug!";
+  private static final String LOST_FORM_RE_ENCODING = "Nous avons perdu la forme en quelque sorte! S'il vous plaît rapporter le bug!";
 
   public static String encodeFormInHiddenInput(String formXml, String xmlFileName) throws IOException {
 

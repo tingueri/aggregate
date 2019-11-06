@@ -59,7 +59,7 @@ public class BinaryDataServlet extends ServletUtilBase {
   private static final String NOT_BINARY_OBJECT = "Requested element is not a binary object";
   private static final Logger logger = LoggerFactory.getLogger(BinaryDataServlet.class);
   /**
-   * Serial number for serialization
+          * Serial number for serialization
    */
   private static final long serialVersionUID = 7917801268158165832L;
   private static byte[] playJPG = {-1, -40, -1, -32, 0, 16, 74, 70, 73, 70, 0, 1, 1, 1, 0, 96, 0,

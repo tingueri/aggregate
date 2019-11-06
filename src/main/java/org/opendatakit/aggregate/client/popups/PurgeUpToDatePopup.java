@@ -32,8 +32,8 @@ import org.opendatakit.aggregate.client.widgets.ClosePopupButton;
 public class PurgeUpToDatePopup extends AbstractPopupBase {
 
   private static final String BUTTON_TXT = "<img src=\"images/green_right_arrow.png\" /> Purge Data";
-  private static final String TOOLTIP_TXT = "Delete submission data through the given date";
-  private static final String HELP_BALLOON_TXT = "This confirms that you want to delete the submission data.";
+  private static final String TOOLTIP_TXT = "Supprimer les données de soumission jusqu'à la date donnée";
+  private static final String HELP_BALLOON_TXT = "Cela confirme que vous souhaitez supprimer les données de soumission..";
 
   private FormSummary summary;
   private Date selectedDate = new Date(); // today...
@@ -67,15 +67,15 @@ public class PurgeUpToDatePopup extends AbstractPopupBase {
 
     FlexTable layout = new FlexTable();
     layout.setWidget(0, 0, new HTML(new SafeHtmlBuilder()
-        .appendEscaped("Purge submissions data for:")
+        .appendEscaped("Purger les données de soumission pour:")
         .appendHtmlConstant("<br/>")
         .appendHtmlConstant("<b>" + formSummary.getTitle() + " [" + formSummary.getId() + "]</b>")
         .appendHtmlConstant("<br>")
-        .appendEscaped("up to the chosen GMT date.")
+        .appendEscaped("jusqu'à la date GMT choisie.")
         .appendHtmlConstant("<br>")
-        .appendEscaped("Incomplete submissions will")
+        .appendEscaped("Les soumissions incomplètes")
         .appendHtmlConstant("<br>")
-        .appendEscaped("not be deleted.")
+        .appendEscaped("ne seront pas supprimées.")
         .toSafeHtml()));
     layout.setWidget(0, 1, picker);
     layout.setWidget(0, 2, confirm);

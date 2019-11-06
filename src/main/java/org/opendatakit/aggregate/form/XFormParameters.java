@@ -30,7 +30,7 @@ public final class XFormParameters implements Comparable<Object> {
 
   public XFormParameters(String formId, String versionString) {
     if (formId == null) {
-      throw new IllegalArgumentException("formId cannot be null");
+      throw new IllegalArgumentException("formId ne peut pas être null");
     }
     this.formId = formId;
     this.versionString = (versionString == null || versionString.length() == 0) ? null : versionString;

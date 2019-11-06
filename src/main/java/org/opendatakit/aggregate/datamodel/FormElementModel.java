@@ -85,7 +85,7 @@ public final class FormElementModel {
     String[] slashParts = key.toString().split(K_SL);
     int slashPosition = 0;
     if (!form.getFormId().equals(slashParts[slashPosition])) {
-      throw new IllegalArgumentException("FormElementKey is not appropriate for this Form");
+      throw new IllegalArgumentException("FormElementKey n'est pas approprié pour ce formulaire");
     }
     ++slashPosition;
     FormElementModel currentElement = form.getTopLevelGroupElement();
@@ -99,7 +99,7 @@ public final class FormElementModel {
         // all other times, we need to search to find a match for this first
         // part.
         if (!currentElement.getElementName().equals(colonParts[colonPosition])) {
-          throw new IllegalArgumentException("FormElementKey is not well formed!");
+          throw new IllegalArgumentException("FormElementKey n'est pas bien formé!");
         }
         ++colonPosition;
         first = false;
@@ -114,7 +114,7 @@ public final class FormElementModel {
           }
         }
         if (!found) {
-          throw new IllegalArgumentException("FormElementKey is not well formed!");
+          throw new IllegalArgumentException("FormElementKey n'est pas bien formé!");
         }
         ++colonPosition;
       }
@@ -155,7 +155,7 @@ public final class FormElementModel {
         }
         break;
       default:
-        throw new IllegalStateException("Unexpectedly traversing hidden datatypes");
+        throw new IllegalStateException("Traversant de manière inattendue des types de données cachés");
     }
   }
 
@@ -216,7 +216,7 @@ public final class FormElementModel {
         case META_DATE_MARKED_AS_COMPLETE:
           return ElementType.JRDATETIME;
         default:
-          throw new IllegalStateException("unhandled metadata type");
+          throw new IllegalStateException("type de métadonnées non gérées");
       }
     }
     switch (fdm.getElementType()) {
@@ -252,7 +252,7 @@ public final class FormElementModel {
       case REPEAT:
         return ElementType.REPEAT;
       default:
-        throw new IllegalStateException("hidden type exists within FormElementModel!");
+        throw new IllegalStateException("type caché existe dans FormElementModel!");
     }
   }
 
@@ -355,7 +355,7 @@ public final class FormElementModel {
 
   public final FormElementModel findElementByName(String elementName) {
     if (elementName == null) {
-      throw new IllegalArgumentException("null elementName passed in!");
+      throw new IllegalArgumentException("null elementName transmis!");
     }
 
     for (FormElementModel m : children) {

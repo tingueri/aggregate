@@ -80,13 +80,13 @@ public class SubmissionServlet extends ServletUtilBase {
   /**
    * Title for generated webpage
    */
-  private static final String TITLE = "Submission Upload";
+  private static final String TITLE = "Telecharger les soumissions";
 
   private static final String UPLOAD_PAGE_BODY_START =
 
       "<div style=\"overflow: auto;\">"
-          + "<p id=\"subHeading\"><b>Upload one submission into ODK Aggregate</b></p>"
-          + "<!--[if true]><p style=\"color: red;\">For a better user experience, use Chrome, Firefox or Safari</p>"
+          + "<p id=\"subHeading\"><b>Teleccharger une soumission dans Peogo Survey</b></p>"
+          + "<!--[if true]><p style=\"color: red;\">Pour une meilleure experience utilisateur, utilisez Chrome, Firefox ou Safari</p>"
           + "<![endif] -->"
           + "<form id=\"ie_backward_compatible_form\""
           + "                        accept-charset=\"UTF-8\" method=\"POST\" encoding=\"multipart/form-data\" enctype=\"multipart/form-data\""
@@ -94,47 +94,47 @@ public class SubmissionServlet extends ServletUtilBase {
   private static final String UPLOAD_PAGE_BODY_MIDDLE = "\">"
       + "    <table id=\"uploadTable\">"
       + "     <tr>"
-      + "        <td><label for=\"xml_submission_file\">Submission data file:</label></td>"
+      + "        <td><label for=\"xml_submission_file\">Fichier de données de soumission:</label></td>"
       + "        <td><input id=\"xml_submission_file\" type=\"file\" size=\"80\" class=\"gwt-Button\""
       + "           name=\"xml_submission_file\" /></td>"
       + "     </tr>"
       + "     <tr>"
-      + "        <td><label for=\"mediaFiles\">Associated data file(s):</label></td>"
-      + "        <td><input id=\"mediaFiles\" type=\"file\" class=\"gwt-Button\" size=\"80,20\" name=\"datafile\" multiple /><input id=\"clear_media_files\" type=\"button\" class=\"gwt-Button\" value=\"Clear\" onClick=\"clearMediaInputField('mediaFiles')\" /></td>"
+      + "        <td><label for=\"mediaFiles\">Fichier (s) de donnees associe (s):</label></td>"
+      + "        <td><input id=\"mediaFiles\" type=\"file\" class=\"gwt-Button\" size=\"80,20\" name=\"datafile\" multiple /><input id=\"clear_media_files\" type=\"button\" class=\"gwt-Button\" value=\"Effacer\" onClick=\"clearMediaInputField('mediaFiles')\" /></td>"
       + "     </tr>"
       + "     <!--[if true]>"
       + "        <tr>"
-      + "            <td><label for=\"mediaFiles2\">Associated data file #2:</label></td>"
-      + "            <td><input id=\"mediaFiles2\" class=\"gwt-Button\" type=\"file\" size=\"80\" name=\"datafile\" /><input id=\"clear_media_files2\" type=\"button\" class=\"gwt-Button\" value=\"Clear\" onClick=\"clearMediaInputField('mediaFiles2')\" /></td>"
+      + "            <td><label for=\"mediaFiles2\">Fichier de donnees associe #2:</label></td>"
+      + "            <td><input id=\"mediaFiles2\" class=\"gwt-Button\" type=\"file\" size=\"80\" name=\"datafile\" /><input id=\"clear_media_files2\" type=\"button\" class=\"gwt-Button\" value=\"Effacer\" onClick=\"clearMediaInputField('mediaFiles2')\" /></td>"
       + "        </tr>"
       + "        <tr>"
-      + "            <td><label for=\"mediaFiles3\">Associated data file #3:</label></td>"
-      + "            <td><input id=\"mediaFiles3\" class=\"gwt-Button\" type=\"file\" size=\"80\" name=\"datafile\" /><input id=\"clear_media_files3\" type=\"button\" class=\"gwt-Button\" value=\"Clear\" onClick=\"clearMediaInputField('mediaFiles3')\" /></td>"
+      + "            <td><label for=\"mediaFiles3\">Fichier de données associé #3:</label></td>"
+      + "            <td><input id=\"mediaFiles3\" class=\"gwt-Button\" type=\"file\" size=\"80\" name=\"datafile\" /><input id=\"clear_media_files3\" type=\"button\" class=\"gwt-Button\" value=\"Effacer\" onClick=\"clearMediaInputField('mediaFiles3')\" /></td>"
       + "        </tr>"
       + "        <tr>"
-      + "            <td><label for=\"mediaFiles4\">Associated data file #4:</label></td>"
-      + "            <td><input id=\"mediaFiles4\" class=\"gwt-Button\" type=\"file\" size=\"80\" name=\"datafile\" /><input id=\"clear_media_files4\" type=\"button\" class=\"gwt-Button\" value=\"Clear\" onClick=\"clearMediaInputField('mediaFiles4')\" /></td>"
+      + "            <td><label for=\"mediaFiles4\">Fichier de données associé #4:</label></td>"
+      + "            <td><input id=\"mediaFiles4\" class=\"gwt-Button\" type=\"file\" size=\"80\" name=\"datafile\" /><input id=\"clear_media_files4\" type=\"button\" class=\"gwt-Button\" value=\"Effacer\" onClick=\"clearMediaInputField('mediaFiles4')\" /></td>"
       + "        </tr>"
       + "        <tr>"
-      + "            <td><label for=\"mediaFiles5\">Associated data file #5:</label></td>"
-      + "            <td><input id=\"mediaFiles5\" class=\"gwt-Button\" type=\"file\" size=\"80\" name=\"datafile\" /><input id=\"clear_media_files5\" type=\"button\" class=\"gwt-Button\" value=\"Clear\" onClick=\"clearMediaInputField('mediaFiles5')\" /></td>"
+      + "            <td><label for=\"mediaFiles5\"Fichier de données associé #5:</label></td>"
+      + "            <td><input id=\"mediaFiles5\" class=\"gwt-Button\" type=\"file\" size=\"80\" name=\"datafile\" /><input id=\"clear_media_files5\" type=\"button\" class=\"gwt-Button\" value=\"Effacer\" onClick=\"clearMediaInputField('mediaFiles5')\" /></td>"
       + "        </tr>"
       + "        <tr>"
-      + "            <td><label for=\"mediaFiles6\">Associated data file #6:</label></td>"
-      + "            <td><input id=\"mediaFiles6\" class=\"gwt-Button\" type=\"file\" size=\"80\" name=\"datafile\" /><input id=\"clear_media_files6\" type=\"button\" class=\"gwt-Button\" value=\"Clear\" onClick=\"clearMediaInputField('mediaFiles6')\" /></td>"
+      + "            <td><label for=\"mediaFiles6\">Fichier de données associé #6:</label></td>"
+      + "            <td><input id=\"mediaFiles6\" class=\"gwt-Button\" type=\"file\" size=\"80\" name=\"datafile\" /><input id=\"clear_media_files6\" type=\"button\" class=\"gwt-Button\" value=\"Effacer\" onClick=\"clearMediaInputField('mediaFiles6')\" /></td>"
       + "        </tr>"
       + "        <![endif]-->"
       + "     <tr>"
-      + "        <td><input id=\"upload_submission\" type=\"submit\" name=\"button\" class=\"gwt-Button\" value=\"Upload Submission\" /></td>"
+      + "        <td><input id=\"upload_submission\" type=\"submit\" name=\"button\" class=\"gwt-Button\" value=\"Envoyer la soumission\" /></td>"
       + "        <td />"
       + "     </tr>"
       + "    </table>"
       + "    </form>"
-      + "<p id=\"note\">Submissions are located under the <code>/odk/instances</code> directory on the phone's "
-      + "sdcard.  This directory will contain subdirectories with names of the form: <code>formID_yyyy-mm-dd_hh-MM-ss</code></p>"
-      + "<p>Within each of these subdirectories are the submission data file (named: <code>formID_yyyy-mm-dd_hh-MM-ss.xml</code>),"
-      + "and zero or more associated data files for the images, audio clips, video clips, "
-      + "etc. linked with this submission.</p>" + "</div>";
+      + "<p id=\"note\">Les envois se trouvent dans le repertoire <code> / odk / instances </ code> de la carte SD du telephone."
+      + " Ce repertoire contiendra des sous-repertoires avec des noms de la forme: <code> formID_yyyy-mm-jj_hh-MM-ss</code></p>"
+      + "<p>Dans chacun de ces sous-repertoires se trouve le fichier de donnees de soumission (nomme: <code> formID_yyyy-mm-jj_hh-MM-ss.xml</code>),"
+      + "et zero ou plusieurs fichiers de donnees associes pour les images, les clips audio, les clips vidéo, "
+      + "etc. lie à cette soumission.</p>" + "</div>";
 
   /**
    * Handler for HTTP Get request that processes a form submission
@@ -256,20 +256,20 @@ public class SubmissionServlet extends ServletUtilBase {
 
       resp.setStatus(HttpServletResponse.SC_CREATED);
       if (openRosaVersion == null) {
-        logger.info("Successful non-OpenRosa submission");
+        logger.info("Soumission réussie non-OpenRosa");
 
         resp.setContentType(HtmlConsts.RESP_TYPE_HTML);
         resp.setCharacterEncoding(HtmlConsts.UTF8_ENCODE);
         PrintWriter out = resp.getWriter();
         out.write(HtmlConsts.HTML_OPEN);
         out.write(HtmlConsts.BODY_OPEN);
-        out.write("<p>Successful submission upload.</p><p>Click ");
-        out.write(HtmlUtil.createHref(cc.getWebApplicationURL(ADDR), "here", false));
-        out.write(" to return to upload submissions page.</p>");
+        out.write("<p>Téléchargement de soumission réussi.</p><p>Cliquez ");
+        out.write(HtmlUtil.createHref(cc.getWebApplicationURL(ADDR), "ici", false));
+        out.write(" retourner à télécharger la page de soumission.</p>");
         out.write(HtmlConsts.BODY_CLOSE);
         out.write(HtmlConsts.HTML_CLOSE);
       } else {
-        logger.info("Successful OpenRosa submission");
+        logger.info("Soumission réussie d'OpenRosa");
 
         addOpenRosaHeaders(resp);
         resp.setContentType(HtmlConsts.RESP_TYPE_XML);
@@ -277,9 +277,9 @@ public class SubmissionServlet extends ServletUtilBase {
         PrintWriter out = resp.getWriter();
         out.write("<OpenRosaResponse xmlns=\"http://openrosa.org/http/response\">");
         if (isIncomplete) {
-          out.write("<message>partial submission upload was successful!</message>");
+          out.write("<message>l'envoi partiel de la soumission a réussi!</message>");
         } else {
-          out.write("<message>full submission upload was successful!</message>");
+          out.write("<message>l'envoi complet de la soumission a réussi!</message>");
         }
 
         // for Briefcase2, use the attributes on a <submissionMetadata> tag to

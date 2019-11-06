@@ -165,14 +165,14 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
           cc);
       if (formDeletionStatus != null) {
         throw new ODKFormAlreadyExistsException(
-            "This form and its data have not yet been fully deleted from the server. Please wait a few minutes and retry.");
+            "Ce formulaire et ses données n'ont pas encore été complètement supprimés du serveur. Attendez quelques minutes et réessayez.");
       }
       if (!submissionElementDefn.formId.equals(rootElementDefn.formId)) {
         formDeletionStatus = MiscTasks.getFormDeletionStatusTimestampOfFormId(
             submissionElementDefn.formId, cc);
         if (formDeletionStatus != null) {
           throw new ODKFormAlreadyExistsException(
-              "This form and its data have not yet been fully deleted from the server. Please wait a few minutes and retry.");
+              "Ce formulaire et ses données n'ont pas encore été complètement supprimés du serveur. Attendez quelques minutes et réessayez.");
         }
       }
     }
@@ -187,7 +187,7 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
     boolean locked = false;
     while (!locked) {
       if ((++i) % 10 == 0) {
-        log.warn("excessive wait count for form creation lock. Count: " + i);
+        log.warn("attente excessive compte pour le verrouillage de création de formulaire. Nombre: " + i);
         try {
           Thread.sleep(PersistConsts.MIN_SETTLE_MILLISECONDS);
         } catch (InterruptedException e) {
@@ -290,7 +290,7 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
         // they either both need to be encrypted, or both need to not be
         // encrypted...
         throw new ODKFormAlreadyExistsException(
-            "Form encryption status cannot be altered. Form Id must be changed.");
+            "Le statut de chiffrement du formulaire ne peut pas être modifié. L'identifiant de formulaire doit être changé.");
       }
       // isEncryptedForm matches...
 
@@ -318,7 +318,7 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
           // Do not allow changing the title...
           if (!title.equals(thisTitle)) {
             throw new ODKFormAlreadyExistsException(
-                "Form title cannot be changed without updating the form version");
+                "Le titre du formulaire ne peut pas être modifié sans mettre à jour la version du formulaire.");
           }
           updateForm = false;
           String existingFormXml = formInfo.getFormXml(cc);
@@ -340,7 +340,7 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
           // Do not allow changing the title...
           if (!title.equals(thisTitle)) {
             throw new ODKFormAlreadyExistsException(
-                "Form title cannot be changed without updating the form version.");
+                "Le titre du formulaire ne peut pas être modifié sans mettre à jour la version du formulaire..");
           }
           updateForm = false;
 
@@ -357,11 +357,11 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
           }
           if (diffresult == DifferenceResult.XFORMS_MISSING_VERSION) {
             throw new ODKFormAlreadyExistsException(
-                "Form definition file has changed but does not specify a form version.  Update the form version and resubmit.");
+                "Le fichier de définition de formulaire a changé mais ne spécifie pas de version de formulaire. Mettre à jour la version du formulaire et renvoyer.");
           }
           if (diffresult == DifferenceResult.XFORMS_EARLIER_VERSION) {
             throw new ODKFormAlreadyExistsException(
-                "Form version is not lexically greater than existing form version.  Update the form version and resubmit.");
+                "La version du formulaire n'est pas lexicalement supérieure à la version du formulaire existante. Mettre à jour la version du formulaire et renvoyer.");
           }
 
           // update the title and form definition file as needed...
@@ -411,7 +411,7 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
         if (!allowUpdates) {
           // but we didn't update the form...
           throw new ODKFormAlreadyExistsException(
-              "Form media file(s) have changed.  Please update the form version and resubmit.");
+              "Les fichiers multimédia sous forme ont changé. Veuillez mettre à jour la version du formulaire et renvoyer.");
         }
       }
     }
@@ -433,13 +433,13 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
     } catch (IllegalStateException e) {
       e.printStackTrace();
       throw new ODKFormAlreadyExistsException(
-          "Internal error: the form already exists but has a bad form definition.  Delete it.");
+          "Erreur interne: le formulaire existe déjà, mais sa définition est incorrecte. Supprime-le.");
     }
     if (fdDefined != null) {
       // get most recent form-deletion statuses
       if (newlyCreatedXForm) {
         throw new ODKFormAlreadyExistsException(
-            "Internal error: Completely new file has pre-existing form definition");
+            "Erreur interne: le fichier entièrement nouveau a une définition de formulaire préexistante");
       }
       // we're done -- updated the file and media; form definition doesn't need
       // updating.
@@ -537,10 +537,10 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
         for (; ; ) {
           // place a limit on this process
           if (++nAttempts > MAX_FORM_CREATION_ATTEMPTS) {
-            log.error("Aborting form-creation due to fail-safe limit ("
-                + MAX_FORM_CREATION_ATTEMPTS + " attempts)!");
-            throw new ODKParseException("Unable to create form data tables after "
-                + MAX_FORM_CREATION_ATTEMPTS + " attempts.");
+            log.error("Abandon de la création de formulaire en raison d'une limite de sécurité ("
+                + MAX_FORM_CREATION_ATTEMPTS + " tentatives)!");
+            throw new ODKParseException("Impossible de créer des tables de données de formulaire après "
+                + MAX_FORM_CREATION_ATTEMPTS + " tentatives.");
           }
 
           fd = new FormDefinition(sa, submissionElementDefn.formId, fdmList, cc);
@@ -592,7 +592,7 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
               }
             } catch (Exception e1) {
               // assume it is because the table is too wide...
-              log.warn("Create failed -- assuming phantom table required " + tableKey(tbl) + " Exception: " + e1.toString());
+              log.warn("Échec de la création - en supposant qu'une table fantôme est requise " + tableKey(tbl) + " Exception: " + e1.toString());
               // we expect the following dropRelation to fail,
               // as the most likely state of the system is
               // that the table was unable to be created.
@@ -651,13 +651,13 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
          * tables.
          */
         try {
-          log.warn("Aborting form-creation do to exception: " + e.toString() +
-              ". Datastore exceptions are expected in the following stack trace; other exceptions may indicate a problem:");
+          log.warn("Abandon de la création de formulaire à l'exception: " + e.toString() +
+              ". Des exceptions de magasin de données sont attendues dans la trace de pile suivante. d'autres exceptions peuvent indiquer un problème:");
           e.printStackTrace();
 
           /* if everything were OK, assertedRelations should be empty... */
           if (!assertedRelations.isEmpty()) {
-            log.error("assertedRelations not fully unwound!");
+            log.error("assertedRelations pas complètement déroulé!");
             Iterator<Entry<String, CommonFieldsBase>> iter = assertedRelations.entrySet()
                 .iterator();
             while (iter.hasNext()) {
@@ -689,17 +689,17 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
               } catch (Exception e3) {
                 // the above may fail because the table was never created...
                 // do nothing...
-                log.warn("If the following stack trace is not a complaint about a table not existing, it is likely a problem!");
+                log.warn("Si la trace de pile suivante ne constitue pas une plainte concernant une table non existante, il s'agit probablement d'un problème.!");
                 e3.printStackTrace();
               }
             }
           }
         } catch (Exception e4) {
           // just log error... popping out to original exception
-          log.error("dropping of relations unexpectedly failed with exception: " + e4.toString());
+          log.error("abandon des relations a échoué de manière inattendue avec une exception: " + e4.toString());
           e4.printStackTrace();
         }
-        throw new ODKParseException("Error processing new form: " + e.toString());
+        throw new ODKParseException("Erreur lors du traitement du nouveau formulaire: " + e.toString());
       }
       // TODO: if the above gets killed, how do we clean up?
     } catch (ODKParseException e) {
@@ -752,7 +752,7 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
   private void orderlyDivideTable(List<FormDataModel> fdmList, FormDataModel fdmRelation,
                                   CommonFieldsBase tbl, NamingSet opaque, CallingContext cc) {
 
-    log.info("Attempting to divide " + tbl.getTableName());
+    log.info("Tenter de diviser " + tbl.getTableName());
     // Find out how many columns it has...
     int nCol = tbl.getFieldList().size();
     if (tbl instanceof TopLevelDynamicBase) {
@@ -762,8 +762,8 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
     }
 
     if (nCol < 2) {
-      log.error("Too few columns to subdivide! " + tbl.getTableName());
-      throw new IllegalStateException("Too few columns to subdivide instance table! "
+      log.error("Trop peu de colonnes à subdiviser! " + tbl.getTableName());
+      throw new IllegalStateException("Trop peu de colonnes pour subdiviser la table d'instances! "
           + tbl.getSchemaName() + "." + tbl.getTableName());
     }
 
@@ -818,8 +818,8 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
     // OK. We have all the elements that can be further split or reallocated
     // in tblContentParents we should have found something...
     if (tblContentParents.size() == 0) {
-      log.error("Unable to locate model for backing table! " + tbl.getTableName());
-      throw new IllegalStateException("Unable to locate model for backing table");
+      log.error("Impossible de localiser le modèle pour la table de sauvegarde! " + tbl.getTableName());
+      throw new IllegalStateException("Impossible de localiser le modèle pour la table de sauvegarde");
     }
 
     // go through the tblContentParents dividing them into groups and
@@ -890,9 +890,9 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
       newTable = opaque.generateUniqueTableName(tbl.getSchemaName(), tbl.getTableName(), cc);
     } catch (ODKDatastoreException e) {
       e.printStackTrace();
-      log.error("Unable to interrogate database for new table to split backing table! "
+      log.error("Impossible d'interroger la base de données pour la nouvelle table à diviser la table de sauvegarde! "
           + tbl.getTableName());
-      throw new IllegalStateException("unable to interrogate database");
+      throw new IllegalStateException("incapable d'interroger la base de données");
     }
 
     // Try to move a set of groups into the new table such that the new
@@ -901,7 +901,7 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
       // list is already ordered from high to low...
       // go through the list moving the larger groups into tables
       // until close to half of the elements are moved...
-      log.info("Multiple groups -- splitting to different tables");
+      log.info("Plusieurs groupes - division en différentes tables");
       int cleaveCount = 0;
       for (FormDataModel m : groups) {
         int groupSize = recursivelyCountChildrenInSameTable(m);
@@ -915,7 +915,7 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
         // and if we have cleaved over half, (divide and conquer), retry
         // it with the database.
         if (cleaveCount > (nCol / 2)) {
-          log.info("Cleaved along groups. New table: " + newTable + " columnCount: " + cleaveCount);
+          log.info("Clivés le long des groupes. Nouvelle table: " + newTable + " columnCount: " + cleaveCount);
           return;
         }
       }
@@ -924,11 +924,11 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
       // to create phantom tables, so it is worth trying for this here
       // now...
       if (cleaveCount > 0)
-        log.info("Cleaved along groups. New table: " + newTable + " columnCount: " + cleaveCount);
+        log.info("Clivés le long des groupes. Nouvelle table: " + newTable + " columnCount: " + cleaveCount);
       return;
     }
 
-    log.info("Unable to cleave along groups; attempting phantom table! " + tbl.getTableName());
+    log.info("Impossible de se scinder le long des groupes; tentative de table fantôme! " + tbl.getTableName());
 
     // Urgh! we don't have any nested groups we can cleave off.
     // Create a phantom table. We need to preserve the parent-child
@@ -1023,10 +1023,10 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
     int desiredOriginalTableColCount = (nCol / 2);
 
     if (idxStart == -1) {
-      log.error("Failed to split at half the eligible records to move to phantom table "
+      log.error("Échec de la séparation de la moitié des enregistrements éligibles pour passer à la table fantôme "
           + tbl.getTableName());
       throw new IllegalStateException(
-          "Failed to split at half the eligible records to move to phantom table!");
+          "Échec de la séparation de la moitié des enregistrements éligibles pour passer à la table fantôme!");
     }
 
     {
@@ -1086,11 +1086,11 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
         FormDataModel m = children.get(idxStart);
         m.setOrdinalNumber(++remainingOrdinalNumber);
       }
-      log.info("Created phantom for " + tbl.getTableName() + " beginning at "
-          + Long.toString(startingOrdinal) + " with a total of " + records + " cleaved");
+      log.info("Fantôme créé pour " + tbl.getTableName() + " commençant à "
+          + Long.toString(startingOrdinal) + " avec un total de " + records + " scindé");
 
       if (log.isDebugEnabled()) {
-        log.debug("Dump after phantom-split of form list");
+        log.debug("Dump après la division fantôme de la liste de formulaires");
         for (FormDataModel m : fdmList) {
           m.print(System.err);
         }
@@ -1274,7 +1274,7 @@ public class FormParserForJavaRosa extends BaseFormParserForJavaRosa {
           // form.
           // the developer likely has not set a type for the field.
           et = FormDataModel.ElementType.STRING;
-          log.warn("Element " + getTreeElementPath(treeElement) + " does not have a type");
+          log.warn("Element " + getTreeElementPath(treeElement) + " n'a pas de type");
           warnings.append("<tr><td>");
           warnings.append(getTreeElementPath(treeElement));
           warnings.append("</td></tr>");

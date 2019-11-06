@@ -72,22 +72,22 @@ import org.opendatakit.common.web.constants.HtmlConsts;
 
 public final class VisualizationPopup extends AbstractPopupBase {
 
-  private static final String TABULATION_TXT = "<h4 id=\"form_name\">Tabulation Method:</h4>";
-  private static final String TALLY_EXP_BEGIN = "COUNT: Count occurences of Answer Values from ";
-  private static final String TALLY_EXP_END = ". (selected column above)";
-  private static final String SUM_COLUMNS_TXT = "SUM: Sum numeric values from column: ";
-  private static final String SUM_COLUMNS_BEGIN = " grouped by selected column above [e.g. How many ";
-  private static final String SUM_COLUMNS_MIDDLE = " per ";
+  private static final String TABULATION_TXT = "<h4 id=\"form_name\">Méthode de tabulation:</h4>";
+  private static final String TALLY_EXP_BEGIN = "COUNT: Compter les occurrences des valeurs de réponse ";
+  private static final String TALLY_EXP_END = ". (colonne sélectionnée ci-dessus)";
+  private static final String SUM_COLUMNS_TXT = "SUM: Somme des valeurs numériques de la colonne: ";
+  private static final String SUM_COLUMNS_BEGIN = " groupé par la colonne sélectionnée ci-dessus [p. ex. Combien ";
+  private static final String SUM_COLUMNS_MIDDLE = " par ";
   private static final String SUM_COLUMNS_END = "?]";
-  private static final String GEOPOINT_TOOLTIP = "Geopoint field to map";
-  private static final String GEOPOINT_BALLOON = "Choose the geopoint field to map.";
+  private static final String GEOPOINT_TOOLTIP = "Géopoint à cartographier";
+  private static final String GEOPOINT_BALLOON = "Choisissez le champ de géopoint à mapper.";
   private static final String TYPE_TXT = "<h2 id=\"form_name\">Type:</h2>";
-  private static final String COLUMN_TXT = "<h2 id=\"form_name\">" + HtmlConsts.TAB + "Column to Visualize:</h2>";
-  private static final String GPS_TXT = "<h2 id=\"form_name\">" + HtmlConsts.TAB + "GeoPoint to Map:</h2>";
+  private static final String COLUMN_TXT = "<h2 id=\"form_name\">" + HtmlConsts.TAB + "Colonne à visualiser:</h2>";
+  private static final String GPS_TXT = "<h2 id=\"form_name\">" + HtmlConsts.TAB + "GeoPoint à la carte:</h2>";
   private static final String RADIO_GROUP = "vizRadioGroup";
   private static final String RESIZE_UNITS = "px";
-  private static final String VIZ_TYPE_TOOLTIP = "Type of Visualization";
-  private static final String VIZ_TYPE_BALLOON = "Choose whether you would like a pie chart, bar graph, or map.";
+  private static final String VIZ_TYPE_TOOLTIP = "Type de visualisation";
+  private static final String VIZ_TYPE_BALLOON = "Choisissez si vous souhaitez un graphique à secteurs, un graphique à barres ou une carte.";
   private static int VIZ_TYPE_TEXT = 0;
   private static int VIZ_TYPE_LIST = 1;
   private static int COLUMN_TEXT = 2;
@@ -136,11 +136,11 @@ public final class VisualizationPopup extends AbstractPopupBase {
       }
     });
 
-    columnList = new ColumnListBox(headers, false, true, "Column to Graph",
-        "Select the column you wish to graph.");
+    columnList = new ColumnListBox(headers, false, true, "Colonne à graphique",
+        "Sélectionnez la colonne que vous souhaitez représenter.");
     columnList.addChangeHandler(new ColumnChangeHandler());
-    dataList = new ColumnListBox(headers, false, true, "Column to get data values from",
-        "Select the column to get the numerical values from.");
+    dataList = new ColumnListBox(headers, false, true, "Colonne pour obtenir les valeurs de données de",
+        "Sélectionnez la colonne pour obtenir les valeurs numériques.");
     dataList.addChangeHandler(new ColumnChangeHandler());
     geoPoints = new KmlSettingListBox(GEOPOINT_TOOLTIP, GEOPOINT_BALLOON);
 
@@ -185,7 +185,7 @@ public final class VisualizationPopup extends AbstractPopupBase {
     sumTable.setWidget(1, SUM_CHOICE_TXT, sumRadioTxt);
 
     executeButton = new AggregateButton(BasicConsts.EMPTY_STRING, "Execute the Vizualization",
-        "Create the selected Vizualization.");
+        "Créer la visualisation sélectionnée.");
     executeButton.addClickHandler(new ExecuteVisualization());
 
     typeControlBar = new FlexTable();
@@ -271,9 +271,9 @@ public final class VisualizationPopup extends AbstractPopupBase {
     DataTable data = DataTable.create();
     data.addColumn(ColumnType.STRING, firstDataValue.getDisplayHeader());
     if (tally) {
-      data.addColumn(ColumnType.NUMBER, "Number of Ocurrences");
+      data.addColumn(ColumnType.NUMBER, "Nombre d'occurrences");
     } else {
-      data.addColumn(ColumnType.NUMBER, "Sum of " + secondDataValue.getDisplayHeader());
+      data.addColumn(ColumnType.NUMBER, "Somme de " + secondDataValue.getDisplayHeader());
     }
 
     int firstIndex = 0;
@@ -375,12 +375,12 @@ public final class VisualizationPopup extends AbstractPopupBase {
 
     // check to see if we have lat & long, if not display erro
     if (latIndex < 0 || lonIndex < 0) {
-      String error = "ERROR:";
+      String error = "ERREUR:";
       if (latIndex < 0) {
-        error = error + " The Latitude Coordinate is NOT included in the Filter.";
+        error = error + " La coordonnée de latitude n'est pas incluse dans le filtre.";
       }
       if (lonIndex < 0) {
-        error = error + " The Longitude Coordinate is NOT included in the Filter.";
+        error = error + " La coordonnée de longitude n'est pas incluse dans le filtre.";
       }
 
       Window.alert(error);
@@ -526,7 +526,7 @@ public final class VisualizationPopup extends AbstractPopupBase {
 
       // verify modules are loaded
       if (!chartApiLoaded) {
-        Window.alert("Modules are not loaded yet, please try again!");
+        Window.alert("Les modules ne sont pas encore chargés. Veuillez réessayer.!");
         return;
       }
 

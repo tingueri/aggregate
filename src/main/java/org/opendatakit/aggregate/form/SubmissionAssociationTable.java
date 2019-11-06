@@ -120,13 +120,13 @@ public final class SubmissionAssociationTable extends CommonFieldsBase {
 
   public void setUriMd5FormId(String value) {
     if (!setStringField(URI_MD5_FORM_ID, value)) {
-      throw new IllegalStateException("overflow uriMd5FormId");
+      throw new IllegalStateException("débordement uriMd5FormId");
     }
   }
 
   public void setUriMd5SubmissionFormId(String value) {
     if (!setStringField(URI_MD5_SUBMISSION_FORM_ID, value)) {
-      throw new IllegalStateException("overflow uriMd5SubmissionFormId");
+      throw new IllegalStateException("débordement uriMd5SubmissionFormId");
     }
   }
 
@@ -136,7 +136,7 @@ public final class SubmissionAssociationTable extends CommonFieldsBase {
 
   public void setSubmissionFormId(String value) {
     if (!setStringField(SUBMISSION_FORM_ID, value)) {
-      throw new IllegalStateException("overflow submissionFormId");
+      throw new IllegalStateException("débordement submissionFormId");
     }
   }
 
@@ -162,7 +162,7 @@ public final class SubmissionAssociationTable extends CommonFieldsBase {
 
   public void setUriSubmissionDataModel(String value) {
     if (!setStringField(URI_SUBMISSION_DATA_MODEL, value)) {
-      throw new IllegalStateException("overflow uriSubmissionDataModel");
+      throw new IllegalStateException("débordement uriSubmissionDataModel");
     }
   }
 }

@@ -113,7 +113,7 @@ public class BaseFormParserForJavaRosa {
       + "<upload ref=\"encryptedXmlFile\" mediatype=\"image/*\"><label>submission</label></upload>"
       + "<input ref=\"base64EncryptedElementSignature\"><label>Encrypted Element Signature</label></input>"
       + "</h:body>" + "</h:html>";
-  private static final String ODK_TIMESTAMP_COMMENT = "<!-- ODK Aggregate upload time: ";
+  private static final String ODK_TIMESTAMP_COMMENT = "<!-- Peogo Survey temps de chargement: ";
   private static boolean isJavaRosaInitialized = false;
 
   static {
@@ -180,13 +180,13 @@ public class BaseFormParserForJavaRosa {
 
     if (rootJavaRosaFormDef == null) {
       throw new ODKIncompleteSubmissionData(
-          "Javarosa failed to construct a FormDef.  Is this an XForm definition?",
+          "Javarosa n'a pas réussi à construire un FormDef. Est-ce une définition XForm?",
           Reason.BAD_JR_PARSE);
     }
     FormInstance dataModel = rootJavaRosaFormDef.getInstance();
     if (dataModel == null) {
       throw new ODKIncompleteSubmissionData(
-          "Javarosa failed to construct a FormInstance.  Is this an XForm definition?",
+          "Javarosa n'a pas réussi à construire un FormInstance. Est-ce une définition XForm?",
           Reason.BAD_JR_PARSE);
     }
     TreeElement rootElement = dataModel.getRoot();
@@ -218,13 +218,13 @@ public class BaseFormParserForJavaRosa {
     } catch (IllegalArgumentException e) {
       if (schemaMalformed) {
         throw new ODKIncompleteSubmissionData(
-            "xmlns attribute for the data model is not well-formed: '"
+            "L'attribut xmlns du modèle de données n'est pas bien formé: '"
                 + dataModel.schema
-                + "' should be of the form xmlns=\"http://your.domain.org/formId\"\nConsider defining the formId using the 'id' attribute instead of the 'xmlns' attribute (id=\"formId\")",
+                + "' devrait être de la forme xmlns=\"http://your.domain.org/formId\"\nPensez à définir le formId en utilisant l'attribut 'id' au lieu de l'attribut 'xmlns' (id=\"formId\")",
             Reason.ID_MALFORMED);
       } else {
         throw new ODKIncompleteSubmissionData(
-            "The data model does not have an id or xmlns attribute.  Add an id=\"your.domain.org:formId\" attribute to the top-level instance data element of your form.",
+            "Le modèle de données n'a pas d'attribut id ou xmlns. Ajouter un Id=\"your.domain.org:formId\" attribuer à l'élément de données d'instance de niveau supérieur de votre formulaire.",
             Reason.ID_MISSING);
       }
     }
@@ -232,7 +232,7 @@ public class BaseFormParserForJavaRosa {
         && (rootElementDefn.modelVersion > Long.valueOf(Integer.MAX_VALUE))) {
       // for some reason, the datastore is not persisting Long values correctly?
       throw new ODKIncompleteSubmissionData(
-          "The version string must be an integer less than 2147483648", Reason.ID_MALFORMED);
+          "La chaîne de version doit être un entier inférieur à 2147483648", Reason.ID_MALFORMED);
     }
     isInvalidFormXmlns = schemaMalformed;
 
@@ -252,7 +252,7 @@ public class BaseFormParserForJavaRosa {
           submissionElementDefn = extractFormParameters(trueSubmissionElement, null);
         } catch (Exception e) {
           throw new ODKIncompleteSubmissionData(
-              "The non-root submission element in the data model does not have an id attribute.  Add an id=\"your.domain.org:formId\" attribute to the submission element of your form.",
+              "L'élément de soumission non racine du modèle de données n'a pas d'attribut id. Ajouter un id=\"your.domain.org:formId\" attribuer à l'élément de soumission de votre formulaire.",
               Reason.ID_MISSING);
         }
       }
@@ -269,14 +269,14 @@ public class BaseFormParserForJavaRosa {
     if (isNotUploadableForm) {
       log.info("Form "
           + submissionElementDefn.formId
-          + " is not uploadable (submission method is not post or form-data-post, or does not have an http: or https: url. ");
+          + " n'est pas téléchargeable (la méthode de soumission n'est pas post ou form-data-post, ou n'a pas de http: ou https: url. ");
     }
 
     // insist that the submission element and root element have the same
     // formId, modelVersion and uiVersion.
     if (!submissionElementDefn.equals(rootElementDefn)) {
       throw new ODKIncompleteSubmissionData(
-          "submission element and root element differ in their values for: formId or version.",
+          "L'élément de soumission et l'élément racine diffèrent par leurs valeurs pour: formId ou version.",
           Reason.MISMATCHED_SUBMISSION_ELEMENT);
     }
 
@@ -328,13 +328,13 @@ public class BaseFormParserForJavaRosa {
       }
 
       if (formDef == null) {
-        throw new ODKIncompleteSubmissionData("Javarosa failed to construct Encrypted FormDef!",
+        throw new ODKIncompleteSubmissionData("Javarosa n'a pas réussi à construire Encrypted FormDef!",
             Reason.BAD_JR_PARSE);
       }
       dataModel = formDef.getInstance();
       if (dataModel == null) {
         throw new ODKIncompleteSubmissionData(
-            "Javarosa failed to construct Encrypted FormInstance!", Reason.BAD_JR_PARSE);
+            "Javarosa n'a pas réussi à construire la FormInstance cryptée!", Reason.BAD_JR_PARSE);
       }
       submissionElement = dataModel.getRoot();
       base64EncryptedFieldRsaPublicKey = extractBase64FieldEncryptionKey(trueSubmissionElement);
@@ -462,7 +462,7 @@ public class BaseFormParserForJavaRosa {
       return new XFormParser(doc).parse();
     } catch (Exception e) {
       throw new ODKIncompleteSubmissionData(
-          "Javarosa failed to construct a FormDef. Is this an XForm definition?", e,
+          "Javarosa n'a pas réussi à construire un FormDef. Est-ce une définition XForm?", e,
           Reason.BAD_JR_PARSE);
     }
   }
@@ -483,7 +483,7 @@ public class BaseFormParserForJavaRosa {
       return doc;
     } catch (IOException | XmlPullParserException e) {
       throw new ODKIncompleteSubmissionData(
-          "Javarosa failed to parse the XForm definition. Is this an XForm definition?", e,
+          "Javarosa n'a pas réussi à analyser la définition XForm. Est-ce une définition XForm?", e,
           Reason.BAD_JR_PARSE);
     }
   }
@@ -546,7 +546,7 @@ public class BaseFormParserForJavaRosa {
     formDef2 = existingParser.rootJavaRosaFormDef;
     if (formDef1 == null || formDef2 == null) {
       throw new ODKIncompleteSubmissionData(
-          "Javarosa failed to construct a FormDef.  Is this an XForm definition?",
+          "Javarosa n'a pas réussi à construire un FormDef. Est-ce une définition XForm?",
           Reason.BAD_JR_PARSE);
     }
 
@@ -662,7 +662,7 @@ public class BaseFormParserForJavaRosa {
     FormInstance dataModel2 = formDef2.getInstance();
     if (dataModel1 == null || dataModel2 == null) {
       throw new ODKIncompleteSubmissionData(
-          "Javarosa failed to construct a FormInstance.  Is this an XForm definition?",
+          "Javarosa n'a pas réussi à construire un FormInstance. Est-ce une définition XForm?",
           Reason.BAD_JR_PARSE);
     }
 

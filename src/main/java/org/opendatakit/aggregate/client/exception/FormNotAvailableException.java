@@ -19,7 +19,7 @@ package org.opendatakit.aggregate.client.exception;
 import java.io.Serializable;
 
 public class FormNotAvailableException extends RequestFailureException implements Serializable {
-  private static final String DEFAULT_MSG = "FormNoLongerAvailableException: Form is no longer available from Aggregate";
+  private static final String DEFAULT_MSG = "FormNoLongerAvailableException: le formulaire n'est plus disponible à partir de Peogo Survey";
 
   private String message;
 

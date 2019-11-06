@@ -37,9 +37,9 @@ public class MediaFileListPopup extends AbstractPopupBase {
     fileList.setWidget(0, 0, new ClosePopupButton(this));
     fileList.getCellFormatter().getElement(0, 0).setAttribute("align",
         "right");
-    fileList.setText(1, 0, "Media Filename");
-    fileList.setText(1, 1, "Content Type");
-    fileList.setText(1, 2, "Length");
+    fileList.setText(1, 0, "Nom de fichier du média");
+    fileList.setText(1, 1, "Type de contenu");
+    fileList.setText(1, 2, "Longueur");
     fileList.getRowFormatter().addStyleName(1, "titleBar");
 
     setWidget(fileList);

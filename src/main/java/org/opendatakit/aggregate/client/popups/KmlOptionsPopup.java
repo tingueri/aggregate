@@ -38,12 +38,12 @@ import org.opendatakit.aggregate.constants.common.SubTabs;
 
 public final class KmlOptionsPopup extends AbstractPopupBase {
 
-  private static final String EXPORT_ERROR_MSG = "One of the KML options was invalid. For example the Geopoint field or your Title field were invalid";
-  private static final String KML_ELEMENTS_ZERO_ERROR_MSG = "To export data into KML format please select at least on KML element";
+  private static final String EXPORT_ERROR_MSG = "Une des options KML n'était pas valide. Par exemple, le champ Geopoint ou votre champ Titre n'étaient pas valides";
+  private static final String KML_ELEMENTS_ZERO_ERROR_MSG = "Pour exporter les données au format KML, sélectionnez au moins un élément KML.";
 
   private static final String CREATE_BUTTON_TXT = "<img src=\"images/green_right_arrow.png\" /> Export";
-  private static final String CREATE_BUTTON_TOOLTIP = "Create KML File";
-  private static final String CREATE_BUTTON_HELP_BALLOON = "This exports your data into a KML file with the following options.";
+  private static final String CREATE_BUTTON_TOOLTIP = "Créer un fichier KML";
+  private static final String CREATE_BUTTON_HELP_BALLOON = "Cela exporte vos données dans un fichier KML avec les options suivantes.";
 
   // this will be the standard header across the top
   private final FlexTable topBar;
@@ -75,7 +75,7 @@ public final class KmlOptionsPopup extends AbstractPopupBase {
     topBar.addStyleName("stretch_header");
     topBar.setWidget(0, 0, new HTML("<h2> Form:</h2>"));
     topBar.setWidget(0, 1, new HTML(new SafeHtmlBuilder().appendEscaped(formId).toSafeHtml()));
-    topBar.setWidget(0, 2, new HTML("<h2>Filter:</h2>"));
+    topBar.setWidget(0, 2, new HTML("<h2>Filtre:</h2>"));
     topBar.setWidget(0, 3, new HTML(new SafeHtmlBuilder().appendEscaped(selectedFilterGroup.getName()).toSafeHtml()));
     topBar.setWidget(0, 6, exportButton);
     topBar.setWidget(0, 7, new ClosePopupButton(this));
@@ -100,7 +100,7 @@ public final class KmlOptionsPopup extends AbstractPopupBase {
       FlexTable layout = new FlexTable();
       int tableRow = 0;
       layout.setWidget(tableRow++, 0, topBar);
-      layout.setWidget(tableRow++, 0, new HTML("<h2>KML Export Options:</h2>"));
+      layout.setWidget(tableRow++, 0, new HTML("<h2>Options Export KML:</h2>"));
 
       for (KmlGeopointOption gpNode : result.getGeopointOptions()) {
         KmlGeoPointSettingsSelectionRow row = new KmlGeoPointSettingsSelectionRow(formId, gpNode);

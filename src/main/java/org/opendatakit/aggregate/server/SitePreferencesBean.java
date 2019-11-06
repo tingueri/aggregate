@@ -39,7 +39,7 @@ public class SitePreferencesBean {
   private CallingContext ccHack = new CallingContext() {
     @Override
     public Object getBean(String beanName) {
-      throw new IllegalStateException("unexpected call");
+      throw new IllegalStateException("appel inattendu");
     }
 
     @Override
@@ -54,7 +54,7 @@ public class SitePreferencesBean {
 
     @Override
     public void setAsDaemon(boolean asDaemon) {
-      throw new IllegalStateException("unexpected call");
+      throw new IllegalStateException("appel inattendu");
     }
 
     @Override
@@ -69,27 +69,27 @@ public class SitePreferencesBean {
 
     @Override
     public ServletContext getServletContext() {
-      throw new IllegalStateException("unexpected call");
+      throw new IllegalStateException("appel inattendu");
     }
 
     @Override
     public String getWebApplicationURL() {
-      throw new IllegalStateException("unexpected call");
+      throw new IllegalStateException("appel inattendu");
     }
 
     @Override
     public String getWebApplicationURL(String servletAddr) {
-      throw new IllegalStateException("unexpected call");
+      throw new IllegalStateException("appel inattendu");
     }
 
     @Override
     public String getServerURL() {
-      throw new IllegalStateException("unexpected call");
+      throw new IllegalStateException("appel inattendu");
     }
 
     @Override
     public String getSecureServerURL() {
-      throw new IllegalStateException("unexpected call");
+      throw new IllegalStateException("appel inattendu");
     }
   };
 

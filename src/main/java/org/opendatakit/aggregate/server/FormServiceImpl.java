@@ -66,7 +66,7 @@ public class FormServiceImpl extends RemoteServiceServlet implements
    * Serial number for serialization
    */
   private static final long serialVersionUID = -193679930586769386L;
-  private static final String LIMITATION_MSG = "Picture and Title must be in the submission (top-level) or must be in the same repeat group as the GeoPoint";
+  private static final String LIMITATION_MSG = "L'image et le titre doivent figurer dans la soumission (niveau supérieur) ou doivent appartenir au même groupe de répétition que GeoPoint.";
 
   @Override
   public ArrayList<FormSummary> getForms() throws RequestFailureException, DatastoreFailureException {
@@ -119,13 +119,13 @@ public class FormServiceImpl extends RemoteServiceServlet implements
       return formSummaries;
 
     } catch (ODKOverQuotaException e) {
-      logger.error("Over quota failure", e);
+      logger.error("Echec hors quota", e);
       throw new RequestFailureException(ErrorConsts.QUOTA_EXCEEDED);
     } catch (ODKDatastoreException e) {
-      logger.error("Datastore failure", e);
+      logger.error("Echec du magasin de données", e);
       throw new DatastoreFailureException();
     } catch (Throwable t) {
-      logger.error("Possible corruption", t);
+      logger.error("Corruption possible", t);
       throw new RequestFailureException(ErrorConsts.POSSIBLE_CORRUPTION);
     }
   }
@@ -232,7 +232,7 @@ public class FormServiceImpl extends RemoteServiceServlet implements
           .getFormDeletionStatusTimestampOfFormId(group.getFormId(), cc);
       // Form is being deleted. Disallow exports.
       if (deletionTimestamp != null) {
-        throw new RequestFailureException("Form is marked for deletion - csv export request aborted.");
+        throw new RequestFailureException("Le formulaire est marqué pour suppression - la demande d'exportation au format csv est abandonnée.");
       }
 
       // clear uri so a copy can be saved
@@ -281,7 +281,7 @@ public class FormServiceImpl extends RemoteServiceServlet implements
           .getFormDeletionStatusTimestampOfFormId(group.getFormId(), cc);
       // Form is being deleted. Disallow exports.
       if (deletionTimestamp != null) {
-        throw new RequestFailureException("Form is marked for deletion - JSON File export request aborted.");
+        throw new RequestFailureException("Le formulaire est marqué pour suppression - La demande d'exportation de fichier JSON a été abandonnée..");
       }
 
       // clear uri so a copy can be saved
@@ -333,7 +333,7 @@ public class FormServiceImpl extends RemoteServiceServlet implements
           .getFormDeletionStatusTimestampOfFormId(group.getFormId(), cc);
       // Form is being deleted. Disallow exports.
       if (deletionTimestamp != null) {
-        throw new RequestFailureException("Form is marked for deletion - kml export request aborted.");
+        throw new RequestFailureException("Le formulaire est marqué pour suppression - la demande d'exportation kml a été annulée.");
       }
 
       // clear uri so a copy can be saved

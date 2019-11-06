@@ -22,7 +22,7 @@ package org.opendatakit.aggregate.constants.externalservice;
 public final class ExternalServiceConsts {
 
   public static final String EXT_SERV_ADDRESS = "ServiceAddr";
-  public static final String ODK_PERMANENT_ACCESS_WARNING = "NOTE: A selection of 'CONTINUOUS' means ODK Aggregate will maintian permanent access to the spreadsheet";
-  public static final String CREATE_EXTERNAL_SERVICE_BUTTON_LABEL = "Create Connection To External Service";
+  public static final String ODK_PERMANENT_ACCESS_WARNING = "REMARQUE: Une sélection de 'CONTINUOUS' signifie que Peogo Survey conservera un accès permanent au tableur.";
+  public static final String CREATE_EXTERNAL_SERVICE_BUTTON_LABEL = "Créer une connexion à un service externe";
   public static final String FSC_URI_PARAM = "fscUri";
 }

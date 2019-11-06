@@ -31,10 +31,9 @@ import org.opendatakit.aggregate.constants.common.UIConsts;
 
 public final class SaveAsFilterGroupButton extends AggregateButton implements ClickHandler {
 
-  private static final String BUTTON_TXT = "Save As";
-  private static final String TOOLTIP_TXT = "Save as new filter group";
-  private static final String HELP_BALLOON_TXT = "This will save the current filters into a new filter"
-      + "group";
+  private static final String BUTTON_TXT = "Enregistrer sous";
+  private static final String TOOLTIP_TXT = "Enregistrer en tant que nouveau groupe de filtres";
+  private static final String HELP_BALLOON_TXT = "Cela permettra d'économiser les filtres actuels dans un nouveau groupe de filtres.";
 
   private final FilterSubTab parentSubTab;
 

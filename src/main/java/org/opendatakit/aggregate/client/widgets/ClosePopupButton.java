@@ -23,8 +23,8 @@ import com.google.gwt.user.client.ui.PopupPanel;
 public final class ClosePopupButton extends AggregateButton implements ClickHandler {
 
   private static final String BUTTON_TXT = "<img src=\"images/red_x.png\" />";
-  private static final String TOOLTIP_TXT = "Close";
-  private static final String HELP_BALLOON_TXT = "Close the window";
+  private static final String TOOLTIP_TXT = "Fermer";
+  private static final String HELP_BALLOON_TXT = "Ferme la fenêtre";
 
   private final PopupPanel popup;
 
